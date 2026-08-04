@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package glaciereq.tower.v1;
+
+message EvidenceRef {
+  string uri = 1;
+  string sha256 = 2;
+  string description = 3;
+}
+
+message W4H {
+  string what = 1;
+  string where = 2;
+  string when = 3;
+  string why = 4;
+  string how = 5;
+}
+
+message ExampleRef {
+  string path = 1;
+  string evidence_state = 2;
+  string proof_class = 3;
+}
+
+message ToolchainContract {
+  string tool = 1;
+  string reference_pin = 2;
+  repeated Command build = 3;
+  repeated Command test = 4;
+  string ci_tier = 5;
+  string hardware_gate = 6;
+}
+
+message Command {
+  repeated string argv = 1;
+}
+
+message MegamindOwnership {
+  repeated string agent_ids = 1;
+  repeated string piston_ids = 2;
+}
+
+message TechnologySpec {
+  string technology_id = 1;
+  string display_name = 2;
+  string extension = 3;
+  string category = 4;
+  string artifact_type = 5;
+  W4H placement = 6;
+  ExampleRef easy = 7;
+  ExampleRef advanced = 8;
+  ToolchainContract toolchain = 9;
+  repeated string interfaces = 10;
+  MegamindOwnership ownership = 11;
+  repeated EvidenceRef evidence = 12;
+}
+
+message TowerRegistry {
+  string tower_id = 1;
+  string schema_version = 2;
+  repeated TechnologySpec technologies = 3;
+  string canonical_source_sha256 = 4;
+}
+
+enum BuildStatus {
+  BUILD_STATUS_UNSPECIFIED = 0;
+  BUILD_STATUS_VERIFIED = 1;
+  BUILD_STATUS_BLOCKED_TOOLCHAIN = 2;
+  BUILD_STATUS_BLOCKED_DEPENDENCY = 3;
+  BUILD_STATUS_BLOCKED_HARDWARE = 4;
+  BUILD_STATUS_FAILED = 5;
+  BUILD_STATUS_INVALID_MANIFEST = 6;
+  BUILD_STATUS_NOT_EXECUTED = 7;
+}
+
+message BuildResult {
+  string technology_id = 1;
+  BuildStatus status = 2;
+  string blocker = 3;
+  repeated Command executed = 4;
+  string output_sha256 = 5;
+}
+
+message TechnologyRequest {
+  string mission_id = 1;
+  repeated string required_capabilities = 2;
+  repeated string preferred_interfaces = 3;
+  string minimum_proof_class = 4;
+}
+
+message TechnologySelection {
+  string mission_id = 1;
+  repeated string technology_ids = 2;
+  repeated string agent_ids = 3;
+  repeated string piston_ids = 4;
+  string registry_sha256 = 5;
+  repeated string reasons = 6;
+  repeated string unmatched_capabilities = 7;
+}
+
+message TowerReceipt {
+  string receipt_id = 1;
+  string registry_sha256 = 2;
+  string integrity_manifest_sha256 = 3;
+  string build_report_sha256 = 4;
+  // SHA-256 of the canonical receipt body before body_sha256 is added.
+  string body_sha256 = 5;
+  repeated BuildResult results = 6;
+}
+
+service TowerAuthority {
+  rpc GetTechnology(TechnologyRequest) returns (TechnologySelection);
+  rpc ValidateRegistry(TowerRegistry) returns (TowerReceipt);
+}

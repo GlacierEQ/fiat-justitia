@@ -1,0 +1,12 @@
+// Easy Exhibit: Datalog Graph Reachability
+.decl edge(x: symbol, y: symbol)
+.decl reachable(x: symbol, y: symbol)
+
+edge("A", "B").
+edge("B", "C").
+edge("C", "D").
+
+reachable(X, Y) :- edge(X, Y).
+reachable(X, Y) :- edge(X, Z), reachable(Z, Y).
+
+.output reachable

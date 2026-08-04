@@ -1,0 +1,12 @@
+{
+  "schema": "glaciereq.integrity-ci-trigger.v1",
+  "purpose": "Trigger exact-head verification after sealing the recruiter-package integration into the immutable integrity ledger.",
+  "target_head_before_trigger": "6abe0a8d87c86e0f8b28e51c60f7e0eb739bc978",
+  "integration_files": [
+    "docs/JOB_APPLICATION_INTEGRATION.md",
+    "quality/job_application_integration.json",
+    ".integrity/file_hashes.json"
+  ],
+  "expected_integrity_file_count": 156,
+  "created_date_hst": "2026-07-30"
+}

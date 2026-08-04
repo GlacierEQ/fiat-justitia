@@ -1,0 +1,96 @@
+{
+  "category": "evidence",
+  "description": "Evidence types and verification standards",
+  "documents": {
+    "evidence-documentary": {
+      "id": "evidence-documentary",
+      "name": "Documentary Evidence",
+      "federal_rule": "Fed. R. Evid. 901-902",
+      "hawaii_rule": "HRE Rule 901",
+      "evidence_state": "precedent_verified",
+      "proof_class": "ruled",
+      "exhibits": {
+        "easy": "Authenticated public records",
+        "advanced": "Business records with foundation testimony"
+      },
+      "agents": ["authentication-agent", "foundation-agent"],
+      "pistons": ["stealth-authentication", "stealth-foundation"],
+      "interfaces": ["evidence-presentation", "authentication"],
+      "blockers": ["authentication_requirement", "foundation_requirement", "hearsay_exception"],
+      "success_rate": "80%",
+      "average_timeline": "Immediate"
+    },
+    "evidence-demonstrative": {
+      "id": "evidence-demonstrative",
+      "name": "Demonstrative Evidence",
+      "federal_rule": "Fed. R. Evid. 611(a)",
+      "hawaii_rule": "HRE Rule 611",
+      "evidence_state": "precedent_verified",
+      "proof_class": "ruled",
+      "exhibits": {
+        "easy": "Standard exhibits (charts, diagrams)",
+        "advanced": "Interactive demonstrations and animations"
+      },
+      "agents": ["demonstration-agent", "visual-agent"],
+      "pistons": ["stealth-demonstration", "stealth-visual"],
+      "interfaces": ["evidence-presentation", "courtroom-technology"],
+      "blockers": ["prejudice_vs_probative", "confusion_vs_clarity", "time_consumption"],
+      "success_rate": "75%",
+      "average_timeline": "Pre-trial ruling"
+    },
+    "evidence-expert": {
+      "id": "evidence-expert",
+      "name": "Expert Testimony",
+      "federal_rule": "Fed. R. Evid. 702",
+      "hawaii_rule": "HRE Rule 702",
+      "evidence_state": "precedent_verified",
+      "proof_class": "argued",
+      "exhibits": {
+        "easy": "Standard expert with Daubert qualifications",
+        "advanced": "Expert with opposing Daubert challenge"
+      },
+      "agents": ["expert-agent", "daubert-agent"],
+      "pistons": ["stealth-expert", "stealth-daubert"],
+      "interfaces": ["expert-disclosure", "daubert-hearing"],
+      "blockers": ["daubert_standard", "reliability", "fit", "qualification"],
+      "success_rate": "60%",
+      "average_timeline": "30-60 days pre-trial"
+    },
+    "evidence-digital": {
+      "id": "evidence-digital",
+      "name": "Digital and Electronic Evidence",
+      "federal_rule": "Fed. R. Evid. 901(b)(9)",
+      "hawaii_rule": "HRE Rule 901(b)(9)",
+      "evidence_state": "precedent_verified",
+      "proof_class": "ruled",
+      "exhibits": {
+        "easy": "Standard electronic records",
+        "advanced": "Blockchain-verified or cryptographically signed evidence"
+      },
+      "agents": ["digital-agent", "forensics-agent"],
+      "pistons": ["stealth-digital", "stealth-forensics"],
+      "interfaces": ["digital-forensics", "chain-of-custody"],
+      "blockers": ["authentication", "chain_of_custody", "integrity_verification"],
+      "success_rate": "70%",
+      "average_timeline": "Pre-trial"
+    },
+    "evidence-audio": {
+      "id": "evidence-audio",
+      "name": "Audio and Transcription Evidence",
+      "federal_rule": "Fed. R. Evid. 803(6)",
+      "hawaii_rule": "HRE Rule 803(6)",
+      "evidence_state": "researched",
+      "proof_class": "filed",
+      "exhibits": {
+        "easy": "Authenticated audio recording",
+        "advanced": "WhisperX transcription with timestamp verification"
+      },
+      "agents": ["transcription-agent", "verification-agent"],
+      "pistons": ["stealth-transcription", "stealth-verification"],
+      "interfaces": ["audio-processing", "transcription"],
+      "blockers": ["authentication", "best_evidence_rule", "transcription_accuracy"],
+      "success_rate": "65%",
+      "average_timeline": "Pre-trial"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "category": "motions",
+  "description": "Court motions and applications for judicial relief",
+  "documents": {
+    "motion-dismiss": {
+      "id": "motion-dismiss",
+      "name": "Motion to Dismiss",
+      "federal_rule": "Fed. R. Civ. P. 12(b)(6)",
+      "hawaii_rule": "HRAP Rule 12(b)",
+      "evidence_state": "templated",
+      "proof_class": "filed",
+      "exhibits": {
+        "easy": "Standard 12(b)(6) motion with factual allegations",
+        "advanced": "Multi-count motion with standing, jurisdiction, and mootness challenges"
+      },
+      "agents": ["procedure-agent", "strategy-agent"],
+      "pistons": ["stealth-justice", "stealth-precedent"],
+      "interfaces": ["court-filing", "legal-research"],
+      "blockers": ["standing_requirement", "exhaustion_requirement"],
+      "success_rate": "65%",
+      "average_timeline": "30-60 days"
+    },
+    "motion-summary-judgment": {
+      "id": "motion-summary-judgment",
+      "name": "Motion for Summary Judgment",
+      "federal_rule": "Fed. R. Civ. P. 56",
+      "hawaii_rule": "HRCP Rule 56",
+      "evidence_state": "precedent_verified",
+      "proof_class": "argued",
+      "exhibits": {
+        "easy": "Standard MSJ with undisputed material facts",
+        "advanced": "Cross-motion with expert declarations and Daubert challenges"
+      },
+      "agents": ["evidence-agent", "argument-agent"],
+      "pistons": ["stealth-evidence", "stealth-argument"],
+      "interfaces": ["court-filing", "evidence-presentation"],
+      "blockers": ["genuine_dispute_of_material_fact"],
+      "success_rate": "45%",
+      "average_timeline": "60-120 days"
+    },
+    "motion-preliminary-injunction": {
+      "id": "motion-preliminary-injunction",
+      "name": "Motion for Preliminary Injunction",
+      "federal_rule": "Fed. R. Civ. P. 65(a)",
+      "hawaii_rule": "HRCP Rule 65(a)",
+      "evidence_state": "precedent_verified",
+      "proof_class": "argued",
+      "exhibits": {
+        "easy": "Standard PI motion with four-factor test",
+        "advanced": "Emergency TRO with immediate harm documentation"
+      },
+      "agents": ["equity-agent", "urgency-agent"],
+      "pistons": ["stealth-emergency", "stealth-equity"],
+      "interfaces": ["court-filing", "emergency-motion"],
+      "blockers": ["irreparable_harm", "likelihood_of_success", "balance_of_equities", "public_interest"],
+      "success_rate": "40%",
+      "average_timeline": "14-30 days"
+    },
+    "motion-rule-60": {
+      "id": "motion-rule-60",
+      "name": "Motion for Relief from Judgment",
+      "federal_rule": "Fed. R. Civ. P. 60(b)",
+      "hawaii_rule": "HRCP Rule 60(b)",
+      "evidence_state": "precedent_verified",
+      "proof_class": "ruled",
+      "exhibits": {
+        "easy": "Standard 60(b)(1) motion for mistake",
+        "advanced": "60(b)(3) fraud upon the court with clear and convincing evidence"
+      },
+      "agents": ["fraud-agent", "equity-agent"],
+      "pistons": ["stealth-fraud", "stealth-equity"],
+      "interfaces": ["court-filing", "judgment-relief"],
+      "blockers": ["timeliness", "meritorious_defense", "no_prejudice"],
+      "success_rate": "30%",
+      "average_timeline": "60-180 days"
+    },
+    "motion-void-judgment": {
+      "id": "motion-void-judgment",
+      "name": "Motion to Void Void Ab Initio Judgment",
+      "federal_rule": "Fed. R. Civ. P. 60(a)",
+      "hawaii_rule": "HRCP Rule 60(a)",
+      "evidence_state": "constitutional",
+      "proof_class": "constitutional",
+      "exhibits": {
+        "easy": "Standard void judgment motion",
+        "advanced": "Due process violation with jurisdictional challenge"
+      },
+      "agents": ["constitutional-agent", "jurisdiction-agent"],
+      "pistons": ["stealth-constitutional", "stealth-jurisdiction"],
+      "interfaces": ["court-filing", "constitutional-challenge"],
+      "blockers": ["void_ab_initio", "due_process_violation", "lack_of_jurisdiction"],
+      "success_rate": "85%",
+      "average_timeline": "30-90 days"
+    }
+  }
+}

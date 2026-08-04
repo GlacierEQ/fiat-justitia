@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package tower.cooling.v1;
+
+import "google/protobuf/timestamp.proto";
+
+enum HealthState {
+  HEALTH_STATE_UNSPECIFIED = 0;
+  NOMINAL = 1;
+  DEGRADED = 2;
+  CRITICAL = 3;
+  OFFLINE = 4;
+}
+
+message SensorReading {
+  string sensor_id = 1;
+  double temperature_c = 2;
+  double flow_liters_per_minute = 3;
+  double pressure_kpa = 4;
+  google.protobuf.Timestamp observed_at = 5;
+}
+
+message RackTelemetry {
+  uint32 rack_id = 1;
+  repeated SensorReading readings = 2;
+  HealthState health = 3;
+  map<string, string> labels = 4;
+}
+
+message ControlCommand {
+  string command_id = 1;
+  uint32 rack_id = 2;
+  oneof action {
+    double set_pump_percent = 3;
+    double set_fan_percent = 4;
+    bool emergency_shutdown = 5;
+  }
+  string authority_receipt_sha256 = 6;
+}
+
+message CommandReceipt {
+  string command_id = 1;
+  bool accepted = 2;
+  string reason = 3;
+  string output_sha256 = 4;
+  google.protobuf.Timestamp completed_at = 5;
+}
+
+service CoolingService {
+  rpc StreamTelemetry(stream RackTelemetry) returns (stream ControlCommand);
+  rpc ApplyCommand(ControlCommand) returns (CommandReceipt);
+}

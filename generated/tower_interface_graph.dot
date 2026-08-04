@@ -1,0 +1,303 @@
+digraph TowerOfBabel {
+  rankdir=LR;
+  node [shape=box, style="filled,rounded", fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=8];
+
+  subgraph cluster_bare_metal_systems {
+    label = "Bare Metal Systems";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "c" [label="C\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_high_performance_systems {
+    label = "High Performance Systems";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "cpp" [label="C++\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_memory_safe_systems {
+    label = "Memory Safe Systems";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "rust" [label="Rust\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_portable_systems {
+    label = "Portable Systems";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "zig" [label="Zig\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_data_oriented_systems {
+    label = "Data Oriented Systems";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "odin" [label="Odin\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_orchestration_and_ai {
+    label = "Orchestration And Ai";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "python" [label="Python\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_concurrent_services {
+    label = "Concurrent Services";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "go" [label="Go\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_typed_async_interfaces {
+    label = "Typed Async Interfaces";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "typescript" [label="TypeScript\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_apple_native {
+    label = "Apple Native";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "swift" [label="Swift\n[hardware]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_fault_tolerant_distributed {
+    label = "Fault Tolerant Distributed";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "elixir" [label="Elixir\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_pure_functional {
+    label = "Pure Functional";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "haskell" [label="Haskell\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_statistics {
+    label = "Statistics";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "r" [label="R\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_scientific_computing {
+    label = "Scientific Computing";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "julia" [label="Julia\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_declarative_data {
+    label = "Declarative Data";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "sql" [label="SQL / pgvector\n[integration]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_gpu_parallel_compute {
+    label = "Gpu Parallel Compute";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "cuda" [label="CUDA C++ / PTX (NVIDIA Flagship)\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_gpu_kernel_dsl {
+    label = "Gpu Kernel Dsl";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "triton" [label="Triton\n[benchmark]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_ai_systems {
+    label = "Ai Systems";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "mojo" [label="Mojo\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_compute_graph {
+    label = "Compute Graph";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "onnx" [label="ONNX\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_compiler_ir {
+    label = "Compiler Ir";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "mlir" [label="MLIR\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_sandbox_runtime {
+    label = "Sandbox Runtime";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "webassembly" [label="WebAssembly\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_binary_contracts {
+    label = "Binary Contracts";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "protobuf" [label="Protocol Buffers\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_zero_copy_serialization {
+    label = "Zero Copy Serialization";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "flatbuffers" [label="FlatBuffers\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_capability_rpc {
+    label = "Capability Rpc";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "capnproto" [label="Cap'n Proto\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_hardware_description {
+    label = "Hardware Description";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "verilog" [label="Verilog\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_hardware_verification {
+    label = "Hardware Verification";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "systemverilog" [label="SystemVerilog\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_high_reliability_hardware {
+    label = "High Reliability Hardware";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "vhdl" [label="VHDL\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_hardware_construction {
+    label = "Hardware Construction";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "chisel" [label="Chisel\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_formal_verification {
+    label = "Formal Verification";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "lean4" [label="Lean 4\n[formal]", fillcolor="#e3f2fd"];
+    "coq" [label="Coq\n[formal]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_dependent_programming {
+    label = "Dependent Programming";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "agda" [label="Agda\n[formal]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_kernel_tracing_and_security {
+    label = "Kernel Tracing And Security";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "ebpf" [label="eBPF\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_quantum_compute {
+    label = "Quantum Compute";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "openqasm" [label="OpenQASM 3.0\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_zero_knowledge_proofs {
+    label = "Zero Knowledge Proofs";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "cairo" [label="Cairo\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_functional_ai_systems {
+    label = "Functional Ai Systems";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "jax" [label="JAX (xAI Grok Flagship)\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_declarative_static_analysis {
+    label = "Declarative Static Analysis";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "datalog" [label="Soufflé Datalog\n[compile]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_quantization_and_compression {
+    label = "Quantization And Compression";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "rhl_quant" [label="RHL-Quant (1.58b Ternary Quantization Flagship)\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  "cpp" -> "protobuf" [label="protobuf"];
+  "rust" -> "protobuf" [label="protobuf"];
+  "python" -> "protobuf" [label="protobuf"];
+  "go" -> "protobuf" [label="protobuf"];
+  "typescript" -> "protobuf" [label="protobuf"];
+  "elixir" -> "protobuf" [label="protobuf"];
+  "haskell" -> "protobuf" [label="protobuf"];
+  "r" -> "sql" [label="sql"];
+  "triton" -> "python" [label="python"];
+  "triton" -> "mlir" [label="mlir"];
+  "mojo" -> "python" [label="python"];
+  "mojo" -> "mlir" [label="mlir"];
+  "mlir" -> "triton" [label="triton"];
+  "mlir" -> "mojo" [label="mojo"];
+  "chisel" -> "verilog" [label="verilog"];
+  "agda" -> "haskell" [label="haskell"];
+}

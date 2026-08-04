@@ -1,0 +1,14 @@
+{
+  "mission_id": "tower-demo-001",
+  "objective": "Select a safe polyglot stack for a code-and-evidence mission",
+  "required_capabilities": [
+    "coding",
+    "evidence",
+    "tool"
+  ],
+  "preferred_interfaces": [
+    "protobuf",
+    "jsonrpc"
+  ],
+  "maximum_action": "write_internal"
+}

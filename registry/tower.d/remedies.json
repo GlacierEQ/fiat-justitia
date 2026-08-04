@@ -1,0 +1,96 @@
+{
+  "category": "remedies",
+  "description": "Legal remedies and damages calculations",
+  "documents": {
+    "damages-compensatory": {
+      "id": "damages-compensatory",
+      "name": "Compensatory Damages",
+      "federal_rule": "28 U.S.C. § 1983(c)",
+      "hawaii_rule": "HRS § 663-1",
+      "evidence_state": "precedent_verified",
+      "proof_class": "ruled",
+      "exhibits": {
+        "easy": "Standard compensatory damages calculation",
+        "advanced": "Multi-category damages with expert testimony"
+      },
+      "agents": ["damages-agent", "calculation-agent"],
+      "pistons": ["stealth-damages", "stealth-calculation"],
+      "interfaces": ["damages-calculation", "evidence-presentation"],
+      "blockers": ["causation", "mitigation", "reasonableness"],
+      "success_rate": "70%",
+      "average_timeline": "Post-trial"
+    },
+    "damages-punitive": {
+      "id": "damages-punitive",
+      "name": "Punitive Damages",
+      "federal_rule": "42 U.S.C. § 1983(c)(2)",
+      "hawaii_rule": "HRS § 663-1",
+      "evidence_state": "precedent_verified",
+      "proof_class": "argued",
+      "exhibits": {
+        "easy": "Standard punitive damages request",
+        "advanced": "Constitutional due process analysis with BMW v. Gore factors"
+      },
+      "agents": ["punitive-agent", "constitutional-agent"],
+      "pistons": ["stealth-punitive", "stealth-constitutional"],
+      "interfaces": ["damages-calculation", "constitutional-analysis"],
+      "blockers": ["egregious_conduct", "ratio_analysis", "due_process_limit"],
+      "success_rate": "30%",
+      "average_timeline": "Post-trial"
+    },
+    "damages-treble-rico": {
+      "id": "damages-treble-rico",
+      "name": "RICO Treble Damages",
+      "federal_rule": "18 U.S.C. § 1964(c)",
+      "hawaii_rule": "HRS § 842-2",
+      "evidence_state": "precedent_verified",
+      "proof_class": "filed",
+      "exhibits": {
+        "easy": "Standard RICO treble damages calculation",
+        "advanced": "Multi-year damages with compound trebling"
+      },
+      "agents": ["rico-agent", "enterprise-agent"],
+      "pistons": ["stealth-enterprise", "stealth-treble"],
+      "interfaces": ["damages-calculation", "rico-analysis"],
+      "blockers": ["racketeering_injury", "proximate_cause", "trebling"],
+      "success_rate": "25%",
+      "average_timeline": "Post-trial"
+    },
+    "remedies-injunctive": {
+      "id": "remedies-injunctive",
+      "name": "Injunctive Relief",
+      "federal_rule": "28 U.S.C. § 1651",
+      "hawaii_rule": "HRS § 603-1",
+      "evidence_state": "precedent_verified",
+      "proof_class": "ruled",
+      "exhibits": {
+        "easy": "Standard injunctive relief request",
+        "advanced": "Structural injunction with monitoring provisions"
+      },
+      "agents": ["equity-agent", "monitoring-agent"],
+      "pistons": ["stealth-equity", "stealth-monitoring"],
+      "interfaces": ["injunctive-relief", "compliance-monitoring"],
+      "blockers": ["irreparable_harm", "no_adequate_remedy", "public_interest"],
+      "success_rate": "45%",
+      "average_timeline": "30-90 days"
+    },
+    "remedies-declaratory": {
+      "id": "remedies-declaratory",
+      "name": "Declaratory Judgment",
+      "federal_rule": "28 U.S.C. §§ 2201-2202",
+      "hawaii_rule": "HRS § 632-1",
+      "evidence_state": "precedent_verified",
+      "proof_class": "ruled",
+      "exhibits": {
+        "easy": "Standard declaratory judgment request",
+        "advanced": "Declaratory judgment with constitutional challenge"
+      },
+      "agents": ["declaratory-agent", "constitutional-agent"],
+      "pistons": ["stealth-declaratory", "stealth-constitutional"],
+      "interfaces": ["declaratory-judgment", "constitutional-analysis"],
+      "blockers": ["actual_controversy", "ripeness", "standing"],
+      "success_rate": "55%",
+      "average_timeline": "30-120 days"
+    }
+  }
+}

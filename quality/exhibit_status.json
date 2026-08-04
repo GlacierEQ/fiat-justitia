@@ -1,0 +1,84 @@
+{
+  "authority": "registry/tower.yml",
+  "generated_maturity_surface": "generated/maturity.json",
+  "notes": {
+    "c": {
+      "advanced_exhibit": "languages/c/advanced_lockfree_spsc_ring.c",
+      "observed_evidence": [
+        "bounded power-of-two queue",
+        "acquire/release memory ordering",
+        "capacity and overflow rejection",
+        "100000-frame concurrent handoff",
+        "FIFO sequence verification",
+        "structured execution receipt"
+      ]
+    },
+    "cpp": {
+      "advanced_exhibit": "languages/cpp/advanced_kv_entropy.cpp",
+      "observed_evidence": [
+        "validated probability distributions",
+        "deterministic entropy-aware pruning",
+        "pinned-block capacity policy",
+        "complete decision accounting",
+        "malformed-input rejection",
+        "structured decision receipt"
+      ]
+    },
+    "go": {
+      "advanced_exhibit": "languages/go/advanced_telemetry_decoder.go",
+      "observed_evidence": [
+        "versioned binary frame format",
+        "CRC-32 rejection",
+        "sequence-gap detection",
+        "non-finite measurement rejection",
+        "context cancellation",
+        "atomic operational metrics"
+      ]
+    },
+    "protobuf": {
+      "advanced_exhibit": "languages/protobuf/advanced_colossus_cooling.proto",
+      "observed_evidence": [
+        "generated Python bindings",
+        "validated telemetry invariants",
+        "authority SHA-256 enforcement",
+        "deterministic binary serialization",
+        "binary round-trip equality",
+        "structured command receipt"
+      ]
+    },
+    "rust": {
+      "advanced_exhibit": "languages/rust/advanced_safety_governor.rs",
+      "observed_evidence": [
+        "typed policy decisions",
+        "path-boundary enforcement",
+        "bounded inputs",
+        "explicit approvals",
+        "embedded tests"
+      ]
+    },
+    "typescript": {
+      "advanced_exhibit": "languages/typescript/advanced_mcp_gateway.ts",
+      "observed_evidence": [
+        "runtime JSON-RPC validation",
+        "mutation policy",
+        "bounded rate limits",
+        "privacy-preserving receipts",
+        "typed tool registry"
+      ]
+    },
+    "webassembly": {
+      "advanced_exhibit": "languages/wat/advanced_wasm_sandbox.wat",
+      "observed_evidence": [
+        "single-page bounded linear memory",
+        "capability bitmask enforcement",
+        "fuel exhaustion rejection",
+        "out-of-bounds rejection",
+        "denied-operation immutability",
+        "observable audit counters"
+      ]
+    }
+  },
+  "override_allowed": false,
+  "role": "non-authoritative review notes for selected strengthened exhibits",
+  "schema_version": 2
+}

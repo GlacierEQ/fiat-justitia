@@ -1,0 +1,61 @@
+syntax = "proto3";
+package glaciereq.tower.flagship.v1;
+
+message MissionEnvelope {
+  string mission_id = 1;
+  string objective = 2;
+  repeated string required_capabilities = 3;
+  repeated string preferred_interfaces = 4;
+  string maximum_action = 5;
+  string input_sha256 = 6;
+}
+
+message CapabilityPlan {
+  string mission_id = 1;
+  repeated string technology_ids = 2;
+  repeated string agent_ids = 3;
+  repeated string piston_ids = 4;
+  string tower_registry_sha256 = 5;
+  string input_sha256 = 6;
+  string maximum_action = 7;
+  repeated string unmatched_capabilities = 8;
+}
+
+message AuthorityDecision {
+  string mission_id = 1;
+  bool allowed = 2;
+  string reason = 3;
+  string plan_sha256 = 4;
+  string expected_registry_sha256 = 5;
+  string observed_registry_sha256 = 6;
+  string expected_input_sha256 = 7;
+  string observed_input_sha256 = 8;
+  string maximum_action = 9;
+}
+
+enum PipelineStage {
+  STAGE_UNSPECIFIED = 0;
+  INGRESS = 1;
+  PLANNING = 2;
+  AUTHORITY = 3;
+  TELEMETRY = 4;
+  STATE = 5;
+  SANDBOX = 6;
+  INVARIANT = 7;
+}
+
+enum EventStatus {
+  STATUS_UNSPECIFIED = 0;
+  VERIFIED = 1;
+  FAILED = 2;
+  BLOCKED = 3;
+}
+
+message TelemetryEvent {
+  string mission_id = 1;
+  string stage = 2;
+  string status = 3;
+  string evidence_sha256 = 4;
+  PipelineStage stage_enum = 5;
+  EventStatus status_enum = 6;
+}

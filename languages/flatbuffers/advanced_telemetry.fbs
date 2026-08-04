@@ -1,0 +1,28 @@
+namespace Tower.Telemetry;
+
+enum Health:byte { Unknown = 0, Nominal = 1, Degraded = 2, Critical = 3 }
+
+struct Vector3 {
+  x:double;
+  y:double;
+  z:double;
+}
+
+table SensorSample {
+  sensor_id:string (required);
+  observed_unix_ns:ulong;
+  temperature_c:double;
+  vibration:Vector3;
+}
+
+table RackFrame {
+  schema_version:uint = 1;
+  rack_id:uint;
+  sequence:ulong;
+  health:Health = Unknown;
+  samples:[SensorSample];
+  previous_frame_sha256:[ubyte];
+}
+
+root_type RackFrame;
+file_identifier "TRAK";

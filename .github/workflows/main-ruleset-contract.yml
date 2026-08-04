@@ -1,0 +1,70 @@
+name: Main Ruleset Contract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - governance/main-ruleset.required.json
+      - scripts/apply_main_ruleset.py
+      - scripts/verify_main_ruleset.py
+      - tests/test_main_ruleset_contract.py
+      - .github/workflows/main-ruleset-contract.yml
+  schedule:
+    - cron: "17 15 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Verify only, or install/update using RULESET_ADMIN_TOKEN.
+        required: true
+        default: verify
+        type: choice
+        options: [verify, apply]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: main-ruleset-contract
+  cancel-in-progress: false
+
+jobs:
+  verify-or-apply:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Checkout policy without persisted credentials
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Install or update live ruleset
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'apply'
+        env:
+          RULESET_ADMIN_TOKEN: ${{ secrets.RULESET_ADMIN_TOKEN }}
+        run: python scripts/apply_main_ruleset.py --output artifacts/main-ruleset-installation.json
+
+      - name: Verify live ruleset strictly
+        if: github.event_name != 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.RULESET_ADMIN_TOKEN }}
+        run: python scripts/verify_main_ruleset.py --output artifacts/main-ruleset-verification.json
+
+      - name: Report live ruleset state after policy changes
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.RULESET_ADMIN_TOKEN }}
+        run: python scripts/verify_main_ruleset.py --advisory --output artifacts/main-ruleset-verification.json
+
+      - name: Upload ruleset receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: main-ruleset-contract-${{ github.run_id }}
+          path: artifacts/*.json
+          if-no-files-found: warn
+          retention-days: 30

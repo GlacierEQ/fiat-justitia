@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package glaciereq.megamind.tower.v1;
+
+import "proto/tower.proto";
+
+message MissionTechnologyEnvelope {
+  string mission_id = 1;
+  repeated string required_capabilities = 2;
+  repeated string preferred_interfaces = 3;
+  string minimum_proof_class = 4;
+  string input_sha256 = 5;
+  string maximum_action = 6;
+}
+
+message SelectionReason {
+  string technology_id = 1;
+  repeated string reasons = 2;
+}
+
+message GatedCandidate {
+  string technology_id = 1;
+  string evidence_state = 2;
+}
+
+message TowerActivationPlan {
+  string mission_id = 1;
+  repeated glaciereq.tower.v1.TechnologySpec technologies = 2;
+  repeated string agent_ids = 3;
+  repeated string piston_ids = 4;
+  repeated SelectionReason activation_reasons = 5;
+  string tower_registry_sha256 = 6;
+  repeated string unmatched_capabilities = 7;
+  repeated GatedCandidate gated_candidates = 8;
+  string input_sha256 = 9;
+  string maximum_action = 10;
+}
+
+service TowerMegamindBridge {
+  rpc Plan(MissionTechnologyEnvelope) returns (TowerActivationPlan);
+}

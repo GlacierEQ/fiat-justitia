@@ -1,0 +1,64 @@
+name: Spiral Engine Verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: spiral-engine-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  civilization-scale:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - name: Install hash-locked Tower environment
+        run: |
+          python -m pip install --require-hashes -r requirements/ci.lock
+          python -m pip install --no-deps --no-build-isolation -e .
+      - name: Run Spiral tests
+        run: pytest -q tests/test_spiral_engine.py
+      - name: Exercise civilization question
+        run: tower spiral question --seed civilization --output artifacts/civilization-question.json
+      - name: Exercise admission and verification
+        run: |
+          tower spiral admit examples/spiral/civilization_capability.json --output artifacts/spiral-admission-receipt.json
+          tower spiral verify artifacts/spiral-admission-receipt.json
+      - name: Generate branch-head integrity candidate
+        run: |
+          mkdir -p artifacts
+          python - <<'PY'
+          from pathlib import Path
+          from tower.integrity import write_manifest
+          write_manifest(Path("artifacts/file_hashes.json"))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: spiral-engine-receipts
+          path: |
+            artifacts/civilization-question.json
+            artifacts/spiral-admission-receipt.json
+            artifacts/file_hashes.json
+          if-no-files-found: error
+          retention-days: 14
+
+  required-spiral-verification:
+    name: required-spiral-verification
+    if: always()
+    needs: [civilization-scale]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require Spiral verification
+        run: test "${{ needs.civilization-scale.result }}" = "success"

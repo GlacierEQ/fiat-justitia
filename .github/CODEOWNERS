@@ -1,0 +1,9 @@
+# Critical governance and supply-chain surfaces.
+/.github/ @GlacierEQ
+/governance/ @GlacierEQ
+/requirements/ @GlacierEQ
+/registry/ @GlacierEQ
+/scripts/verify_main_ruleset.py @GlacierEQ
+/src/tower/registry.py @GlacierEQ
+/tools/audit_advanced_exhibits.py @GlacierEQ
+/.integrity/ @GlacierEQ

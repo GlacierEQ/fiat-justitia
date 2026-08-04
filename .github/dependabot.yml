@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "16:00"
+      timezone: Pacific/Honolulu
+    open-pull-requests-limit: 5
+    labels: [dependencies, supply-chain]
+    commit-message:
+      prefix: "build(actions)"
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "16:15"
+      timezone: Pacific/Honolulu
+    open-pull-requests-limit: 5
+    labels: [dependencies, supply-chain]
+    commit-message:
+      prefix: "build(python)"

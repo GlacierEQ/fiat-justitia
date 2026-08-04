@@ -1,0 +1,55 @@
+{
+  "proof_class": "illustrative",
+  "affected_domains": [
+    "science",
+    "technology",
+    "health",
+    "environment",
+    "economics",
+    "law",
+    "governance",
+    "history",
+    "culture",
+    "art",
+    "education",
+    "ethics",
+    "infrastructure",
+    "security",
+    "information",
+    "psychology",
+    "demographics",
+    "geopolitics"
+  ],
+  "capability_id": "spiral.civilization-synthesis.v1",
+  "controls": {
+    "approval_mode": "human-and-machine",
+    "audit_log": true,
+    "human_override": true,
+    "metrics": [
+      "domain_coverage",
+      "receipt_verification_rate"
+    ],
+    "owner": "Tower Governance",
+    "rollback_plan": "Disable the capability and invalidate its admission receipt."
+  },
+  "evidence": [
+    {
+      "id": "spiral-unit-tests",
+      "kind": "test",
+      "sha256": "4a2e33064f13548c71ffa420be3c9daecf80713dddada1c12091da7eef18dd18"
+    },
+    {
+      "id": "spiral-contract",
+      "kind": "specification",
+      "sha256": "41566f7f34c86bf2e68f5416bc98df17b5df859b1953cf4bffb55adc303cf0e3"
+    },
+    {
+      "id": "spiral-example",
+      "kind": "executable-example",
+      "sha256": "cd719c6ca7043a0e46160396cff4f74206b08525ecd94e7c38af95faeed73d2b"
+    }
+  ],
+  "risk_level": "moderate",
+  "scope": "civilization",
+  "summary": "Generate whole-system questions and evidence-bound activation decisions across every civilization domain."
+}

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glaciereq-tower-of-babel"
+version = "1.1.0"
+description = "Governed polyglot technology authority and execution proof system"
+requires-python = ">=3.11"
+dependencies = ["protobuf>=5,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+tower = "tower.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+tower = ["data/*.yml", "data/*.json", "data/tower.d/*.json"]

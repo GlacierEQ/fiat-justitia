@@ -1,0 +1,9 @@
+namespace Tower.Easy;
+
+table User {
+  id:ulong;
+  name:string;
+}
+
+root_type User;
+file_identifier "TUSR";

@@ -1,0 +1,844 @@
+{
+  "authority": "registry/tower.yml",
+  "contract_type": "advanced_exhibit_semantic_claims",
+  "contracts": {
+    "agda": {
+      "expected_failure_cases": [
+        "destructive downgrade",
+        "non-transitive relation",
+        "invalid capability"
+      ],
+      "forbidden_claim_patterns": [
+        "system formally verified",
+        "production correctness"
+      ],
+      "proof_surface": "total transitivity proof and impossible destructive downgrade case",
+      "required_receipt_fields": [
+        "proof",
+        "capability",
+        "relation"
+      ],
+      "required_source_patterns": [
+        "lattice|Capability",
+        "trans|downgrade"
+      ],
+      "signature_innovation": "Dependent capability lattice"
+    },
+    "c": {
+      "expected_failure_cases": [
+        "null input",
+        "bounded overflow",
+        "sequence corruption"
+      ],
+      "forbidden_claim_patterns": [
+        "wait[- ]free",
+        "multi[- ]producer"
+      ],
+      "proof_surface": "bounded queue, atomics, FIFO and backpressure receipt",
+      "required_receipt_fields": [
+        "status",
+        "produced",
+        "consumed",
+        "sequence_errors",
+        "backpressure_events"
+      ],
+      "required_source_patterns": [
+        "SPSC",
+        "backpressure_events"
+      ],
+      "signature_innovation": "Lock-free SPSC telemetry handoff"
+    },
+    "capnproto": {
+      "expected_failure_cases": [
+        "missing capability",
+        "unauthorized call",
+        "receipt mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "secure transport",
+        "production mesh"
+      ],
+      "proof_surface": "authority-bearing specialist references and typed receipts",
+      "required_receipt_fields": [
+        "authority",
+        "specialist",
+        "receipt"
+      ],
+      "required_source_patterns": [
+        "interface",
+        "receipt|Receipt"
+      ],
+      "signature_innovation": "Capability-oriented agent mesh RPC"
+    },
+    "chisel": {
+      "expected_failure_cases": [
+        "invalid destination",
+        "backpressure",
+        "arbitration fairness"
+      ],
+      "forbidden_claim_patterns": [
+        "deadlock free",
+        "silicon proven"
+      ],
+      "proof_surface": "destination routing, round-robin arbitration and Decoupled backpressure",
+      "required_receipt_fields": [
+        "route",
+        "grant",
+        "ready",
+        "valid"
+      ],
+      "required_source_patterns": [
+        "Decoupled",
+        "round|arbiter|Arbiter"
+      ],
+      "signature_innovation": "Parameterized NoC router generator"
+    },
+    "coq": {
+      "expected_failure_cases": [
+        "broken link",
+        "unordered list",
+        "invalid predecessor"
+      ],
+      "forbidden_claim_patterns": [
+        "system formally verified",
+        "production correctness"
+      ],
+      "proof_surface": "constructive chain-step and ordered-list invariants",
+      "required_receipt_fields": [
+        "theorem",
+        "chain",
+        "ordered"
+      ],
+      "required_source_patterns": [
+        "Theorem|Lemma",
+        "receipt|chain"
+      ],
+      "signature_innovation": "Linked receipt-chain ordering proof"
+    },
+    "cpp": {
+      "expected_failure_cases": [
+        "invalid capacity",
+        "pinned eviction",
+        "nondeterministic ranking"
+      ],
+      "forbidden_claim_patterns": [
+        "optimal cache",
+        "production[- ]proven"
+      ],
+      "proof_surface": "deterministic utility scoring, pinned retention and decision fingerprint",
+      "required_receipt_fields": [
+        "status",
+        "decision_fingerprint",
+        "retained",
+        "evicted"
+      ],
+      "required_source_patterns": [
+        "entropy",
+        "fingerprint"
+      ],
+      "signature_innovation": "Entropy-aware KV cache policy"
+    },
+    "cuda": {
+      "expected_failure_cases": [
+        "CUDA unavailable",
+        "shape mismatch",
+        "reference divergence"
+      ],
+      "forbidden_claim_patterns": [
+        "implements? (the )?production FlashAttention",
+        "FlashAttention compatible",
+        "production kernel"
+      ],
+      "proof_surface": "stable softmax and GPU validation without a FlashAttention claim",
+      "required_receipt_fields": [
+        "status",
+        "max_error",
+        "backend"
+      ],
+      "required_source_patterns": [
+        "expf",
+        "reference_attention"
+      ],
+      "signature_innovation": "Audited reference attention kernel"
+    },
+    "elixir": {
+      "expected_failure_cases": [
+        "duplicate mission",
+        "worker crash",
+        "supervisor restart failure"
+      ],
+      "forbidden_claim_patterns": [
+        "exactly[- ]once",
+        "zero downtime"
+      ],
+      "proof_surface": "duplicate rejection and observed process replacement after failure",
+      "required_receipt_fields": [
+        "status",
+        "mission_id",
+        "restarts",
+        "duplicates"
+      ],
+      "required_source_patterns": [
+        "Supervisor|supervis",
+        "idempotent|duplicate"
+      ],
+      "signature_innovation": "Supervised idempotent mission worker"
+    },
+    "flatbuffers": {
+      "expected_failure_cases": [
+        "invalid identifier",
+        "broken prior hash",
+        "missing sample"
+      ],
+      "forbidden_claim_patterns": [
+        "cryptographically signed",
+        "production telemetry"
+      ],
+      "proof_surface": "typed samples, file identity and prior-frame integrity field",
+      "required_receipt_fields": [
+        "frame_id",
+        "previous_hash",
+        "samples"
+      ],
+      "required_source_patterns": [
+        "previous_frame_sha256",
+        "file_identifier"
+      ],
+      "signature_innovation": "Hash-linked zero-copy telemetry frame"
+    },
+    "go": {
+      "expected_failure_cases": [
+        "checksum mismatch",
+        "oversized frame",
+        "sequence discontinuity"
+      ],
+      "forbidden_claim_patterns": [
+        "lossless network",
+        "production protocol"
+      ],
+      "proof_surface": "CRC, frame bounds, sequence continuity, cancellation and metrics",
+      "required_receipt_fields": [
+        "status",
+        "frames",
+        "crc_errors",
+        "sequence_errors"
+      ],
+      "required_source_patterns": [
+        "CRC|crc",
+        "sequence"
+      ],
+      "signature_innovation": "Versioned telemetry trust boundary"
+    },
+    "haskell": {
+      "expected_failure_cases": [
+        "absolute path",
+        "parent traversal",
+        "unsupported node"
+      ],
+      "forbidden_claim_patterns": [
+        "formally verified",
+        "complete parser"
+      ],
+      "proof_surface": "algebraic decisions, lexical path safety and deterministic receipt",
+      "required_receipt_fields": [
+        "status",
+        "decision",
+        "errors",
+        "receipt"
+      ],
+      "required_source_patterns": [
+        "AST|Expr|Policy",
+        "path|Path"
+      ],
+      "signature_innovation": "Pure capability-policy AST validation"
+    },
+    "julia": {
+      "expected_failure_cases": [
+        "invalid timestep",
+        "nonfinite state",
+        "excess energy drift"
+      ],
+      "forbidden_claim_patterns": [
+        "mission[- ]grade",
+        "high[- ]fidelity ephemeris"
+      ],
+      "proof_surface": "velocity-Verlet propagation with conservation drift diagnostics",
+      "required_receipt_fields": [
+        "status",
+        "steps",
+        "energy_drift",
+        "position"
+      ],
+      "required_source_patterns": [
+        "Verlet|verlet",
+        "energy"
+      ],
+      "signature_innovation": "Energy-audited orbital integration"
+    },
+    "lean4": {
+      "expected_failure_cases": [
+        "authority downgrade",
+        "out-of-order action",
+        "invalid receipt"
+      ],
+      "forbidden_claim_patterns": [
+        "system formally verified",
+        "production correctness"
+      ],
+      "proof_surface": "kernel-checked action ordering and non-regressing sequence property",
+      "required_receipt_fields": [
+        "theorem",
+        "proof",
+        "sequence"
+      ],
+      "required_source_patterns": [
+        "theorem",
+        "receipt|authority"
+      ],
+      "signature_innovation": "Monotone authority and receipt proofs"
+    },
+    "mlir": {
+      "expected_failure_cases": [
+        "shape mismatch",
+        "invalid type",
+        "lowering failure"
+      ],
+      "forbidden_claim_patterns": [
+        "fully lowered",
+        "production compiler"
+      ],
+      "proof_surface": "SSA tensor contract prepared for canonicalization and loop/vector passes",
+      "required_receipt_fields": [
+        "status",
+        "dialect",
+        "shape"
+      ],
+      "required_source_patterns": [
+        "tensor",
+        "linalg|func.func"
+      ],
+      "signature_innovation": "Destination-style attention score lowering"
+    },
+    "mojo": {
+      "expected_failure_cases": [
+        "toolchain unavailable",
+        "invalid length",
+        "alignment mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "runs? on (a )?TPU",
+        "TPU backend",
+        "production kernel"
+      ],
+      "proof_surface": "explicit pointers and vector width without unsupported TPU branding",
+      "required_receipt_fields": [
+        "status",
+        "vector_width",
+        "elements"
+      ],
+      "required_source_patterns": [
+        "SIMD|simd",
+        "clamp"
+      ],
+      "signature_innovation": "SIMD affine-clamp tensor kernel"
+    },
+    "odin": {
+      "expected_failure_cases": [
+        "invalid timestep",
+        "nonphysical temperature",
+        "mission bound"
+      ],
+      "forbidden_claim_patterns": [
+        "flight[- ]qualified",
+        "validated spacecraft"
+      ],
+      "proof_surface": "explicit physical bounds, ablation and mission diagnostics",
+      "required_receipt_fields": [
+        "status",
+        "temperature",
+        "ablation",
+        "diagnostics"
+      ],
+      "required_source_patterns": [
+        "thermal|temperature",
+        "ablation"
+      ],
+      "signature_innovation": "Data-oriented thermal integration"
+    },
+    "onnx": {
+      "expected_failure_cases": [
+        "invalid expert count",
+        "shape mismatch",
+        "ordering drift"
+      ],
+      "forbidden_claim_patterns": [
+        "production MoE",
+        "training convergence"
+      ],
+      "proof_surface": "model checking, reference execution and deterministic expert ordering",
+      "required_receipt_fields": [
+        "status",
+        "experts",
+        "indices",
+        "weights"
+      ],
+      "required_source_patterns": [
+        "TopK|topk",
+        "onnx"
+      ],
+      "signature_innovation": "Portable top-k MoE router graph"
+    },
+    "protobuf": {
+      "expected_failure_cases": [
+        "unknown command",
+        "missing authority",
+        "hash mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "encrypted",
+        "production schema"
+      ],
+      "proof_surface": "schema evolution, oneof authority, deterministic serialization and hashes",
+      "required_receipt_fields": [
+        "command_id",
+        "authority",
+        "receipt_hash"
+      ],
+      "required_source_patterns": [
+        "oneof",
+        "receipt|Receipt"
+      ],
+      "signature_innovation": "Cooling command and receipt contract"
+    },
+    "python": {
+      "expected_failure_cases": [
+        "queue full",
+        "retry exhaustion",
+        "shutdown with pending work"
+      ],
+      "forbidden_claim_patterns": [
+        "exactly[- ]once",
+        "production scheduler"
+      ],
+      "proof_surface": "bounded queues, FIFO ties, futures, retries and graceful shutdown",
+      "required_receipt_fields": [
+        "status",
+        "completed",
+        "failed",
+        "retries"
+      ],
+      "required_source_patterns": [
+        "PriorityQueue|priority",
+        "shutdown|drain"
+      ],
+      "signature_innovation": "Drainable priority agent runtime"
+    },
+    "r": {
+      "expected_failure_cases": [
+        "invalid counts",
+        "empty posterior",
+        "decision threshold"
+      ],
+      "forbidden_claim_patterns": [
+        "MCMC",
+        "Bayes factor"
+      ],
+      "proof_surface": "ROPE, HDI and expected loss without MCMC or Bayes-factor overclaim",
+      "required_receipt_fields": [
+        "status",
+        "rope",
+        "hdi",
+        "expected_loss"
+      ],
+      "required_source_patterns": [
+        "Beta|beta",
+        "ROPE|HDI|expected.loss"
+      ],
+      "signature_innovation": "Exact Beta-Binomial decision analysis"
+    },
+    "rust": {
+      "expected_failure_cases": [
+        "path traversal",
+        "oversized payload",
+        "missing approval"
+      ],
+      "forbidden_claim_patterns": [
+        "memory[- ]safe therefore secure",
+        "formally verified"
+      ],
+      "proof_surface": "fail-closed path, payload, depth and approval policy",
+      "required_receipt_fields": [
+        "status",
+        "decision",
+        "reason",
+        "receipt"
+      ],
+      "required_source_patterns": [
+        "approval",
+        "deny|Denied|blocked"
+      ],
+      "signature_innovation": "Typed side-effect safety governor"
+    },
+    "sql": {
+      "expected_failure_cases": [
+        "cross-tenant access",
+        "invalid dimension",
+        "unbounded result"
+      ],
+      "forbidden_claim_patterns": [
+        "perfect isolation",
+        "production scale"
+      ],
+      "proof_surface": "HNSW retrieval, RLS, constraints and bounded search function",
+      "required_receipt_fields": [
+        "tenant_id",
+        "distance",
+        "evidence_id"
+      ],
+      "required_source_patterns": [
+        "hnsw|HNSW",
+        "ROW LEVEL SECURITY|RLS|row.level"
+      ],
+      "signature_innovation": "Tenant-isolated vector evidence store"
+    },
+    "swift": {
+      "expected_failure_cases": [
+        "Metal unavailable",
+        "shape mismatch",
+        "CPU/GPU divergence"
+      ],
+      "forbidden_claim_patterns": [
+        "runs? (directly )?on (the )?ANE",
+        "ANE backend",
+        "production GPU"
+      ],
+      "proof_surface": "GPU dispatch with CPU reference and an explicit no-ANE claim boundary",
+      "required_receipt_fields": [
+        "status",
+        "backend",
+        "max_error"
+      ],
+      "required_source_patterns": [
+        "Metal|MTL",
+        "clamp"
+      ],
+      "signature_innovation": "Metal affine-clamp engine"
+    },
+    "systemverilog": {
+      "expected_failure_cases": [
+        "reset invariant",
+        "valid sequencing",
+        "accumulator mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "formally verified",
+        "silicon proven"
+      ],
+      "proof_surface": "explicit systolic dataflow and temporal accumulator invariants",
+      "required_receipt_fields": [
+        "valid",
+        "accumulator",
+        "assertions"
+      ],
+      "required_source_patterns": [
+        "assert|property",
+        "accum|MAC"
+      ],
+      "signature_innovation": "Assertion-bearing 2x2 MAC mesh"
+    },
+    "triton": {
+      "expected_failure_cases": [
+        "Triton unavailable",
+        "shape mismatch",
+        "oracle divergence"
+      ],
+      "forbidden_claim_patterns": [
+        "FlashAttention",
+        "production optimized"
+      ],
+      "proof_surface": "one-program fusion, Torch oracle and latency benchmark",
+      "required_receipt_fields": [
+        "status",
+        "latency",
+        "max_error"
+      ],
+      "required_source_patterns": [
+        "triton",
+        "torch|Torch"
+      ],
+      "signature_innovation": "Bounded fused single-query attention"
+    },
+    "typescript": {
+      "expected_failure_cases": [
+        "invalid method",
+        "mutation without approval",
+        "rate limit"
+      ],
+      "forbidden_claim_patterns": [
+        "fully MCP compliant",
+        "production gateway"
+      ],
+      "proof_surface": "runtime validation, mutation approval, rate limiting and hashed receipts",
+      "required_receipt_fields": [
+        "status",
+        "request_hash",
+        "decision",
+        "error"
+      ],
+      "required_source_patterns": [
+        "JSON.?RPC|jsonrpc",
+        "approval|rate"
+      ],
+      "signature_innovation": "Governed MCP/JSON-RPC gateway"
+    },
+    "verilog": {
+      "expected_failure_cases": [
+        "reset",
+        "signed overflow boundary",
+        "invalid timing"
+      ],
+      "forbidden_claim_patterns": [
+        "timing closed",
+        "silicon proven"
+      ],
+      "proof_surface": "registered coefficients, widened signed accumulation and valid timing",
+      "required_receipt_fields": [
+        "valid",
+        "accumulator",
+        "result"
+      ],
+      "required_source_patterns": [
+        "weight",
+        "valid"
+      ],
+      "signature_innovation": "Weight-stationary dot-product datapath"
+    },
+    "vhdl": {
+      "expected_failure_cases": [
+        "single-lane fault",
+        "all lanes disagree",
+        "unknown input"
+      ],
+      "forbidden_claim_patterns": [
+        "radiation hardened",
+        "silicon proven"
+      ],
+      "proof_surface": "majority result, mismatch signal and all-lanes-disagree assertion",
+      "required_receipt_fields": [
+        "result",
+        "mismatch",
+        "fault"
+      ],
+      "required_source_patterns": [
+        "majority|voter",
+        "mismatch"
+      ],
+      "signature_innovation": "Triple-modular-redundancy voter"
+    },
+    "webassembly": {
+      "expected_failure_cases": [
+        "fuel exhaustion",
+        "memory bound",
+        "denied mutation"
+      ],
+      "forbidden_claim_patterns": [
+        "secure sandbox",
+        "production isolation"
+      ],
+      "proof_surface": "memory bounds, denied-operation immutability and audit counters",
+      "required_receipt_fields": [
+        "status",
+        "fuel_used",
+        "denied_operations"
+      ],
+      "required_source_patterns": [
+        "capability",
+        "last_status|attempts|successes"
+      ],
+      "signature_innovation": "Capability- and fuel-bounded tool sandbox"
+    },
+    "zig": {
+      "expected_failure_cases": [
+        "allocator exhaustion",
+        "duplicate sample",
+        "sample ceiling"
+      ],
+      "forbidden_claim_patterns": [
+        "zero allocation",
+        "production allocator"
+      ],
+      "proof_surface": "arena lifetime, deduplication and hard sample ceiling",
+      "required_receipt_fields": [
+        "accepted",
+        "duplicates",
+        "capacity"
+      ],
+      "required_source_patterns": [
+        "ArenaAllocator|arena",
+        "dedup|duplicate"
+      ],
+      "signature_innovation": "Mission-scoped allocator discipline"
+    },
+    "cairo": {
+      "expected_failure_cases": [
+        "unapproved action",
+        "invalid proof",
+        "felt overflow"
+      ],
+      "forbidden_claim_patterns": [
+        "on-chain finality",
+        "production rollup"
+      ],
+      "proof_surface": "STARK state governor receipt verification",
+      "required_receipt_fields": [
+        "case_id",
+        "action_hash",
+        "approved"
+      ],
+      "required_source_patterns": [
+        "StateReceipt",
+        "verify_state_transition"
+      ],
+      "signature_innovation": "STARK-provable state governor"
+    },
+    "datalog": {
+      "expected_failure_cases": [
+        "unbound relation",
+        "cyclic vulnerability",
+        "sanitization bypass"
+      ],
+      "forbidden_claim_patterns": [
+        "complete static analysis",
+        "zero false positives"
+      ],
+      "proof_surface": "declarative vulnerability taint flow",
+      "required_receipt_fields": [
+        "vulnerability",
+        "source",
+        "sink"
+      ],
+      "required_source_patterns": [
+        "vulnerability",
+        "source|sink"
+      ],
+      "signature_innovation": "Declarative static security scanner"
+    },
+    "ebpf": {
+      "expected_failure_cases": [
+        "unapproved syscall",
+        "map allocation failure",
+        "verifier rejection"
+      ],
+      "forbidden_claim_patterns": [
+        "kernel security bypass",
+        "production intrusion prevention"
+      ],
+      "proof_surface": "kernel syscall execve sentinel",
+      "required_receipt_fields": [
+        "trace_sys_execve",
+        "kprobe",
+        "execve"
+      ],
+      "required_source_patterns": [
+        "kprobe",
+        "execve|sys_execve"
+      ],
+      "signature_innovation": "Kernel syscall sentinel"
+    },
+    "jax": {
+      "expected_failure_cases": [
+        "shape mismatch",
+        "XLA compilation failure",
+        "softmax overflow"
+      ],
+      "forbidden_claim_patterns": [
+        "Grok-3 model weights",
+        "production LLM cluster"
+      ],
+      "proof_surface": "Grok-3 distributed LLM mesh with RoPE attention, KV-caching, and sharding",
+      "required_receipt_fields": [
+        "status",
+        "flagship_tier",
+        "sharding",
+        "transformer_config",
+        "execution_metrics"
+      ],
+      "required_source_patterns": [
+        "GrokJaxDistributedEngine",
+        "multi_head_attention_kv_cache"
+      ],
+      "signature_innovation": "Grok-3 JAX distributed LLM mesh"
+    },
+    "openqasm": {
+      "expected_failure_cases": [
+        "qubit decoherence",
+        "gate fidelity error",
+        "invalid measurement"
+      ],
+      "forbidden_claim_patterns": [
+        "physical quantum supremacy",
+        "hardware QPU execution"
+      ],
+      "proof_surface": "3-qubit Grover oracle superposition and diffusion",
+      "required_receipt_fields": [
+        "q",
+        "c",
+        "cz"
+      ],
+      "required_source_patterns": [
+        "cz",
+        "Grover|oracle"
+      ],
+      "signature_innovation": "Grover search oracle circuit"
+    },
+    "cuda": {
+      "expected_failure_cases": [
+        "out of memory",
+        "warp divergence",
+        "shared memory bank conflict"
+      ],
+      "forbidden_claim_patterns": [
+        "NVIDIA production driver",
+        "custom ASIC hardware"
+      ],
+      "proof_surface": "NVIDIA FlashAttention-v2 shared-memory tiled GPU kernel",
+      "required_receipt_fields": [
+        "status",
+        "flagship_tier",
+        "cuda_arch",
+        "kernel_metrics"
+      ],
+      "required_source_patterns": [
+        "simulate_flash_attention_tile",
+        "FlashAttentionConfig"
+      ],
+      "signature_innovation": "NVIDIA FlashAttention-v2 GPU kernel"
+    },
+    "rhl_quant": {
+      "expected_failure_cases": [
+        "outlier overflow",
+        "zero scale factor",
+        "shape mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "hardware ASIC tapeout",
+        "zero latency loss"
+      ],
+      "proof_surface": "1.58-bit Base Ternary Lattice with 2-bit Sparse Delta HLO Outlier Mesh",
+      "required_receipt_fields": [
+        "status",
+        "flagship_tier",
+        "novel_quantization",
+        "quant_metrics",
+        "performance"
+      ],
+      "required_source_patterns": [
+        "quantize_weight_tensor",
+        "dequantize_and_matmul"
+      ],
+      "signature_innovation": "Residual HLO-Lattice Quantization (RHL-Quant)"
+    }
+  },
+  "global_claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+  "schema_version": "1.0.0"
+}

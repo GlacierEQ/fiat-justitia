@@ -1,0 +1,62 @@
+{
+  "as_of": "2026-07-31",
+  "claim_contracts": "advanced-claim-contracts.json",
+  "fragments": [
+    "tower.d/systems.json",
+    "tower.d/orchestration-runtime.json",
+    "tower.d/science-data.json",
+    "tower.d/compute-graphs.json",
+    "tower.d/contracts-hardware.json",
+    "tower.d/formal.json",
+    "tower.d/nextgen-innovations.json"
+  ],
+  "governance": {
+    "addition_rule": "No technology is advertised or integrated outside this registry.",
+    "canonical_model": "indexed_registry",
+    "canonical_source": "registry/tower.yml",
+    "claim_contract_rule": "Every admitted technology has one registry-owned advanced claim contract with source assertions, expected failure cases, receipt fields, and forbidden overclaims.",
+    "evidence_states": [
+      "illustrative",
+      "compiles",
+      "tested",
+      "benchmark",
+      "hardware_gated",
+      "toolchain_gated",
+      "service_gated",
+      "formally_verified",
+      "integrated",
+      "production_reference"
+    ],
+    "fragment_rule": "All technology records live in contained fragments named by registry/tower.yml; the index, technology fragments, and claim-contract fragment form one canonical registry.",
+    "generated_surfaces": [
+      "README.md",
+      "ADVANCED_EXHIBITS.md",
+      "quality/advanced_exhibit_atlas.json",
+      "src/babel_registry.py",
+      "mastermind_sidecar.py",
+      ".integrity/file_hashes.json",
+      "src/tower/data/tower.yml",
+      "src/tower/data/advanced-claim-contracts.json",
+      "src/tower/data/tower.d/<fragment>.json",
+      "generated/build_commands.json",
+      "generated/interfaces.json",
+      "generated/link_library.md",
+      "generated/maturity.json",
+      "generated/megamind.technology-map.json",
+      "generated/smithery.registry.json",
+      "generated/spiral-engine.registry.json"
+    ],
+    "proof_classes": [
+      "illustrative",
+      "compile",
+      "behavioral",
+      "benchmark",
+      "hardware",
+      "integration",
+      "formal"
+    ]
+  },
+  "schema_version": "1.1.0",
+  "title": "The Tower of Babel",
+  "tower_id": "glaciereq.tower-of-babel.v1"
+}

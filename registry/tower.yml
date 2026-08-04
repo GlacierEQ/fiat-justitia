@@ -1,0 +1,66 @@
+{
+  "as_of": "2026-08-04",
+  "claim_contracts": "advanced-claim-contracts.json",
+  "fragments": [
+    "tower.d/motions.json",
+    "tower.d/complaints.json",
+    "tower.d/evidence.json",
+    "tower.d/procedures.json",
+    "tower.d/remedies.json",
+    "tower.d/precedents.json",
+    "tower.d/federal-rules.json"
+  ],
+  "governance": {
+    "addition_rule": "No legal document type is admitted without verified precedent, statutory authority, and proof of filing readiness.",
+    "canonical_model": "indexed_registry",
+    "canonical_source": "registry/tower.yml",
+    "claim_contract_rule": "Every admitted document type has one registry-owned advanced claim contract with case law assertions, expected failure cases, receipt fields, and forbidden overclaims.",
+    "evidence_states": [
+      "draft",
+      "researched",
+      "templated",
+      "precedent_verified",
+      "filed",
+      "argued",
+      "ruled",
+      "appellate_reviewed",
+      "supreme_certified",
+      "constitutional"
+    ],
+    "fragment_rule": "All legal document records live in contained fragments named by registry/tower.yml; the index, document fragments, and claim-contract fragment form one canonical registry.",
+    "generated_surfaces": [
+      "README.md",
+      "ADVANCED_EXHIBITS.md",
+      "quality/advanced_exhibit_atlas.json",
+      "src/babel_registry.py",
+      "mastermind_sidecar.py",
+      ".integrity/file_hashes.json",
+      "src/tower/data/tower.yml",
+      "src/tower/data/advanced-claim-contracts.json",
+      "src/tower/data/tower.d/<fragment>.json",
+      "generated/build_commands.json",
+      "generated/interfaces.json",
+      "generated/link_library.md",
+      "generated/maturity.json",
+      "generated/megamind.technology-map.json",
+      "generated/smithery.registry.json",
+      "generated/spiral-engine.registry.json"
+    ],
+    "proof_classes": [
+      "draft",
+      "researched",
+      "templated",
+      "precedent_verified",
+      "filed",
+      "argued",
+      "ruled",
+      "appellate_reviewed",
+      "supreme_certified",
+      "constitutional"
+    ]
+  },
+  "schema_version": "1.0.0",
+  "title": "Fiat Justitia Ruat Caelum",
+  "subtitle": "Let Justice Be Done Though The Heavens Fall",
+  "tower_id": "glaciereq.fiat-justitia.v1"
+}

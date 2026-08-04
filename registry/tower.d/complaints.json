@@ -1,0 +1,78 @@
+{
+  "category": "complaints",
+  "description": "Federal complaints and civil rights actions",
+  "documents": {
+    "complaint-1983": {
+      "id": "complaint-1983",
+      "name": "42 U.S.C. § 1983 Civil Rights Complaint",
+      "federal_rule": "42 U.S.C. § 1983",
+      "hawaii_rule": "HRS § 663-1",
+      "evidence_state": "precedent_verified",
+      "proof_class": "filed",
+      "exhibits": {
+        "easy": "Standard § 1983 complaint with state actor allegation",
+        "advanced": "Multi-defendant § 1983 with Monell liability and RICO"
+      },
+      "agents": ["civil-rights-agent", "constitutional-agent"],
+      "pistons": ["stealth-constitutional", "stealth-civil-rights"],
+      "interfaces": ["court-filing", "federal-jurisdiction"],
+      "blockers": ["state_action_doctrine", "qualified_immunity", "exhaustion"],
+      "success_rate": "70%",
+      "average_timeline": "120-365 days"
+    },
+    "complaint-rico": {
+      "id": "complaint-rico",
+      "name": "Racketeer Influenced and Corrupt Organizations Act",
+      "federal_rule": "18 U.S.C. §§ 1961-1968",
+      "hawaii_rule": "HRS § 842",
+      "evidence_state": "precedent_verified",
+      "proof_class": "filed",
+      "exhibits": {
+        "easy": "Standard RICO complaint with pattern of racketeering",
+        "advanced": "Enterprise RICO with multiple predicates and treble damages"
+      },
+      "agents": ["racketeering-agent", "enterprise-agent"],
+      "pistons": ["stealth-enterprise", "stealth-pattern"],
+      "interfaces": ["court-filing", "criminal-civil"],
+      "blockers": ["pattern_requirement", "enterprise_requirement", "racketeering_activity"],
+      "success_rate": "35%",
+      "average_timeline": "180-730 days"
+    },
+    "complaint-emergency-tro": {
+      "id": "complaint-emergency-tro",
+      "name": "Emergency Temporary Restraining Order",
+      "federal_rule": "Fed. R. Civ. P. 65(b)",
+      "hawaii_rule": "HRCP Rule 65(b)",
+      "evidence_state": "emergency",
+      "proof_class": "emergency",
+      "exhibits": {
+        "easy": "Standard TRO with immediate harm allegation",
+        "advanced": "Ex parte TRO with verified complaint and security bond"
+      },
+      "agents": ["emergency-agent", "equity-agent"],
+      "pistons": ["stealth-emergency", "stealth-equity"],
+      "interfaces": ["court-filing", "emergency-relief"],
+      "blockers": ["immediate_irreparable_harm", "no_adequate_remedy", "probability_of_success"],
+      "success_rate": "50%",
+      "average_timeline": "1-14 days"
+    },
+    "complaint-federal-jurisdiction": {
+      "id": "complaint-federal-jurisdiction",
+      "name": "Federal Question Jurisdiction Complaint",
+      "federal_rule": "28 U.S.C. § 1331",
+      "hawaii_rule": "HRS § 603-1",
+      "evidence_state": "precedent_verified",
+      "proof_class": "filed",
+      "exhibits": {
+        "easy": "Standard federal question complaint",
+        "advanced": "Supplemental jurisdiction with state law claims"
+      },
+      "agents": ["jurisdiction-agent", "procedure-agent"],
+      "pistons": ["stealth-jurisdiction", "stealth-procedure"],
+      "interfaces": ["court-filing", "jurisdictional-analysis"],
+      "blockers": ["federal_question", "amount_in_controversy", "diversity"],
+      "success_rate": "75%",
+      "average_timeline": "60-180 days"
+    }
+  }
+}

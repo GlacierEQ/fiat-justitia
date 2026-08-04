@@ -1,0 +1,78 @@
+name: Branch Hygiene
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: branch-hygiene-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  delete-merged-pr-head:
+    if: >-
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPOSITORY: ${{ github.repository }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      BRANCH: ${{ github.event.pull_request.head.ref }}
+      EXPECTED_SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - name: Verify and delete only the exact merged PR head
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+
+          case "${BRANCH}" in
+            feature/*|fix/*|chore/*|docs/*|hardening/*|release/*|dependabot/*|renovate/*)
+              ;;
+            *)
+              echo "Refusing unapproved branch prefix: ${BRANCH}" >&2
+              exit 1
+              ;;
+          esac
+
+          if [[ "${BRANCH}" == "main" || "${BRANCH}" == "HEAD" ]]; then
+            echo "Refusing protected branch: ${BRANCH}" >&2
+            exit 1
+          fi
+
+          status="deleted"
+          remote_sha=""
+          if remote_sha=$(gh api "repos/${REPOSITORY}/git/ref/heads/${BRANCH}" --jq '.object.sha' 2>/dev/null); then
+            if [[ "${remote_sha}" != "${EXPECTED_SHA}" ]]; then
+              echo "Remote branch moved after merge; refusing deletion." >&2
+              echo "expected=${EXPECTED_SHA} observed=${remote_sha}" >&2
+              exit 1
+            fi
+            gh api --method DELETE "repos/${REPOSITORY}/git/refs/heads/${BRANCH}"
+          else
+            status="already_absent"
+          fi
+
+          jq -n \
+            --arg schema "glaciereq.branch-hygiene.receipt.v1" \
+            --arg repository "${REPOSITORY}" \
+            --arg pr_number "${PR_NUMBER}" \
+            --arg branch "${BRANCH}" \
+            --arg expected_sha "${EXPECTED_SHA}" \
+            --arg observed_sha "${remote_sha}" \
+            --arg status "${status}" \
+            '{schema:$schema,repository:$repository,pr_number:($pr_number|tonumber),branch:$branch,expected_sha:$expected_sha,observed_sha:$observed_sha,status:$status}' \
+            > artifacts/branch-hygiene-receipt.json
+
+      - name: Upload branch-deletion receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: branch-hygiene-pr-${{ github.event.pull_request.number }}
+          path: artifacts/branch-hygiene-receipt.json
+          if-no-files-found: error
+          retention-days: 30

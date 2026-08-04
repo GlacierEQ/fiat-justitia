@@ -1,0 +1,195 @@
+{
+  "category": "legal-agents",
+  "description": "Legal-specific execution engines and agents",
+  "pistons": {
+    "stealth-justice": {
+      "id": "stealth-justice",
+      "name": "Justice Engine",
+      "role": "Core legal reasoning and analysis",
+      "capabilities": ["legal-reasoning", "case-analysis", "strategy-recommendation"],
+      "technologies": ["python", "legal-research-databases"],
+      "interfaces": ["legal-api", "case-management"],
+      "proof_class": "constitutional"
+    },
+    "stealth-precedent": {
+      "id": "stealth-precedent",
+      "name": "Precedent Engine",
+      "role": "Case law research and citation",
+      "capabilities": ["case-law-research", "citation-analysis", "precedent-mapping"],
+      "technologies": ["legal-research-apis", "nlp"],
+      "interfaces": ["westlaw-api", "lexisnexis-api"],
+      "proof_class": "researched"
+    },
+    "stealth-evidence": {
+      "id": "stealth-evidence",
+      "name": "Evidence Engine",
+      "role": "Evidence management and authentication",
+      "capabilities": ["evidence-tracking", "authentication", "chain-of-custody"],
+      "technologies": ["blockchain", "digital-forensics"],
+      "interfaces": ["evidence-vault", "authentication-api"],
+      "proof_class": "precedent_verified"
+    },
+    "stealth-argument": {
+      "id": "stealth-argument",
+      "name": "Argument Engine",
+      "role": "Legal argument construction",
+      "capabilities": ["argument-construction", "brief-writing", "oral-argument-prep"],
+      "technologies": ["nlp", "document-generation"],
+      "interfaces": ["document-api", "court-filing"],
+      "proof_class": "filed"
+    },
+    "stealth-emergency": {
+      "id": "stealth-emergency",
+      "name": "Emergency Engine",
+      "role": "Emergency and expedited motions",
+      "capabilities": ["emergency-motions", "expedited-filings", "immediate-relief"],
+      "technologies": ["real-time-processing", "notification-systems"],
+      "interfaces": ["emergency-filing", "notification-api"],
+      "proof_class": "emergency"
+    },
+    "stealth-equity": {
+      "id": "stealth-equity",
+      "name": "Equity Engine",
+      "role": "Equitable relief and injunctions",
+      "capabilities": ["injunctive-relief", "equitable-remedies", "balancing-tests"],
+      "technologies": ["balancing-algorithms", "equity-analysis"],
+      "interfaces": ["equity-api", "injunction-tracking"],
+      "proof_class": "argued"
+    },
+    "stealth-constitutional": {
+      "id": "stealth-constitutional",
+      "name": "Constitutional Engine",
+      "role": "Constitutional law analysis",
+      "capabilities": ["constitutional-analysis", "due-process", "equal-protection"],
+      "technologies": ["constitutional-databases", "precedent-mapping"],
+      "interfaces": ["constitutional-api", "rights-analysis"],
+      "proof_class": "constitutional"
+    },
+    "stealth-jurisdiction": {
+      "id": "stealth-jurisdiction",
+      "name": "Jurisdiction Engine",
+      "role": "Jurisdictional analysis and challenges",
+      "capabilities": ["jurisdictional-analysis", "personal-jurisdiction", "subject-matter-jurisdiction"],
+      "technologies": ["jurisdiction-mapping", "conflict-analysis"],
+      "interfaces": ["jurisdiction-api", "court-mapping"],
+      "proof_class": "filed"
+    },
+    "stealth-damages": {
+      "id": "stealth-damages",
+      "name": "Damages Engine",
+      "role": "Damages calculation and presentation",
+      "capabilities": ["damages-calculation", "expert-damages", "treble-analysis"],
+      "technologies": ["financial-modeling", "damage-calculators"],
+      "interfaces": ["damages-api", "financial-analysis"],
+      "proof_class": "ruled"
+    },
+    "stealth-fraud": {
+      "id": "stealth-fraud",
+      "name": "Fraud Engine",
+      "role": "Fraud detection and analysis",
+      "capabilities": ["fraud-detection", "pattern-analysis", "forensic-accounting"],
+      "technologies": ["forensic-tools", "pattern-recognition"],
+      "interfaces": ["forensic-api", "fraud-detection"],
+      "proof_class": "precedent_verified"
+    },
+    "stealth-civil-rights": {
+      "id": "stealth-civil-rights",
+      "name": "Civil Rights Engine",
+      "role": "Civil rights violation analysis",
+      "capabilities": ["civil-rights-analysis", "discrimination-claims", "pattern-practice"],
+      "technologies": ["civil-rights-databases", "pattern-recognition"],
+      "interfaces": ["civil-rights-api", "discrimination-analysis"],
+      "proof_class": "filed"
+    },
+    "stealth-enterprise": {
+      "id": "stealth-enterprise",
+      "name": "Enterprise Engine",
+      "role": "RICO enterprise analysis",
+      "capabilities": ["rico-analysis", "enterprise-structure", "pattern-racketeering"],
+      "technologies": ["network-analysis", "enterprise-mapping"],
+      "interfaces": ["rico-api", "enterprise-mapping"],
+      "proof_class": "filed"
+    },
+    "stealth-transcription": {
+      "id": "stealth-transcription",
+      "name": "Transcription Engine",
+      "role": "Audio transcription and analysis",
+      "capabilities": ["whisperx-transcription", "timestamp-verification", "audio-analysis"],
+      "technologies": ["whisperx", "audio-processing"],
+      "interfaces": ["transcription-api", "audio-analysis"],
+      "proof_class": "researched"
+    }
+  },
+  "agents": {
+    "procedure-agent": {
+      "id": "procedure-agent",
+      "name": "Procedural Compliance Agent",
+      "role": "Ensures procedural compliance",
+      "capabilities": ["rule-checking", "deadline-tracking", "filing-verification"],
+      "pistons": ["stealth-justice", "stealth-precedent"]
+    },
+    "strategy-agent": {
+      "id": "strategy-agent",
+      "name": "Litigation Strategy Agent",
+      "role": "Develops litigation strategy",
+      "capabilities": ["strategy-development", "risk-assessment", "timeline-planning"],
+      "pistons": ["stealth-justice", "stealth-precedent"]
+    },
+    "evidence-agent": {
+      "id": "evidence-agent",
+      "name": "Evidence Management Agent",
+      "role": "Manages evidence lifecycle",
+      "capabilities": ["evidence-tracking", "authentication", "disclosure"],
+      "pistons": ["stealth-evidence", "stealth-argument"]
+    },
+    "argument-agent": {
+      "id": "argument-agent",
+      "name": "Legal Argument Agent",
+      "role": "Constructs legal arguments",
+      "capabilities": ["argument-construction", "brief-writing", "citation"],
+      "pistons": ["stealth-argument", "stealth-precedent"]
+    },
+    "emergency-agent": {
+      "id": "emergency-agent",
+      "name": "Emergency Response Agent",
+      "role": "Handles emergency filings",
+      "capabilities": ["emergency-motions", "expedited-filings", "immediate-relief"],
+      "pistons": ["stealth-emergency", "stealth-equity"]
+    },
+    "constitutional-agent": {
+      "id": "constitutional-agent",
+      "name": "Constitutional Law Agent",
+      "role": "Constitutional analysis",
+      "capabilities": ["constitutional-analysis", "due-process", "equal-protection"],
+      "pistons": ["stealth-constitutional", "stealth-jurisdiction"]
+    },
+    "damages-agent": {
+      "id": "damages-agent",
+      "name": "Damages Calculation Agent",
+      "role": "Calculates damages",
+      "capabilities": ["damages-calculation", "expert-damages", "treble-analysis"],
+      "pistons": ["stealth-damages", "stealth-argument"]
+    },
+    "fraud-agent": {
+      "id": "fraud-agent",
+      "name": "Fraud Detection Agent",
+      "role": "Detects and analyzes fraud",
+      "capabilities": ["fraud-detection", "pattern-analysis", "forensic-accounting"],
+      "pistons": ["stealth-fraud", "stealth-evidence"]
+    },
+    "civil-rights-agent": {
+      "id": "civil-rights-agent",
+      "name": "Civil Rights Agent",
+      "role": "Civil rights violation analysis",
+      "capabilities": ["civil-rights-analysis", "discrimination-claims", "pattern-practice"],
+      "pistons": ["stealth-civil-rights", "stealth-constitutional"]
+    },
+    "enterprise-agent": {
+      "id": "enterprise-agent",
+      "name": "Enterprise RICO Agent",
+      "role": "RICO enterprise analysis",
+      "capabilities": ["rico-analysis", "enterprise-structure", "pattern-racketeering"],
+      "pistons": ["stealth-enterprise", "stealth-fraud"]
+    }
+  }
+}

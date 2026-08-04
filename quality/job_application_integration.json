@@ -1,0 +1,37 @@
+{
+  "schema": "glaciereq.tower.job-application-integration.v1",
+  "tower_repository": "GlacierEQ/the-tower-of-babel",
+  "tower_anchor": "1028a58986be6bedd1d8d09a63593876aab52d1d",
+  "integration_role": "technology_placement_and_proof_authority",
+  "authority_boundaries": {
+    "public_recruiter_front_door": "GlacierEQ/job-application",
+    "candidate_and_evidence_control_plane": "GlacierEQ/job-app-helix",
+    "technology_and_interoperability_authority": "GlacierEQ/the-tower-of-babel"
+  },
+  "package_projection": [
+    "technology_engineering_brief",
+    "advanced_exhibit_atlas_snapshot",
+    "candidate_machine_contract",
+    "repository_sync_receipt",
+    "portfolio_graph"
+  ],
+  "canonical_counts_at_anchor": {
+    "technology_floors": 30,
+    "linked_easy_and_advanced_exhibits": 60,
+    "behavioral_proof_floors": 13,
+    "formal_proof_floors": 3,
+    "explicitly_gated_floors": 8
+  },
+  "truth_policy": {
+    "decorative_polyglot_signaling": false,
+    "working_components_rewritten_for_novelty": false,
+    "gated_states_preserved": true,
+    "repository_source_is_deployment_proof": false,
+    "portfolio_wide_scale_claimed": false
+  },
+  "related_anchors": {
+    "job_application": "1efb16a7017ebae0454d556c5ac31b4149c18673",
+    "job_app_helix_main": "1bcb70ab26b633a7b3cef7a3560a766b56917d80",
+    "job_app_helix_final_form": "9942936b5fddf2bf5c4b64808253fdf9b0648d93"
+  }
+}

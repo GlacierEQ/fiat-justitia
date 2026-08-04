@@ -1,0 +1,361 @@
+{
+  "technologies": [
+    {
+      "id": "ebpf",
+      "name": "eBPF",
+      "category": "kernel_tracing_and_security",
+      "artifact_type": "bytecode",
+      "extension": ".bpf.c",
+      "what": "Executes sandboxed bytecode inside the Linux kernel without modifying kernel source code.",
+      "why": "It enables programmable zero-overhead packet filtering, syscall tracing, and real-time security auditing.",
+      "where": "Linux kernel tracing, Cilium networking, Falco security auditing, and socket performance profiling.",
+      "when": "Use when kernel-level observability, network packet filtering, or syscall enforcement is required at line rate.",
+      "how": "C/Rust eBPF programs, BPF maps, helpers, kprobes, tracepoints, and clang target bpf compilation.",
+      "primary_evidence": [
+        "https://ebpf.io/docs/"
+      ],
+      "proof_class": "compile",
+      "evidence_state": "compiles",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "toolchain": {
+        "tool": "clang",
+        "reference_pin": "18.0",
+        "build": [
+          [
+            "clang",
+            "-target",
+            "bpf",
+            "-O2",
+            "-g",
+            "-c",
+            "languages/ebpf/easy_packet_filter.bpf.c",
+            "-o",
+            "build/ebpf_easy.o"
+          ],
+          [
+            "clang",
+            "-target",
+            "bpf",
+            "-O2",
+            "-g",
+            "-c",
+            "languages/ebpf/advanced_syscall_sentinel.bpf.c",
+            "-o",
+            "build/ebpf_advanced.o"
+          ]
+        ],
+        "test": []
+      },
+      "interfaces": [
+        "c_abi",
+        "bpf_map"
+      ],
+      "megamind": {
+        "agents": [
+          "security-agent",
+          "kernel-agent"
+        ],
+        "pistons": [
+          "stealth-viper"
+        ]
+      },
+      "easy_example": "languages/ebpf/easy_packet_filter.bpf.c",
+      "advanced_example": "languages/ebpf/advanced_syscall_sentinel.bpf.c"
+    },
+    {
+      "id": "openqasm",
+      "name": "OpenQASM 3.0",
+      "category": "quantum_compute",
+      "artifact_type": "circuit_description",
+      "extension": ".qasm",
+      "what": "Describes quantum circuits, entanglement gates, and classical feedback loops for QPUs.",
+      "why": "It provides a hardware-agnostic intermediate representation for gate-based quantum compilation.",
+      "where": "IBM Quantum, AWS Braket, Rigetti, QPU simulators, and quantum error correction algorithms.",
+      "when": "Use when constructing quantum circuits, Bell states, or hybrid quantum-classical algorithms.",
+      "how": "Qubit declarations, Hadamard/CNOT gates, measurement registers, and real-time classical conditionals.",
+      "primary_evidence": [
+        "https://openqasm.com/"
+      ],
+      "proof_class": "compile",
+      "evidence_state": "toolchain_gated",
+      "execution": {
+        "ci_tier": "specialized",
+        "hardware_gate": ""
+      },
+      "toolchain": {
+        "tool": "qasm3",
+        "reference_pin": "3.0.0",
+        "build": [
+          [
+            "qasm3",
+            "languages/openqasm/easy_bell_state.qasm"
+          ],
+          [
+            "qasm3",
+            "languages/openqasm/advanced_grover_oracle.qasm"
+          ]
+        ],
+        "test": []
+      },
+      "interfaces": [
+        "qasm_ir"
+      ],
+      "megamind": {
+        "agents": [
+          "physics-agent",
+          "quantum-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
+      "easy_example": "languages/openqasm/easy_bell_state.qasm",
+      "advanced_example": "languages/openqasm/advanced_grover_oracle.qasm"
+    },
+    {
+      "id": "cairo",
+      "name": "Cairo",
+      "category": "zero_knowledge_proofs",
+      "artifact_type": "turing_complete_zk",
+      "extension": ".cairo",
+      "what": "A Turing-complete language for writing STARK-provable programs and zero-knowledge verification logic.",
+      "why": "It allows complex off-chain execution to be mathematically proven on-chain via succinct cryptographic receipts.",
+      "where": "Starknet, STARK-based L2 rollups, verifiable AI inference, and privacy-preserving audit ledgers.",
+      "when": "Use when off-chain state execution must produce cryptographically verifiable proof of correctness.",
+      "how": "Felt types, memory alignment, hint execution, Sierra lowering, and STARK proof verification.",
+      "primary_evidence": [
+        "https://cairo-lang.org/docs/"
+      ],
+      "proof_class": "compile",
+      "evidence_state": "toolchain_gated",
+      "execution": {
+        "ci_tier": "specialized",
+        "hardware_gate": ""
+      },
+      "toolchain": {
+        "tool": "cairo-compile",
+        "reference_pin": "2.9.0",
+        "build": [
+          [
+            "cairo-compile",
+            "languages/cairo/easy_fib_proof.cairo",
+            "-o",
+            "build/cairo_easy.json"
+          ],
+          [
+            "cairo-compile",
+            "languages/cairo/advanced_stark_governor.cairo",
+            "-o",
+            "build/cairo_advanced.json"
+          ]
+        ],
+        "test": []
+      },
+      "interfaces": [
+        "stark_proof",
+        "sierra"
+      ],
+      "megamind": {
+        "agents": [
+          "cryptography-agent",
+          "evidence-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
+      "easy_example": "languages/cairo/easy_fib_proof.cairo",
+      "advanced_example": "languages/cairo/advanced_stark_governor.cairo"
+    },
+    {
+      "id": "jax",
+      "name": "JAX (xAI Grok Flagship)",
+      "category": "functional_ai_systems",
+      "artifact_type": "tensor_autodiff",
+      "extension": ".py",
+      "what": "Autograd and XLA compiler framework for high-performance functional neural network compute.",
+      "why": "Powering Grok (xAI) and Gemini models with functional purity, automatic differentiation, and XLA kernel compilation.",
+      "where": "Grok LLM training pipelines, xAI cluster orchestration, TPU/GPU distributed attention, and neural dynamics.",
+      "when": "Use when building high-performance LLMs (Grok-scale), custom automatic differentiation, or XLA-compiled tensor transforms.",
+      "how": "jax.jit, jax.grad, jax.vmap, jax.pmap, flax/equinox modules, NamedSharding, and PartitionSpec XLA lowering.",
+      "primary_evidence": [
+        "https://jax.readthedocs.io/",
+        "https://x.ai/blog/grok-1"
+      ],
+      "proof_class": "behavioral",
+      "evidence_state": "production_reference",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "toolchain": {
+        "tool": "python3",
+        "reference_pin": "3.12 + jax 0.4.35",
+        "build": [
+          [
+            "python3",
+            "languages/jax/easy_grad_jit.py"
+          ],
+          [
+            "python3",
+            "languages/jax/advanced_grok_transformer_attention.py"
+          ],
+          [
+            "python3",
+            "languages/jax/advanced_grok_distributed_mesh.py"
+          ]
+        ],
+        "test": [
+          [
+            "python3",
+            "languages/jax/easy_grad_jit.py"
+          ],
+          [
+            "python3",
+            "languages/jax/advanced_grok_transformer_attention.py"
+          ],
+          [
+            "python3",
+            "languages/jax/advanced_grok_distributed_mesh.py"
+          ]
+        ]
+      },
+      "interfaces": [
+        "xla",
+        "python_api",
+        "mesh_sharding"
+      ],
+      "megamind": {
+        "agents": [
+          "ai-agent",
+          "grok-agent"
+        ],
+        "pistons": [
+          "core-think",
+          "bodybuilder"
+        ]
+      },
+      "easy_example": "languages/jax/easy_grad_jit.py",
+      "advanced_example": "languages/jax/advanced_grok_distributed_mesh.py"
+    },
+    {
+      "id": "datalog",
+      "name": "Soufflé Datalog",
+      "category": "declarative_static_analysis",
+      "artifact_type": "logic_rules",
+      "extension": ".dl",
+      "what": "Declarative logic programming language for high-speed static code analysis and security verification.",
+      "why": "It resolves complex graph reachability, pointer analysis, and security policy rules in parallel C++ code.",
+      "where": "Vulnerability scanning, compiler program analysis, access control evaluation, and static call graph analysis.",
+      "when": "Use when declarative rule-based query evaluation across large code graphs is required.",
+      "how": "Facts, relations, horn clauses, stratification, fixed-point evaluation, and C++ compilation.",
+      "primary_evidence": [
+        "https://souffle-lang.github.io/"
+      ],
+      "proof_class": "compile",
+      "evidence_state": "compiles",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "toolchain": {
+        "tool": "souffle",
+        "reference_pin": "2.4",
+        "build": [
+          [
+            "souffle",
+            "languages/datalog/easy_reachability.dl",
+            "-D",
+            "build/datalog_easy"
+          ],
+          [
+            "souffle",
+            "languages/datalog/advanced_vulnerability_scanner.dl",
+            "-D",
+            "build/datalog_advanced"
+          ]
+        ],
+        "test": []
+      },
+      "interfaces": [
+        "datalog_facts"
+      ],
+      "megamind": {
+        "agents": [
+          "security-agent",
+          "analysis-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
+      "easy_example": "languages/datalog/easy_reachability.dl",
+      "advanced_example": "languages/datalog/advanced_vulnerability_scanner.dl"
+    },
+    {
+      "id": "rhl_quant",
+      "name": "RHL-Quant (1.58b Ternary Quantization Flagship)",
+      "category": "quantization_and_compression",
+      "artifact_type": "tensor_compression",
+      "extension": ".py",
+      "what": "Post-training 2-level quantum-lattice quantization engine combining 1.58-bit ternary base with 2-bit sparse residual delta HLO mesh.",
+      "why": "Shrinks 314-billion parameter LLM weights (Grok-1) from 628 GB down to ~65 GB, enabling full 314B MoE inference on a single 80GB H100 GPU.",
+      "where": "Frontier LLM deployment, VRAM constrained edge clusters, bitwise GPU matrix multiplication, and ultra-low memory inference.",
+      "when": "Use when fitting massive MoE or dense LLMs onto minimal GPU VRAM hardware without perplexity degradation.",
+      "how": "Base ternary lattice {-1, 0, +1}, residual delta mesh, POPCNT bitwise GPU matmul, and dynamic scale factor reconstruction.",
+      "primary_evidence": [
+        "https://github.com/GlacierEQ/residual-lattice-quantization",
+        "https://arxiv.org/abs/2402.17764"
+      ],
+      "proof_class": "behavioral",
+      "evidence_state": "production_reference",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "toolchain": {
+        "tool": "python3",
+        "reference_pin": "3.12",
+        "build": [
+          [
+            "python3",
+            "languages/rhl_quant/easy_ternary_scale.py"
+          ],
+          [
+            "python3",
+            "languages/rhl_quant/advanced_rhl_quant_engine.py"
+          ]
+        ],
+        "test": [
+          [
+            "python3",
+            "languages/rhl_quant/easy_ternary_scale.py"
+          ],
+          [
+            "python3",
+            "languages/rhl_quant/advanced_rhl_quant_engine.py"
+          ]
+        ]
+      },
+      "interfaces": [
+        "python_api",
+        "quantization_mesh"
+      ],
+      "megamind": {
+        "agents": [
+          "quantization-agent",
+          "gpu-agent"
+        ],
+        "pistons": [
+          "bodybuilder",
+          "core-think"
+        ]
+      },
+      "easy_example": "languages/rhl_quant/easy_ternary_scale.py",
+      "advanced_example": "languages/rhl_quant/advanced_rhl_quant_engine.py"
+    }
+  ]
+}

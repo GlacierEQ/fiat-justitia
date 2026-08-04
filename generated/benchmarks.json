@@ -1,0 +1,79 @@
+{
+  "benchmark_id": "tower-portable-benchmark-v1",
+  "iterations": 3,
+  "requested_technology_ids": [
+    "python",
+    "c",
+    "rust"
+  ],
+  "results": [
+    {
+      "build_status": "VERIFIED",
+      "evidence_state": "tested",
+      "measurement": {
+        "argv": [
+          "build/c_advanced"
+        ],
+        "iterations": 3,
+        "max_ms": 31.255,
+        "median_ms": 20.944,
+        "min_ms": 17.995,
+        "samples_ms": [
+          20.944,
+          31.255,
+          17.995
+        ],
+        "status": "MEASURED"
+      },
+      "proof_class": "behavioral",
+      "status": "MEASURED",
+      "technology_id": "c"
+    },
+    {
+      "build_status": "VERIFIED",
+      "evidence_state": "tested",
+      "measurement": {
+        "argv": [
+          "python3",
+          "languages/python/advanced_async_orchestrator.py"
+        ],
+        "iterations": 3,
+        "max_ms": 2296.532,
+        "median_ms": 2233.005,
+        "min_ms": 2182.939,
+        "samples_ms": [
+          2233.005,
+          2182.939,
+          2296.532
+        ],
+        "status": "MEASURED"
+      },
+      "proof_class": "behavioral",
+      "status": "MEASURED",
+      "technology_id": "python"
+    },
+    {
+      "build_status": "VERIFIED",
+      "evidence_state": "tested",
+      "measurement": {
+        "argv": [
+          "build/rust_advanced_tests"
+        ],
+        "iterations": 3,
+        "max_ms": 25.851,
+        "median_ms": 17.516,
+        "min_ms": 10.364,
+        "samples_ms": [
+          25.851,
+          17.516,
+          10.364
+        ],
+        "status": "MEASURED"
+      },
+      "proof_class": "behavioral",
+      "status": "MEASURED",
+      "technology_id": "rust"
+    }
+  ],
+  "truth_note": "Measurements are local process timings for the declared exhibit commands, not universal language rankings."
+}

@@ -1,0 +1,1302 @@
+{
+  "advanced_exhibit_count": 36,
+  "all_claim_contracts_present": true,
+  "all_profiles_present": true,
+  "authority": [
+    "registry/tower.yml",
+    "registry/advanced-claim-contracts.json"
+  ],
+  "claim_contract_schema": "1.0.0",
+  "exhibits": [
+    {
+      "activation_condition": "Use when deterministic layout, ABI control, or near-zero runtime overhead is mandatory.",
+      "advanced_exhibit": "languages/c/advanced_lockfree_spsc_ring.c",
+      "architectural_role": "Firmware, kernels, embedded loops, lock-free primitives, and portable system libraries.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "null input",
+        "bounded overflow",
+        "sequence corruption"
+      ],
+      "forbidden_claim_patterns": [
+        "wait[- ]free",
+        "multi[- ]producer"
+      ],
+      "id": "c",
+      "interfaces": [
+        "c_abi",
+        "shared_memory"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "bounded queue, atomics, FIFO and backpressure receipt",
+      "required_receipt_fields": [
+        "status",
+        "produced",
+        "consumed",
+        "sequence_errors",
+        "backpressure_events"
+      ],
+      "signature_innovation": "Lock-free SPSC telemetry handoff",
+      "source_assertions": [
+        "SPSC",
+        "backpressure_events"
+      ],
+      "technology": "C"
+    },
+    {
+      "activation_condition": "Use when performance and complex abstractions must coexist in one native binary.",
+      "advanced_exhibit": "languages/cpp/advanced_kv_entropy.cpp",
+      "architectural_role": "Engines, inference runtimes, cache systems, geometry, simulation, and latency-sensitive services.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "invalid capacity",
+        "pinned eviction",
+        "nondeterministic ranking"
+      ],
+      "forbidden_claim_patterns": [
+        "optimal cache",
+        "production[- ]proven"
+      ],
+      "id": "cpp",
+      "interfaces": [
+        "c_abi",
+        "protobuf"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "deterministic utility scoring, pinned retention and decision fingerprint",
+      "required_receipt_fields": [
+        "status",
+        "decision_fingerprint",
+        "retained",
+        "evicted"
+      ],
+      "signature_innovation": "Entropy-aware KV cache policy",
+      "source_assertions": [
+        "entropy",
+        "fingerprint"
+      ],
+      "technology": "C++"
+    },
+    {
+      "activation_condition": "Use when native performance and strong memory/concurrency guarantees are both non-negotiable.",
+      "advanced_exhibit": "languages/rust/advanced_safety_governor.rs",
+      "architectural_role": "Evidence engines, action governors, cryptographic tooling, network services, and safe concurrency.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "path traversal",
+        "oversized payload",
+        "missing approval"
+      ],
+      "forbidden_claim_patterns": [
+        "memory[- ]safe therefore secure",
+        "formally verified"
+      ],
+      "id": "rust",
+      "interfaces": [
+        "protobuf",
+        "c_abi",
+        "capnp"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "fail-closed path, payload, depth and approval policy",
+      "required_receipt_fields": [
+        "status",
+        "decision",
+        "reason",
+        "receipt"
+      ],
+      "signature_innovation": "Typed side-effect safety governor",
+      "source_assertions": [
+        "approval",
+        "deny|Denied|blocked"
+      ],
+      "technology": "Rust"
+    },
+    {
+      "activation_condition": "Use when cross-target delivery, allocator control, or C integration dominates.",
+      "advanced_exhibit": "languages/zig/advanced_arena_allocator.zig",
+      "architectural_role": "Portable CLIs, allocators, cross-compilation, embedded tools, and small runtime components.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "allocator exhaustion",
+        "duplicate sample",
+        "sample ceiling"
+      ],
+      "forbidden_claim_patterns": [
+        "zero allocation",
+        "production allocator"
+      ],
+      "id": "zig",
+      "interfaces": [
+        "c_abi",
+        "wasm"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "arena lifetime, deduplication and hard sample ceiling",
+      "required_receipt_fields": [
+        "accepted",
+        "duplicates",
+        "capacity"
+      ],
+      "signature_innovation": "Mission-scoped allocator discipline",
+      "source_assertions": [
+        "ArenaAllocator|arena",
+        "dedup|duplicate"
+      ],
+      "technology": "Zig"
+    },
+    {
+      "activation_condition": "Use when data layout, allocator visibility, and predictable control flow are central.",
+      "advanced_exhibit": "languages/odin/advanced_reentry_thermal.odin",
+      "architectural_role": "Game engines, physics, visualization, and deterministic real-time loops.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "toolchain_gated",
+      "expected_failure_cases": [
+        "invalid timestep",
+        "nonphysical temperature",
+        "mission bound"
+      ],
+      "forbidden_claim_patterns": [
+        "flight[- ]qualified",
+        "validated spacecraft"
+      ],
+      "id": "odin",
+      "interfaces": [
+        "c_abi"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "compile",
+      "proof_surface": "explicit physical bounds, ablation and mission diagnostics",
+      "required_receipt_fields": [
+        "status",
+        "temperature",
+        "ablation",
+        "diagnostics"
+      ],
+      "signature_innovation": "Data-oriented thermal integration",
+      "source_assertions": [
+        "thermal|temperature",
+        "ablation"
+      ],
+      "technology": "Odin"
+    },
+    {
+      "activation_condition": "Use when iteration speed, ecosystem breadth, and readable coordination dominate the boundary.",
+      "advanced_exhibit": "languages/python/advanced_async_orchestrator.py",
+      "architectural_role": "Mission orchestration, model tooling, document pipelines, tests, and integration glue.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "queue full",
+        "retry exhaustion",
+        "shutdown with pending work"
+      ],
+      "forbidden_claim_patterns": [
+        "exactly[- ]once",
+        "production scheduler"
+      ],
+      "id": "python",
+      "interfaces": [
+        "protobuf",
+        "json",
+        "subprocess"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "bounded queues, FIFO ties, futures, retries and graceful shutdown",
+      "required_receipt_fields": [
+        "status",
+        "completed",
+        "failed",
+        "retries"
+      ],
+      "signature_innovation": "Drainable priority agent runtime",
+      "source_assertions": [
+        "PriorityQueue|priority",
+        "shutdown|drain"
+      ],
+      "technology": "Python"
+    },
+    {
+      "activation_condition": "Use when many I/O-bound tasks need straightforward concurrency and operational simplicity.",
+      "advanced_exhibit": "languages/go/advanced_telemetry_decoder.go",
+      "architectural_role": "Gateways, control-plane daemons, streaming telemetry, and cloud infrastructure.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "checksum mismatch",
+        "oversized frame",
+        "sequence discontinuity"
+      ],
+      "forbidden_claim_patterns": [
+        "lossless network",
+        "production protocol"
+      ],
+      "id": "go",
+      "interfaces": [
+        "protobuf",
+        "grpc",
+        "http"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "CRC, frame bounds, sequence continuity, cancellation and metrics",
+      "required_receipt_fields": [
+        "status",
+        "frames",
+        "crc_errors",
+        "sequence_errors"
+      ],
+      "signature_innovation": "Versioned telemetry trust boundary",
+      "source_assertions": [
+        "CRC|crc",
+        "sequence"
+      ],
+      "technology": "Go"
+    },
+    {
+      "activation_condition": "Use when the boundary is web-native, JSON/RPC-heavy, or shared between frontend and backend.",
+      "advanced_exhibit": "languages/typescript/advanced_mcp_gateway.ts",
+      "architectural_role": "MCP gateways, web applications, browser agents, connectors, and asynchronous control surfaces.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "invalid method",
+        "mutation without approval",
+        "rate limit"
+      ],
+      "forbidden_claim_patterns": [
+        "fully MCP compliant",
+        "production gateway"
+      ],
+      "id": "typescript",
+      "interfaces": [
+        "jsonrpc",
+        "mcp",
+        "protobuf"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "runtime validation, mutation approval, rate limiting and hashed receipts",
+      "required_receipt_fields": [
+        "status",
+        "request_hash",
+        "decision",
+        "error"
+      ],
+      "signature_innovation": "Governed MCP/JSON-RPC gateway",
+      "source_assertions": [
+        "JSON.?RPC|jsonrpc",
+        "approval|rate"
+      ],
+      "technology": "TypeScript"
+    },
+    {
+      "activation_condition": "Use when the target is Apple's runtime, UI stack, or GPU/ANE ecosystem.",
+      "advanced_exhibit": "languages/swift/advanced_metal_compute_engine.swift",
+      "architectural_role": "macOS/iOS applications, Apple Silicon inference, Metal compute, and device-native interfaces.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "hardware_gated",
+      "expected_failure_cases": [
+        "Metal unavailable",
+        "shape mismatch",
+        "CPU/GPU divergence"
+      ],
+      "forbidden_claim_patterns": [
+        "runs? (directly )?on (the )?ANE",
+        "ANE backend",
+        "production GPU"
+      ],
+      "id": "swift",
+      "interfaces": [
+        "metal",
+        "coreml"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "hardware",
+      "proof_surface": "GPU dispatch with CPU reference and an explicit no-ANE claim boundary",
+      "required_receipt_fields": [
+        "status",
+        "backend",
+        "max_error"
+      ],
+      "signature_innovation": "Metal affine-clamp engine",
+      "source_assertions": [
+        "Metal|MTL",
+        "clamp"
+      ],
+      "technology": "Swift"
+    },
+    {
+      "activation_condition": "Use when fault isolation, uptime, and highly concurrent messaging dominate.",
+      "advanced_exhibit": "languages/elixir/advanced_fault_tolerant_beam.ex",
+      "architectural_role": "Realtime backends, event systems, self-healing clusters, and coordination services.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "duplicate mission",
+        "worker crash",
+        "supervisor restart failure"
+      ],
+      "forbidden_claim_patterns": [
+        "exactly[- ]once",
+        "zero downtime"
+      ],
+      "id": "elixir",
+      "interfaces": [
+        "protobuf",
+        "http",
+        "events"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "duplicate rejection and observed process replacement after failure",
+      "required_receipt_fields": [
+        "status",
+        "mission_id",
+        "restarts",
+        "duplicates"
+      ],
+      "signature_innovation": "Supervised idempotent mission worker",
+      "source_assertions": [
+        "Supervisor|supervis",
+        "idempotent|duplicate"
+      ],
+      "technology": "Elixir"
+    },
+    {
+      "activation_condition": "Use when algebraic structure and purity simplify reasoning about complex state.",
+      "advanced_exhibit": "languages/haskell/advanced_ast_validator.hs",
+      "architectural_role": "Compilers, DSLs, formal models, financial logic, and correctness-sensitive transformations.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "absolute path",
+        "parent traversal",
+        "unsupported node"
+      ],
+      "forbidden_claim_patterns": [
+        "formally verified",
+        "complete parser"
+      ],
+      "id": "haskell",
+      "interfaces": [
+        "protobuf",
+        "ffi"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "algebraic decisions, lexical path safety and deterministic receipt",
+      "required_receipt_fields": [
+        "status",
+        "decision",
+        "errors",
+        "receipt"
+      ],
+      "signature_innovation": "Pure capability-policy AST validation",
+      "source_assertions": [
+        "AST|Expr|Policy",
+        "path|Path"
+      ],
+      "technology": "Haskell"
+    },
+    {
+      "activation_condition": "Use when statistical methodology and domain packages matter more than service deployment.",
+      "advanced_exhibit": "languages/r/advanced_bayesian_ab_test.R",
+      "architectural_role": "Experiments, Bayesian analysis, biostatistics, forecasting, and reproducible reports.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "invalid counts",
+        "empty posterior",
+        "decision threshold"
+      ],
+      "forbidden_claim_patterns": [
+        "MCMC",
+        "Bayes factor"
+      ],
+      "id": "r",
+      "interfaces": [
+        "csv",
+        "arrow",
+        "sql"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "ROPE, HDI and expected loss without MCMC or Bayes-factor overclaim",
+      "required_receipt_fields": [
+        "status",
+        "rope",
+        "hdi",
+        "expected_loss"
+      ],
+      "signature_innovation": "Exact Beta-Binomial decision analysis",
+      "source_assertions": [
+        "Beta|beta",
+        "ROPE|HDI|expected.loss"
+      ],
+      "technology": "R"
+    },
+    {
+      "activation_condition": "Use when researchers need expressive mathematics without abandoning native-speed kernels.",
+      "advanced_exhibit": "languages/julia/advanced_orbital_differential.jl",
+      "architectural_role": "ODE/PDE solvers, optimization, scientific machine learning, and simulation.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "invalid timestep",
+        "nonfinite state",
+        "excess energy drift"
+      ],
+      "forbidden_claim_patterns": [
+        "mission[- ]grade",
+        "high[- ]fidelity ephemeris"
+      ],
+      "id": "julia",
+      "interfaces": [
+        "arrow",
+        "c_abi"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "velocity-Verlet propagation with conservation drift diagnostics",
+      "required_receipt_fields": [
+        "status",
+        "steps",
+        "energy_drift",
+        "position"
+      ],
+      "signature_innovation": "Energy-audited orbital integration",
+      "source_assertions": [
+        "Verlet|verlet",
+        "energy"
+      ],
+      "technology": "Julia"
+    },
+    {
+      "activation_condition": "Use when durable data relationships and set-oriented operations belong inside the database.",
+      "advanced_exhibit": "languages/sql/advanced_pgvector_hnsw.sql",
+      "architectural_role": "Canonical state, analytics, audit records, knowledge graphs, and embedding search.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "service_gated",
+      "expected_failure_cases": [
+        "cross-tenant access",
+        "invalid dimension",
+        "unbounded result"
+      ],
+      "forbidden_claim_patterns": [
+        "perfect isolation",
+        "production scale"
+      ],
+      "id": "sql",
+      "interfaces": [
+        "postgresql",
+        "arrow"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "integration",
+      "proof_surface": "HNSW retrieval, RLS, constraints and bounded search function",
+      "required_receipt_fields": [
+        "tenant_id",
+        "distance",
+        "evidence_id"
+      ],
+      "signature_innovation": "Tenant-isolated vector evidence store",
+      "source_assertions": [
+        "hnsw|HNSW",
+        "ROW LEVEL SECURITY|RLS|row.level"
+      ],
+      "technology": "SQL / pgvector"
+    },
+    {
+      "activation_condition": "Use when building custom high-performance GPU kernels, FlashAttention fused operators, or Tensor Core matrix acceleration.",
+      "advanced_exhibit": "languages/cuda/advanced_nvidia_flash_attention_kernel.cu",
+      "architectural_role": "Frontier AI LLM cluster training, FlashAttention-v2/v3 kernels, CUDA streams, and PTX assembly acceleration.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "production_reference",
+      "expected_failure_cases": [
+        "out of memory",
+        "warp divergence",
+        "shared memory bank conflict"
+      ],
+      "forbidden_claim_patterns": [
+        "NVIDIA production driver",
+        "custom ASIC hardware"
+      ],
+      "id": "cuda",
+      "interfaces": [
+        "cuda_runtime",
+        "ptx_asm",
+        "tensor_cores"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "NVIDIA FlashAttention-v2 shared-memory tiled GPU kernel",
+      "required_receipt_fields": [
+        "status",
+        "flagship_tier",
+        "cuda_arch",
+        "kernel_metrics"
+      ],
+      "signature_innovation": "NVIDIA FlashAttention-v2 GPU kernel",
+      "source_assertions": [
+        "simulate_flash_attention_tile",
+        "FlashAttentionConfig"
+      ],
+      "technology": "CUDA C++ / PTX (NVIDIA Flagship)"
+    },
+    {
+      "activation_condition": "Use after profiling shows framework kernels are inadequate and the target GPU is supported.",
+      "advanced_exhibit": "languages/triton/advanced_fused_attention.py",
+      "architectural_role": "Fused attention, normalization, quantization, MoE routing, and custom inference operations.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "hardware_gated",
+      "expected_failure_cases": [
+        "Triton unavailable",
+        "shape mismatch",
+        "oracle divergence"
+      ],
+      "forbidden_claim_patterns": [
+        "FlashAttention",
+        "production optimized"
+      ],
+      "id": "triton",
+      "interfaces": [
+        "python",
+        "dlpack",
+        "mlir"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "benchmark",
+      "proof_surface": "one-program fusion, Torch oracle and latency benchmark",
+      "required_receipt_fields": [
+        "status",
+        "latency",
+        "max_error"
+      ],
+      "signature_innovation": "Bounded fused single-query attention",
+      "source_assertions": [
+        "triton",
+        "torch|Torch"
+      ],
+      "technology": "Triton"
+    },
+    {
+      "activation_condition": "Use when Python ergonomics must reach native or accelerator performance in one language.",
+      "advanced_exhibit": "languages/mojo/advanced_simd_tensor_kernel.mojo",
+      "architectural_role": "AI kernels, SIMD tensor code, model serving components, and MLIR-backed optimization.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "toolchain_gated",
+      "expected_failure_cases": [
+        "toolchain unavailable",
+        "invalid length",
+        "alignment mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "runs? on (a )?TPU",
+        "TPU backend",
+        "production kernel"
+      ],
+      "id": "mojo",
+      "interfaces": [
+        "python",
+        "mlir"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "compile",
+      "proof_surface": "explicit pointers and vector width without unsupported TPU branding",
+      "required_receipt_fields": [
+        "status",
+        "vector_width",
+        "elements"
+      ],
+      "signature_innovation": "SIMD affine-clamp tensor kernel",
+      "source_assertions": [
+        "SIMD|simd",
+        "clamp"
+      ],
+      "technology": "Mojo"
+    },
+    {
+      "activation_condition": "Use when a model must move between frameworks or run across multiple inference backends.",
+      "advanced_exhibit": "languages/onnx/advanced_moe_router.py",
+      "architectural_role": "Model exchange, runtime deployment, graph inspection, optimization, and hardware-provider selection.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "invalid expert count",
+        "shape mismatch",
+        "ordering drift"
+      ],
+      "forbidden_claim_patterns": [
+        "production MoE",
+        "training convergence"
+      ],
+      "id": "onnx",
+      "interfaces": [
+        "onnxruntime",
+        "tensorrt",
+        "coreml"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "model checking, reference execution and deterministic expert ordering",
+      "required_receipt_fields": [
+        "status",
+        "experts",
+        "indices",
+        "weights"
+      ],
+      "signature_innovation": "Portable top-k MoE router graph",
+      "source_assertions": [
+        "TopK|topk",
+        "onnx"
+      ],
+      "technology": "ONNX"
+    },
+    {
+      "activation_condition": "Use when one operation must be progressively transformed from domain semantics to machine code.",
+      "advanced_exhibit": "languages/mlir/advanced_attention_pipeline.mlir",
+      "architectural_role": "Compiler pipelines, tensor lowering, accelerator backends, DSLs, and hardware-specific optimization.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "toolchain_gated",
+      "expected_failure_cases": [
+        "shape mismatch",
+        "invalid type",
+        "lowering failure"
+      ],
+      "forbidden_claim_patterns": [
+        "fully lowered",
+        "production compiler"
+      ],
+      "id": "mlir",
+      "interfaces": [
+        "llvm",
+        "triton",
+        "mojo"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "compile",
+      "proof_surface": "SSA tensor contract prepared for canonicalization and loop/vector passes",
+      "required_receipt_fields": [
+        "status",
+        "dialect",
+        "shape"
+      ],
+      "signature_innovation": "Destination-style attention score lowering",
+      "source_assertions": [
+        "tensor",
+        "linalg|func.func"
+      ],
+      "technology": "MLIR"
+    },
+    {
+      "activation_condition": "Use when untrusted or portable code must run within explicit host capabilities.",
+      "advanced_exhibit": "languages/wat/advanced_wasm_sandbox.wat",
+      "architectural_role": "Browser modules, plugin systems, edge runtimes, and zero-trust agent tools.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "fuel exhaustion",
+        "memory bound",
+        "denied mutation"
+      ],
+      "forbidden_claim_patterns": [
+        "secure sandbox",
+        "production isolation"
+      ],
+      "id": "webassembly",
+      "interfaces": [
+        "wasi",
+        "component_model"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "memory bounds, denied-operation immutability and audit counters",
+      "required_receipt_fields": [
+        "status",
+        "fuel_used",
+        "denied_operations"
+      ],
+      "signature_innovation": "Capability- and fuel-bounded tool sandbox",
+      "source_assertions": [
+        "capability",
+        "last_status|attempts|successes"
+      ],
+      "technology": "WebAssembly"
+    },
+    {
+      "activation_condition": "Use when multiple languages need one evolvable typed contract.",
+      "advanced_exhibit": "languages/protobuf/advanced_colossus_cooling.proto",
+      "architectural_role": "Service contracts, telemetry, receipts, registries, and cross-language mission envelopes.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "tested",
+      "expected_failure_cases": [
+        "unknown command",
+        "missing authority",
+        "hash mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "encrypted",
+        "production schema"
+      ],
+      "id": "protobuf",
+      "interfaces": [
+        "grpc",
+        "binary",
+        "protojson"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "schema evolution, oneof authority, deterministic serialization and hashes",
+      "required_receipt_fields": [
+        "command_id",
+        "authority",
+        "receipt_hash"
+      ],
+      "signature_innovation": "Cooling command and receipt contract",
+      "source_assertions": [
+        "oneof",
+        "receipt|Receipt"
+      ],
+      "technology": "Protocol Buffers"
+    },
+    {
+      "activation_condition": "Use when read latency and allocation avoidance dominate and schema evolution remains required.",
+      "advanced_exhibit": "languages/flatbuffers/advanced_telemetry.fbs",
+      "architectural_role": "Games, mobile state, telemetry, embedded inference, and latency-sensitive local IPC.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "invalid identifier",
+        "broken prior hash",
+        "missing sample"
+      ],
+      "forbidden_claim_patterns": [
+        "cryptographically signed",
+        "production telemetry"
+      ],
+      "id": "flatbuffers",
+      "interfaces": [
+        "binary",
+        "shared_memory"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "typed samples, file identity and prior-frame integrity field",
+      "required_receipt_fields": [
+        "frame_id",
+        "previous_hash",
+        "samples"
+      ],
+      "signature_innovation": "Hash-linked zero-copy telemetry frame",
+      "source_assertions": [
+        "previous_frame_sha256",
+        "file_identifier"
+      ],
+      "technology": "FlatBuffers"
+    },
+    {
+      "activation_condition": "Use when serialized messages and authority-bearing RPC references must share one model.",
+      "advanced_exhibit": "languages/capnproto/advanced_agent_mesh.capnp",
+      "architectural_role": "Low-latency distributed systems, secure object capabilities, storage engines, and agent IPC.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "missing capability",
+        "unauthorized call",
+        "receipt mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "secure transport",
+        "production mesh"
+      ],
+      "id": "capnproto",
+      "interfaces": [
+        "capability_rpc",
+        "binary"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "authority-bearing specialist references and typed receipts",
+      "required_receipt_fields": [
+        "authority",
+        "specialist",
+        "receipt"
+      ],
+      "signature_innovation": "Capability-oriented agent mesh RPC",
+      "source_assertions": [
+        "interface",
+        "receipt|Receipt"
+      ],
+      "technology": "Cap'n Proto"
+    },
+    {
+      "activation_condition": "Use when the output must become gates, registers, and wires rather than software instructions.",
+      "advanced_exhibit": "languages/verilog/advanced_weight_stationary_dot_array.v",
+      "architectural_role": "FPGA prototypes, ASIC blocks, counters, pipelines, and arithmetic units.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "reset",
+        "signed overflow boundary",
+        "invalid timing"
+      ],
+      "forbidden_claim_patterns": [
+        "timing closed",
+        "silicon proven"
+      ],
+      "id": "verilog",
+      "interfaces": [
+        "axi",
+        "rtl"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "registered coefficients, widened signed accumulation and valid timing",
+      "required_receipt_fields": [
+        "valid",
+        "accumulator",
+        "result"
+      ],
+      "signature_innovation": "Weight-stationary dot-product datapath",
+      "source_assertions": [
+        "weight",
+        "valid"
+      ],
+      "technology": "Verilog"
+    },
+    {
+      "activation_condition": "Use when hardware design needs stronger typing, interfaces, or executable assertions.",
+      "advanced_exhibit": "languages/systemverilog/advanced_systolic_array.sv",
+      "architectural_role": "ASIC/FPGA design, protocol interfaces, constrained verification, and accelerator pipelines.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "reset invariant",
+        "valid sequencing",
+        "accumulator mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "formally verified",
+        "silicon proven"
+      ],
+      "id": "systemverilog",
+      "interfaces": [
+        "axi",
+        "rtl",
+        "sva"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "explicit systolic dataflow and temporal accumulator invariants",
+      "required_receipt_fields": [
+        "valid",
+        "accumulator",
+        "assertions"
+      ],
+      "signature_innovation": "Assertion-bearing 2x2 MAC mesh",
+      "source_assertions": [
+        "assert|property",
+        "accum|MAC"
+      ],
+      "technology": "SystemVerilog"
+    },
+    {
+      "activation_condition": "Use when hardware correctness, strong typing, and long-lived certification-oriented design dominate.",
+      "advanced_exhibit": "languages/vhdl/advanced_fault_tolerant_voter.vhd",
+      "architectural_role": "Aerospace, defense, FPGA control logic, safety-critical digital systems, and reusable IP.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "single-lane fault",
+        "all lanes disagree",
+        "unknown input"
+      ],
+      "forbidden_claim_patterns": [
+        "radiation hardened",
+        "silicon proven"
+      ],
+      "id": "vhdl",
+      "interfaces": [
+        "rtl"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "majority result, mismatch signal and all-lanes-disagree assertion",
+      "required_receipt_fields": [
+        "result",
+        "mismatch",
+        "fault"
+      ],
+      "signature_innovation": "Triple-modular-redundancy voter",
+      "source_assertions": [
+        "majority|voter",
+        "mismatch"
+      ],
+      "technology": "VHDL"
+    },
+    {
+      "activation_condition": "Use when hardware should be generated from reusable abstractions rather than copied RTL.",
+      "advanced_exhibit": "languages/chisel/advanced_noc_router.scala",
+      "architectural_role": "RISC-V processors, reusable accelerators, networks-on-chip, and parameterized hardware families.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "toolchain_gated",
+      "expected_failure_cases": [
+        "invalid destination",
+        "backpressure",
+        "arbitration fairness"
+      ],
+      "forbidden_claim_patterns": [
+        "deadlock free",
+        "silicon proven"
+      ],
+      "id": "chisel",
+      "interfaces": [
+        "firrtl",
+        "verilog"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "compile",
+      "proof_surface": "destination routing, round-robin arbitration and Decoupled backpressure",
+      "required_receipt_fields": [
+        "route",
+        "grant",
+        "ready",
+        "valid"
+      ],
+      "signature_innovation": "Parameterized NoC router generator",
+      "source_assertions": [
+        "Decoupled",
+        "round|arbiter|Arbiter"
+      ],
+      "technology": "Chisel"
+    },
+    {
+      "activation_condition": "Use when a critical property must be proven rather than sampled by tests.",
+      "advanced_exhibit": "languages/lean4/advanced_truth_gate_proof.lean",
+      "architectural_role": "Safety invariants, receipt-chain correctness, mathematics, and verified decision gates.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "formally_verified",
+      "expected_failure_cases": [
+        "authority downgrade",
+        "out-of-order action",
+        "invalid receipt"
+      ],
+      "forbidden_claim_patterns": [
+        "system formally verified",
+        "production correctness"
+      ],
+      "id": "lean4",
+      "interfaces": [
+        "proof_certificate"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "formal",
+      "proof_surface": "kernel-checked action ordering and non-regressing sequence property",
+      "required_receipt_fields": [
+        "theorem",
+        "proof",
+        "sequence"
+      ],
+      "signature_innovation": "Monotone authority and receipt proofs",
+      "source_assertions": [
+        "theorem",
+        "receipt|authority"
+      ],
+      "technology": "Lean 4"
+    },
+    {
+      "activation_condition": "Use when constructive proofs, extraction, or mature proof libraries fit the assurance case.",
+      "advanced_exhibit": "languages/coq/advanced_receipt_chain.v",
+      "architectural_role": "Verified compilers, protocols, cryptography, semantics, and critical algorithms.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "formally_verified",
+      "expected_failure_cases": [
+        "broken link",
+        "unordered list",
+        "invalid predecessor"
+      ],
+      "forbidden_claim_patterns": [
+        "system formally verified",
+        "production correctness"
+      ],
+      "id": "coq",
+      "interfaces": [
+        "proof_certificate"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "formal",
+      "proof_surface": "constructive chain-step and ordered-list invariants",
+      "required_receipt_fields": [
+        "theorem",
+        "chain",
+        "ordered"
+      ],
+      "signature_innovation": "Linked receipt-chain ordering proof",
+      "source_assertions": [
+        "Theorem|Lemma",
+        "receipt|chain"
+      ],
+      "technology": "Coq"
+    },
+    {
+      "activation_condition": "Use when the implementation and proof should inhabit the same expressive dependent type system.",
+      "advanced_exhibit": "languages/agda/advanced_capability_lattice.agda",
+      "architectural_role": "Protocol models, type-safe DSLs, mathematical structures, and certified transformations.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "formally_verified",
+      "expected_failure_cases": [
+        "destructive downgrade",
+        "non-transitive relation",
+        "invalid capability"
+      ],
+      "forbidden_claim_patterns": [
+        "system formally verified",
+        "production correctness"
+      ],
+      "id": "agda",
+      "interfaces": [
+        "proof_certificate",
+        "haskell"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "formal",
+      "proof_surface": "total transitivity proof and impossible destructive downgrade case",
+      "required_receipt_fields": [
+        "proof",
+        "capability",
+        "relation"
+      ],
+      "signature_innovation": "Dependent capability lattice",
+      "source_assertions": [
+        "lattice|Capability",
+        "trans|downgrade"
+      ],
+      "technology": "Agda"
+    },
+    {
+      "activation_condition": "Use when kernel-level observability, network packet filtering, or syscall enforcement is required at line rate.",
+      "advanced_exhibit": "languages/ebpf/advanced_syscall_sentinel.bpf.c",
+      "architectural_role": "Linux kernel tracing, Cilium networking, Falco security auditing, and socket performance profiling.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "unapproved syscall",
+        "map allocation failure",
+        "verifier rejection"
+      ],
+      "forbidden_claim_patterns": [
+        "kernel security bypass",
+        "production intrusion prevention"
+      ],
+      "id": "ebpf",
+      "interfaces": [
+        "c_abi",
+        "bpf_map"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "kernel syscall execve sentinel",
+      "required_receipt_fields": [
+        "trace_sys_execve",
+        "kprobe",
+        "execve"
+      ],
+      "signature_innovation": "Kernel syscall sentinel",
+      "source_assertions": [
+        "kprobe",
+        "execve|sys_execve"
+      ],
+      "technology": "eBPF"
+    },
+    {
+      "activation_condition": "Use when constructing quantum circuits, Bell states, or hybrid quantum-classical algorithms.",
+      "advanced_exhibit": "languages/openqasm/advanced_grover_oracle.qasm",
+      "architectural_role": "IBM Quantum, AWS Braket, Rigetti, QPU simulators, and quantum error correction algorithms.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "toolchain_gated",
+      "expected_failure_cases": [
+        "qubit decoherence",
+        "gate fidelity error",
+        "invalid measurement"
+      ],
+      "forbidden_claim_patterns": [
+        "physical quantum supremacy",
+        "hardware QPU execution"
+      ],
+      "id": "openqasm",
+      "interfaces": [
+        "qasm_ir"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "compile",
+      "proof_surface": "3-qubit Grover oracle superposition and diffusion",
+      "required_receipt_fields": [
+        "q",
+        "c",
+        "cz"
+      ],
+      "signature_innovation": "Grover search oracle circuit",
+      "source_assertions": [
+        "cz",
+        "Grover|oracle"
+      ],
+      "technology": "OpenQASM 3.0"
+    },
+    {
+      "activation_condition": "Use when off-chain state execution must produce cryptographically verifiable proof of correctness.",
+      "advanced_exhibit": "languages/cairo/advanced_stark_governor.cairo",
+      "architectural_role": "Starknet, STARK-based L2 rollups, verifiable AI inference, and privacy-preserving audit ledgers.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "toolchain_gated",
+      "expected_failure_cases": [
+        "unapproved action",
+        "invalid proof",
+        "felt overflow"
+      ],
+      "forbidden_claim_patterns": [
+        "on-chain finality",
+        "production rollup"
+      ],
+      "id": "cairo",
+      "interfaces": [
+        "stark_proof",
+        "sierra"
+      ],
+      "maturity_tier": "explicitly-gated-reference",
+      "proof_class": "compile",
+      "proof_surface": "STARK state governor receipt verification",
+      "required_receipt_fields": [
+        "case_id",
+        "action_hash",
+        "approved"
+      ],
+      "signature_innovation": "STARK-provable state governor",
+      "source_assertions": [
+        "StateReceipt",
+        "verify_state_transition"
+      ],
+      "technology": "Cairo"
+    },
+    {
+      "activation_condition": "Use when building high-performance LLMs (Grok-scale), custom automatic differentiation, or XLA-compiled tensor transforms.",
+      "advanced_exhibit": "languages/jax/advanced_grok_distributed_mesh.py",
+      "architectural_role": "Grok LLM training pipelines, xAI cluster orchestration, TPU/GPU distributed attention, and neural dynamics.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "production_reference",
+      "expected_failure_cases": [
+        "shape mismatch",
+        "XLA compilation failure",
+        "softmax overflow"
+      ],
+      "forbidden_claim_patterns": [
+        "Grok-3 model weights",
+        "production LLM cluster"
+      ],
+      "id": "jax",
+      "interfaces": [
+        "xla",
+        "python_api",
+        "mesh_sharding"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "Grok-3 distributed LLM mesh with RoPE attention, KV-caching, and sharding",
+      "required_receipt_fields": [
+        "status",
+        "flagship_tier",
+        "sharding",
+        "transformer_config",
+        "execution_metrics"
+      ],
+      "signature_innovation": "Grok-3 JAX distributed LLM mesh",
+      "source_assertions": [
+        "GrokJaxDistributedEngine",
+        "multi_head_attention_kv_cache"
+      ],
+      "technology": "JAX (xAI Grok Flagship)"
+    },
+    {
+      "activation_condition": "Use when declarative rule-based query evaluation across large code graphs is required.",
+      "advanced_exhibit": "languages/datalog/advanced_vulnerability_scanner.dl",
+      "architectural_role": "Vulnerability scanning, compiler program analysis, access control evaluation, and static call graph analysis.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "compiles",
+      "expected_failure_cases": [
+        "unbound relation",
+        "cyclic vulnerability",
+        "sanitization bypass"
+      ],
+      "forbidden_claim_patterns": [
+        "complete static analysis",
+        "zero false positives"
+      ],
+      "id": "datalog",
+      "interfaces": [
+        "datalog_facts"
+      ],
+      "maturity_tier": "verified-reference",
+      "proof_class": "compile",
+      "proof_surface": "declarative vulnerability taint flow",
+      "required_receipt_fields": [
+        "vulnerability",
+        "source",
+        "sink"
+      ],
+      "signature_innovation": "Declarative static security scanner",
+      "source_assertions": [
+        "vulnerability",
+        "source|sink"
+      ],
+      "technology": "Souffl\u00e9 Datalog"
+    },
+    {
+      "activation_condition": "Use when fitting massive MoE or dense LLMs onto minimal GPU VRAM hardware without perplexity degradation.",
+      "advanced_exhibit": "languages/rhl_quant/advanced_rhl_quant_engine.py",
+      "architectural_role": "Frontier LLM deployment, VRAM constrained edge clusters, bitwise GPU matrix multiplication, and ultra-low memory inference.",
+      "claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",
+      "evidence_state": "production_reference",
+      "expected_failure_cases": [
+        "outlier overflow",
+        "zero scale factor",
+        "shape mismatch"
+      ],
+      "forbidden_claim_patterns": [
+        "hardware ASIC tapeout",
+        "zero latency loss"
+      ],
+      "id": "rhl_quant",
+      "interfaces": [
+        "python_api",
+        "quantization_mesh"
+      ],
+      "maturity_tier": "proof-grade",
+      "proof_class": "behavioral",
+      "proof_surface": "1.58-bit Base Ternary Lattice with 2-bit Sparse Delta HLO Outlier Mesh",
+      "required_receipt_fields": [
+        "status",
+        "flagship_tier",
+        "novel_quantization",
+        "quant_metrics",
+        "performance"
+      ],
+      "signature_innovation": "Residual HLO-Lattice Quantization (RHL-Quant)",
+      "source_assertions": [
+        "quantize_weight_tensor",
+        "dequantize_and_matmul"
+      ],
+      "technology": "RHL-Quant (1.58b Ternary Quantization Flagship)"
+    }
+  ],
+  "generated_by": "tools/audit_advanced_exhibits.py",
+  "schema_version": 2
+}
