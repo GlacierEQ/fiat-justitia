@@ -7,7 +7,7 @@ name = "glaciereq-tower-of-babel"
 version = "1.1.0"
 description = "Governed polyglot technology authority and execution proof system"
 requires-python = ">=3.11"
-dependencies = ["protobuf>=5,<7"]
+dependencies = ["protobuf>=5,<8"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
