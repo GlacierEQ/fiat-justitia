@@ -17,10 +17,10 @@ def build_topology_graph(registry: TowerRegistry) -> dict[str, Any]:
         nodes.append({
             "id": tech["id"],
             "name": tech["name"],
-            "category": tech["category"],
-            "artifact_type": tech["artifact_type"],
-            "evidence_state": tech["evidence_state"],
-            "proof_class": tech["proof_class"],
+            "category": tech.get("category", "legal_engineering"),
+            "artifact_type": tech.get("artifact_type", "legal_document"),
+            "evidence_state": tech.get("evidence_state", "draft"),
+            "proof_class": tech.get("proof_class", "draft"),
             "interfaces": tech.get("interfaces", []),
             "megamind": tech.get("megamind", {}),
         })

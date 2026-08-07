@@ -5,10 +5,15 @@
     "tower.d/motions.json",
     "tower.d/complaints.json",
     "tower.d/evidence.json",
-    "tower.d/procedures.json",
     "tower.d/remedies.json",
-    "tower.d/precedents.json",
-    "tower.d/federal-rules.json"
+    "tower.d/legal-agents.json",
+    "tower.d/systems.json",
+    "tower.d/orchestration-runtime.json",
+    "tower.d/science-data.json",
+    "tower.d/compute-graphs.json",
+    "tower.d/contracts-hardware.json",
+    "tower.d/formal.json",
+    "tower.d/nextgen-innovations.json"
   ],
   "governance": {
     "addition_rule": "No legal document type is admitted without verified precedent, statutory authority, and proof of filing readiness.",
@@ -16,6 +21,13 @@
     "canonical_source": "registry/tower.yml",
     "claim_contract_rule": "Every admitted document type has one registry-owned advanced claim contract with case law assertions, expected failure cases, receipt fields, and forbidden overclaims.",
     "evidence_states": [
+      "illustrative",
+      "compile",
+      "behavioral",
+      "benchmark",
+      "hardware",
+      "integration",
+      "formal",
       "draft",
       "researched",
       "templated",
@@ -47,6 +59,13 @@
       "generated/spiral-engine.registry.json"
     ],
     "proof_classes": [
+      "illustrative",
+      "compile",
+      "behavioral",
+      "benchmark",
+      "hardware",
+      "integration",
+      "formal",
       "draft",
       "researched",
       "templated",

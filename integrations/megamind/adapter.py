@@ -18,12 +18,23 @@ class TechnologyRequest:
 
 _PROOF_ORDER = {
     "illustrative": 0,
+    "draft": 0,
+    "emergency": 0,
+    "researched": 1,
+    "templated": 1,
     "compile": 1,
+    "precedent_verified": 2,
     "behavioral": 2,
+    "filed": 3,
     "benchmark": 3,
     "hardware": 3,
+    "argued": 4,
+    "ruled": 4,
     "integration": 4,
+    "appellate_reviewed": 5,
+    "supreme_certified": 5,
     "formal": 5,
+    "constitutional": 6,
 }
 _GATED_STATES = {"hardware_gated", "toolchain_gated", "service_gated"}
 _CAPABILITY_ALIASES = {

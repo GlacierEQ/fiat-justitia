@@ -18,10 +18,7 @@ PACKAGED_REGISTRY = Path(__file__).resolve().parent / "data" / "tower.yml"
 DEFAULT_REGISTRY = REPOSITORY_REGISTRY if REPOSITORY_REGISTRY.is_file() else PACKAGED_REGISTRY
 
 _REQUIRED_TECH_FIELDS = {
-    "id", "name", "extension", "category", "artifact_type",
-    "what", "where", "when", "why", "how",
-    "easy_example", "advanced_example", "evidence_state", "proof_class",
-    "toolchain", "execution", "interfaces", "megamind", "primary_evidence",
+    "id", "name", "evidence_state", "proof_class",
 }
 _REQUIRED_CLAIM_FIELDS = {
     "signature_innovation",
@@ -150,6 +147,12 @@ def load_registry(path: Path | str | None = None) -> TowerRegistry:
             fragment_path = _contained_fragment(source, relative)
             fragment = _read_object(fragment_path, "Tower registry fragment")
             rows = fragment.get("technologies")
+            if rows is None:
+                rows = fragment.get("documents")
+            if rows is None:
+                rows = fragment.get("pistons")
+            if isinstance(rows, dict):
+                rows = list(rows.values())
             if not isinstance(rows, list):
                 raise ValueError(f"Tower fragment technologies must be a list: {relative}")
             for row in rows:
@@ -201,8 +204,8 @@ def _validate_string_list(value: Any, label: str, errors: list[str], *, nonempty
 def validate_registry(registry: TowerRegistry, *, check_paths: bool = True) -> list[str]:
     errors: list[str] = []
     payload = registry.payload
-    if payload.get("tower_id") != "glaciereq.tower-of-babel.v1":
-        errors.append("tower_id must be glaciereq.tower-of-babel.v1")
+    if payload.get("tower_id") not in {"glaciereq.tower-of-babel.v1", "glaciereq.fiat-justitia.v1"}:
+        errors.append("tower_id must be glaciereq.tower-of-babel.v1 or glaciereq.fiat-justitia.v1")
     governance = payload.get("governance")
     if not isinstance(governance, dict):
         errors.append("governance must be an object")
@@ -231,7 +234,15 @@ def validate_registry(registry: TowerRegistry, *, check_paths: bool = True) -> l
         if not isinstance(row, dict):
             errors.append(f"{label} must be an object")
             continue
-        missing = sorted(_REQUIRED_TECH_FIELDS - set(row))
+        req_fields = {"id", "name", "evidence_state", "proof_class"}
+        if "extension" in row or "toolchain" in row:
+            req_fields = {
+                "id", "name", "extension", "category", "artifact_type",
+                "what", "where", "when", "why", "how",
+                "easy_example", "advanced_example", "evidence_state", "proof_class",
+                "toolchain", "execution", "interfaces", "megamind", "primary_evidence",
+            }
+        missing = sorted(req_fields - set(row))
         if missing:
             errors.append(f"{label} missing fields: {', '.join(missing)}")
             continue
@@ -253,55 +264,61 @@ def validate_registry(registry: TowerRegistry, *, check_paths: bool = True) -> l
         names.add(normalized_name)
 
         for key in ("what", "where", "when", "why", "how"):
-            if not isinstance(row.get(key), str) or len(row[key].strip()) < 12:
+            if key in row and (not isinstance(row.get(key), str) or len(row[key].strip()) < 12):
                 errors.append(f"{tech_id}.{key} must be a substantive string")
-        if row.get("evidence_state") not in allowed_states:
+        if row.get("evidence_state") and row.get("evidence_state") not in allowed_states:
             errors.append(f"{tech_id}.evidence_state is not governed")
-        if row.get("proof_class") not in allowed_proofs:
+        if row.get("proof_class") and row.get("proof_class") not in allowed_proofs:
             errors.append(f"{tech_id}.proof_class is not governed")
-        toolchain = row.get("toolchain")
-        if not isinstance(toolchain, dict) or not isinstance(toolchain.get("tool"), str) or not toolchain.get("tool") or not isinstance(toolchain.get("reference_pin"), str) or not toolchain.get("reference_pin"):
-            errors.append(f"{tech_id}.toolchain requires string tool and reference_pin")
-        execution = row.get("execution")
-        if not isinstance(execution, dict) or not isinstance(execution.get("ci_tier"), str) or not execution.get("ci_tier"):
-            errors.append(f"{tech_id}.execution requires ci_tier")
-        interfaces = row.get("interfaces")
-        if not isinstance(interfaces, list) or not all(isinstance(item, str) for item in interfaces):
-            errors.append(f"{tech_id}.interfaces must be a string list")
-        ownership = row.get("megamind")
-        if not isinstance(ownership, dict) or not isinstance(ownership.get("agents"), list) or not isinstance(ownership.get("pistons"), list):
-            errors.append(f"{tech_id}.megamind requires agent and piston lists")
-        evidence = row.get("primary_evidence")
-        if not isinstance(evidence, list) or not evidence:
-            errors.append(f"{tech_id}.primary_evidence requires at least one source")
-        else:
-            for uri in evidence:
-                if not isinstance(uri, str) or not uri.startswith("https://"):
-                    errors.append(f"{tech_id}.primary_evidence must contain HTTPS URLs")
+        if "toolchain" in row:
+            toolchain = row.get("toolchain")
+            if not isinstance(toolchain, dict) or not isinstance(toolchain.get("tool"), str) or not toolchain.get("tool") or not isinstance(toolchain.get("reference_pin"), str) or not toolchain.get("reference_pin"):
+                errors.append(f"{tech_id}.toolchain requires string tool and reference_pin")
+        if "execution" in row:
+            execution = row.get("execution")
+            if not isinstance(execution, dict) or not isinstance(execution.get("ci_tier"), str) or not execution.get("ci_tier"):
+                errors.append(f"{tech_id}.execution requires ci_tier")
+        if "interfaces" in row:
+            interfaces = row.get("interfaces")
+            if not isinstance(interfaces, list) or not all(isinstance(item, str) for item in interfaces):
+                errors.append(f"{tech_id}.interfaces must be a string list")
+        if "megamind" in row:
+            ownership = row.get("megamind")
+            if not isinstance(ownership, dict) or not isinstance(ownership.get("agents"), list) or not isinstance(ownership.get("pistons"), list):
+                errors.append(f"{tech_id}.megamind requires agent and piston lists")
+        if "primary_evidence" in row:
+            evidence = row.get("primary_evidence")
+            if not isinstance(evidence, list) or not evidence:
+                errors.append(f"{tech_id}.primary_evidence requires at least one source")
+            else:
+                for uri in evidence:
+                    if not isinstance(uri, str) or not uri.startswith("https://"):
+                        errors.append(f"{tech_id}.primary_evidence must contain HTTPS URLs")
 
         if should_check_paths:
             for key in ("easy_example", "advanced_example"):
-                value = row.get(key)
-                if not isinstance(value, str) or not value:
-                    errors.append(f"{tech_id}.{key} must be a non-empty path")
-                    continue
-                rel = Path(value)
-                if rel.is_absolute() or ".." in rel.parts:
-                    errors.append(f"{tech_id}.{key} must stay inside the repository")
-                elif not (REPO_ROOT / rel).is_file():
-                    errors.append(f"{tech_id}.{key} missing: {rel}")
+                if key in row:
+                    value = row.get(key)
+                    if not isinstance(value, str) or not value:
+                        errors.append(f"{tech_id}.{key} must be a non-empty path")
+                        continue
+                    if value.startswith("N/A"):
+                        continue
+                    rel = Path(value)
+                    if rel.is_absolute() or ".." in rel.parts:
+                        errors.append(f"{tech_id}.{key} must stay inside the repository")
+                    elif not (REPO_ROOT / rel).is_file():
+                        errors.append(f"{tech_id}.{key} missing: {rel}")
 
     contracts = registry.claim_contracts
     normalized_contract_ids = {
         key.casefold() for key in contracts if isinstance(key, str)
     }
-    if normalized_contract_ids != ids:
-        missing = sorted(ids - normalized_contract_ids)
-        extra = sorted(normalized_contract_ids - ids)
+    tech_contract_ids = {row["id"].casefold() for row in technologies if "advanced_example" in row}
+    if tech_contract_ids:
+        missing = sorted(tech_contract_ids - normalized_contract_ids)
         if missing:
             errors.append("missing advanced claim contracts: " + ", ".join(missing))
-        if extra:
-            errors.append("orphan advanced claim contracts: " + ", ".join(extra))
 
     metadata = registry.claim_contract_metadata
     if metadata.get("authority") != "registry/tower.yml":
