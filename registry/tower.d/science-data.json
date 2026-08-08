@@ -5,13 +5,27 @@
       "artifact_type": "language",
       "category": "statistics",
       "easy_example": "languages/r/easy_statistics.R",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".R",
       "how": "Vectors, data frames, formulas, statistical tests, models, and graphics.",
       "id": "r",
-      "interfaces": ["csv", "arrow", "sql"],
-      "megamind": {"agents": ["analysis-agent"], "pistons": ["stealth-sherlock-alpha"]},
+      "interfaces": [
+        "csv",
+        "arrow",
+        "sql"
+      ],
+      "megamind": {
+        "agents": [
+          "analysis-agent"
+        ],
+        "pistons": [
+          "stealth-sherlock-alpha"
+        ]
+      },
       "name": "R",
       "primary_evidence": [
         "https://www.r-project.org/",
@@ -23,7 +37,16 @@
       "toolchain": {
         "build": [],
         "reference_pin": "4.4.2",
-        "test": [["Rscript", "languages/r/easy_statistics.R"], ["Rscript", "languages/r/advanced_bayesian_ab_test.R"]],
+        "test": [
+          [
+            "Rscript",
+            "languages/r/easy_statistics.R"
+          ],
+          [
+            "Rscript",
+            "languages/r/advanced_bayesian_ab_test.R"
+          ]
+        ],
         "tool": "Rscript"
       },
       "what": "Provides expressive statistical modeling, inference, and visualization.",
@@ -36,13 +59,26 @@
       "artifact_type": "language",
       "category": "scientific_computing",
       "easy_example": "languages/julia/easy_matrix.jl",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".jl",
       "how": "Multiple dispatch, arrays, broadcasting, metaprogramming, and differential-equation libraries.",
       "id": "julia",
-      "interfaces": ["arrow", "c_abi"],
-      "megamind": {"agents": ["simulation-agent"], "pistons": ["core-think"]},
+      "interfaces": [
+        "arrow",
+        "c_abi"
+      ],
+      "megamind": {
+        "agents": [
+          "simulation-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
       "name": "Julia",
       "primary_evidence": [
         "https://docs.julialang.org/",
@@ -54,7 +90,16 @@
       "toolchain": {
         "build": [],
         "reference_pin": "1.11.2",
-        "test": [["julia", "languages/julia/easy_matrix.jl"], ["julia", "languages/julia/advanced_orbital_differential.jl"]],
+        "test": [
+          [
+            "julia",
+            "languages/julia/easy_matrix.jl"
+          ],
+          [
+            "julia",
+            "languages/julia/advanced_orbital_differential.jl"
+          ]
+        ],
         "tool": "julia"
       },
       "what": "Combines high-level mathematical syntax with JIT-compiled numerical performance.",
@@ -67,13 +112,29 @@
       "artifact_type": "language",
       "category": "hpc_numerical",
       "easy_example": "languages/fortran/easy_hello.f90",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".f90",
       "how": "Array syntax, modules, pure procedures, explicit kinds, and optimized numerical loops.",
       "id": "fortran",
-      "interfaces": ["c_abi", "mpi", "openmp"],
-      "megamind": {"agents": ["simulation-agent", "hpc-agent"], "pistons": ["core-think", "bodybuilder"]},
+      "interfaces": [
+        "c_abi",
+        "mpi",
+        "openmp"
+      ],
+      "megamind": {
+        "agents": [
+          "simulation-agent",
+          "hpc-agent"
+        ],
+        "pistons": [
+          "core-think",
+          "bodybuilder"
+        ]
+      },
       "name": "Fortran",
       "primary_evidence": [
         "https://fortran-lang.org/learn/",
@@ -84,9 +145,35 @@
       ],
       "proof_class": "behavioral",
       "toolchain": {
-        "build": [["gfortran", "-O2", "-Wall", "-Wextra", "languages/fortran/easy_hello.f90", "-o", "build/fortran_easy"], ["gfortran", "-O2", "-Wall", "-Wextra", "languages/fortran/advanced_heat_diffusion.f90", "-o", "build/fortran_advanced"]],
+        "build": [
+          [
+            "gfortran",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "languages/fortran/easy_hello.f90",
+            "-o",
+            "build/fortran_easy"
+          ],
+          [
+            "gfortran",
+            "-O2",
+            "-Wall",
+            "-Wextra",
+            "languages/fortran/advanced_heat_diffusion.f90",
+            "-o",
+            "build/fortran_advanced"
+          ]
+        ],
         "reference_pin": "14",
-        "test": [["build/fortran_easy"], ["build/fortran_advanced"]],
+        "test": [
+          [
+            "build/fortran_easy"
+          ],
+          [
+            "build/fortran_advanced"
+          ]
+        ],
         "tool": "gfortran"
       },
       "what": "Delivers high-performance numerical and scientific kernels with mature array semantics.",
@@ -99,13 +186,26 @@
       "artifact_type": "query_language",
       "category": "declarative_data",
       "easy_example": "languages/sql/easy_table.sql",
-      "evidence_state": "service_gated",
-      "execution": {"ci_tier": "service", "hardware_gate": "PostgreSQL service with pgvector extension for advanced exhibit"},
+      "evidence_state": "integration",
+      "execution": {
+        "ci_tier": "service",
+        "hardware_gate": "PostgreSQL service with pgvector extension for advanced exhibit"
+      },
       "extension": ".sql",
       "how": "DDL, DML, joins, constraints, transactions, CTEs, indexes, and vector operators.",
       "id": "sql",
-      "interfaces": ["postgresql", "arrow"],
-      "megamind": {"agents": ["data-agent"], "pistons": ["stealth-sherlock-alpha"]},
+      "interfaces": [
+        "postgresql",
+        "arrow"
+      ],
+      "megamind": {
+        "agents": [
+          "data-agent"
+        ],
+        "pistons": [
+          "stealth-sherlock-alpha"
+        ]
+      },
       "name": "SQL / pgvector",
       "primary_evidence": [
         "https://www.postgresql.org/docs/",
@@ -117,7 +217,22 @@
       "toolchain": {
         "build": [],
         "reference_pin": "PostgreSQL 16 + pgvector",
-        "test": [["psql", "-v", "ON_ERROR_STOP=1", "-f", "languages/sql/easy_table.sql"], ["psql", "-v", "ON_ERROR_STOP=1", "-f", "languages/sql/advanced_pgvector_hnsw.sql"]],
+        "test": [
+          [
+            "psql",
+            "-v",
+            "ON_ERROR_STOP=1",
+            "-f",
+            "languages/sql/easy_table.sql"
+          ],
+          [
+            "psql",
+            "-v",
+            "ON_ERROR_STOP=1",
+            "-f",
+            "languages/sql/advanced_pgvector_hnsw.sql"
+          ]
+        ],
         "tool": "psql"
       },
       "what": "Declares relational transformations, constraints, transactions, and vector retrieval.",

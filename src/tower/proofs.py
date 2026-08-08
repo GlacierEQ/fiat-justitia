@@ -92,14 +92,14 @@ def build_proof_report(
             proof_status = "SATISFIED_FOR_DECLARED_GATE"
         floors.append({
             "technology_id": tech_id,
-            "easy_example": tech["easy_example"],
-            "advanced_example": tech["advanced_example"],
-            "evidence_state": tech["evidence_state"],
+            "easy_example": tech.get("easy_example", "N/A"),
+            "advanced_example": tech.get("advanced_example", "N/A"),
+            "evidence_state": tech.get("evidence_state", "illustrative"),
             "proof_class": proof_class,
             "build_status": build_status,
             "benchmark_status": benchmark_status,
             "proof_status": proof_status,
-            "primary_evidence": tech["primary_evidence"],
+            "primary_evidence": tech.get("primary_evidence", []),
         })
     return {
         "proof_report_id": "tower-proof-report-v1",

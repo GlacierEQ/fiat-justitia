@@ -1,7 +1,12 @@
 {
-  "as_of": "2026-07-31",
+  "as_of": "2026-08-04",
   "claim_contracts": "advanced-claim-contracts.json",
   "fragments": [
+    "tower.d/motions.json",
+    "tower.d/complaints.json",
+    "tower.d/evidence.json",
+    "tower.d/remedies.json",
+    "tower.d/legal-agents.json",
     "tower.d/systems.json",
     "tower.d/orchestration-runtime.json",
     "tower.d/science-data.json",
@@ -11,23 +16,31 @@
     "tower.d/nextgen-innovations.json"
   ],
   "governance": {
-    "addition_rule": "No technology is advertised or integrated outside this registry.",
+    "addition_rule": "No legal document type is admitted without verified precedent, statutory authority, and proof of filing readiness.",
     "canonical_model": "indexed_registry",
     "canonical_source": "registry/tower.yml",
-    "claim_contract_rule": "Every admitted technology has one registry-owned advanced claim contract with source assertions, expected failure cases, receipt fields, and forbidden overclaims.",
+    "claim_contract_rule": "Every admitted document type has one registry-owned advanced claim contract with case law assertions, expected failure cases, receipt fields, and forbidden overclaims.",
     "evidence_states": [
       "illustrative",
-      "compiles",
-      "tested",
+      "emergency",
+      "compile",
+      "behavioral",
       "benchmark",
-      "hardware_gated",
-      "toolchain_gated",
-      "service_gated",
-      "formally_verified",
-      "integrated",
-      "production_reference"
+      "hardware",
+      "integration",
+      "formal",
+      "draft",
+      "researched",
+      "templated",
+      "precedent_verified",
+      "filed",
+      "argued",
+      "ruled",
+      "appellate_reviewed",
+      "supreme_certified",
+      "constitutional"
     ],
-    "fragment_rule": "All technology records live in contained fragments named by registry/tower.yml; the index, technology fragments, and claim-contract fragment form one canonical registry.",
+    "fragment_rule": "All legal document records live in contained fragments named by registry/tower.yml; the index, document fragments, and claim-contract fragment form one canonical registry.",
     "generated_surfaces": [
       "README.md",
       "ADVANCED_EXHIBITS.md",
@@ -48,15 +61,27 @@
     ],
     "proof_classes": [
       "illustrative",
+      "emergency",
       "compile",
       "behavioral",
       "benchmark",
       "hardware",
       "integration",
-      "formal"
+      "formal",
+      "draft",
+      "researched",
+      "templated",
+      "precedent_verified",
+      "filed",
+      "argued",
+      "ruled",
+      "appellate_reviewed",
+      "supreme_certified",
+      "constitutional"
     ]
   },
   "schema_version": "1.1.0",
-  "title": "The Tower of Babel",
-  "tower_id": "glaciereq.tower-of-babel.v1"
+  "title": "Fiat Justitia Ruat Caelum",
+  "subtitle": "Let Justice Be Done Though The Heavens Fall",
+  "tower_id": "glaciereq.fiat-justitia.v1"
 }

@@ -5,13 +5,29 @@
       "artifact_type": "language",
       "category": "orchestration_and_ai",
       "easy_example": "languages/python/easy_fibonacci.py",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".py",
       "how": "Interpreted modules, asyncio, dataclasses, typing, subprocess adapters, and scientific libraries.",
       "id": "python",
-      "interfaces": ["protobuf", "json", "subprocess"],
-      "megamind": {"agents": ["orchestrator-agent", "document-agent"], "pistons": ["stealth-sherlock-alpha", "stealth-microwave"]},
+      "interfaces": [
+        "protobuf",
+        "json",
+        "subprocess"
+      ],
+      "megamind": {
+        "agents": [
+          "orchestrator-agent",
+          "document-agent"
+        ],
+        "pistons": [
+          "stealth-sherlock-alpha",
+          "stealth-microwave"
+        ]
+      },
       "name": "Python",
       "primary_evidence": [
         "https://docs.python.org/3/",
@@ -23,7 +39,16 @@
       "toolchain": {
         "build": [],
         "reference_pin": "3.12.8",
-        "test": [["python3", "languages/python/easy_fibonacci.py"], ["python3", "languages/python/advanced_async_orchestrator.py"]],
+        "test": [
+          [
+            "python3",
+            "languages/python/easy_fibonacci.py"
+          ],
+          [
+            "python3",
+            "languages/python/advanced_async_orchestrator.py"
+          ]
+        ],
         "tool": "python3"
       },
       "what": "Rapidly composes AI, automation, analysis, and control-plane workflows.",
@@ -36,13 +61,27 @@
       "artifact_type": "language",
       "category": "concurrent_services",
       "easy_example": "languages/go/easy_ping.go",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".go",
       "how": "Goroutines, channels, contexts, interfaces, and binary/network packages.",
       "id": "go",
-      "interfaces": ["protobuf", "grpc", "http"],
-      "megamind": {"agents": ["telemetry-agent"], "pistons": ["stealth-specter"]},
+      "interfaces": [
+        "protobuf",
+        "grpc",
+        "http"
+      ],
+      "megamind": {
+        "agents": [
+          "telemetry-agent"
+        ],
+        "pistons": [
+          "stealth-specter"
+        ]
+      },
       "name": "Go",
       "primary_evidence": [
         "https://go.dev/doc/",
@@ -52,9 +91,35 @@
       ],
       "proof_class": "behavioral",
       "toolchain": {
-        "build": [["go", "build", "-o", "build/go_easy", "languages/go/easy_ping.go"], ["go", "build", "-o", "build/go_advanced", "languages/go/advanced_telemetry_decoder.go"]],
+        "build": [
+          [
+            "go",
+            "build",
+            "-o",
+            "build/go_easy",
+            "languages/go/easy_ping.go"
+          ],
+          [
+            "go",
+            "build",
+            "-o",
+            "build/go_advanced",
+            "languages/go/advanced_telemetry_decoder.go"
+          ]
+        ],
         "reference_pin": "1.23.4",
-        "test": [["build/go_easy"], ["go", "test", "languages/go/advanced_telemetry_decoder.go", "languages/go/advanced_telemetry_decoder_test.go", "-v"]],
+        "test": [
+          [
+            "build/go_easy"
+          ],
+          [
+            "go",
+            "test",
+            "languages/go/advanced_telemetry_decoder.go",
+            "languages/go/advanced_telemetry_decoder_test.go",
+            "-v"
+          ]
+        ],
         "tool": "go"
       },
       "what": "Builds simple, deployable concurrent network services and telemetry processors.",
@@ -67,13 +132,29 @@
       "artifact_type": "language",
       "category": "typed_async_interfaces",
       "easy_example": "languages/typescript/easy_greet.ts",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".ts",
       "how": "Structural typing, discriminated unions, async/await, streams, and Node/browser APIs.",
       "id": "typescript",
-      "interfaces": ["jsonrpc", "mcp", "protobuf"],
-      "megamind": {"agents": ["gateway-agent", "frontend-agent"], "pistons": ["stealth-wraith", "stealth-specter"]},
+      "interfaces": [
+        "jsonrpc",
+        "mcp",
+        "protobuf"
+      ],
+      "megamind": {
+        "agents": [
+          "gateway-agent",
+          "frontend-agent"
+        ],
+        "pistons": [
+          "stealth-wraith",
+          "stealth-specter"
+        ]
+      },
       "name": "TypeScript",
       "primary_evidence": [
         "https://www.typescriptlang.org/docs/",
@@ -83,9 +164,27 @@
       ],
       "proof_class": "behavioral",
       "toolchain": {
-        "build": [["tsc", "--strict", "--target", "ES2022", "--module", "commonjs", "--outDir", "build/ts", "languages/typescript/easy_greet.ts", "languages/typescript/advanced_mcp_gateway.ts"]],
+        "build": [
+          [
+            "tsc",
+            "--strict",
+            "--target",
+            "ES2022",
+            "--module",
+            "commonjs",
+            "--outDir",
+            "build/ts",
+            "languages/typescript/easy_greet.ts",
+            "languages/typescript/advanced_mcp_gateway.ts"
+          ]
+        ],
         "reference_pin": "5.7.2",
-        "test": [["node", "build/ts/advanced_mcp_gateway.js"]],
+        "test": [
+          [
+            "node",
+            "build/ts/advanced_mcp_gateway.js"
+          ]
+        ],
         "tool": "tsc"
       },
       "what": "Adds static contracts to JavaScript's browser, Node.js, and event-driven ecosystem.",
@@ -98,13 +197,29 @@
       "artifact_type": "language",
       "category": "jvm_enterprise_services",
       "easy_example": "languages/java/easy_hello.java",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".java",
       "how": "Classes, interfaces, ExecutorService, blocking queues, records, and the JVM memory model.",
       "id": "java",
-      "interfaces": ["jdbc", "grpc", "protobuf", "jni"],
-      "megamind": {"agents": ["jvm-runtime-agent"], "pistons": ["core-think", "stealth-specter"]},
+      "interfaces": [
+        "jdbc",
+        "grpc",
+        "protobuf",
+        "jni"
+      ],
+      "megamind": {
+        "agents": [
+          "jvm-runtime-agent"
+        ],
+        "pistons": [
+          "core-think",
+          "stealth-specter"
+        ]
+      },
       "name": "Java",
       "primary_evidence": [
         "https://docs.oracle.com/en/java/",
@@ -115,9 +230,35 @@
       ],
       "proof_class": "behavioral",
       "toolchain": {
-        "build": [["javac", "languages/java/easy_hello.java", "-d", "build/java"], ["javac", "languages/java/advanced_bounded_work_queue.java", "-d", "build/java"]],
+        "build": [
+          [
+            "javac",
+            "languages/java/easy_hello.java",
+            "-d",
+            "build/java"
+          ],
+          [
+            "javac",
+            "languages/java/advanced_bounded_work_queue.java",
+            "-d",
+            "build/java"
+          ]
+        ],
         "reference_pin": "21",
-        "test": [["java", "-cp", "build/java", "easy_hello"], ["java", "-cp", "build/java", "advanced_bounded_work_queue"]],
+        "test": [
+          [
+            "java",
+            "-cp",
+            "build/java",
+            "easy_hello"
+          ],
+          [
+            "java",
+            "-cp",
+            "build/java",
+            "advanced_bounded_work_queue"
+          ]
+        ],
         "tool": "javac"
       },
       "what": "Owns the JVM runtime baseline for enterprise services, Android, and portable bytecode deployment.",
@@ -130,13 +271,29 @@
       "artifact_type": "language",
       "category": "jvm_multiplatform",
       "easy_example": "languages/kotlin/easy_hello.kt",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".kt",
       "how": "Null-safety, data classes, coroutines-style structured concurrency, and multiplatform source sets.",
       "id": "kotlin",
-      "interfaces": ["jvm", "android", "protobuf", "grpc"],
-      "megamind": {"agents": ["jvm-runtime-agent", "mobile-agent"], "pistons": ["stealth-specter"]},
+      "interfaces": [
+        "jvm",
+        "android",
+        "protobuf",
+        "grpc"
+      ],
+      "megamind": {
+        "agents": [
+          "jvm-runtime-agent",
+          "mobile-agent"
+        ],
+        "pistons": [
+          "stealth-specter"
+        ]
+      },
       "name": "Kotlin",
       "primary_evidence": [
         "https://kotlinlang.org/docs/home.html",
@@ -147,9 +304,35 @@
       ],
       "proof_class": "behavioral",
       "toolchain": {
-        "build": [["kotlinc", "languages/kotlin/easy_hello.kt", "-include-runtime", "-d", "build/kotlin_easy.jar"], ["kotlinc", "languages/kotlin/advanced_coroutine_supervisor.kt", "-include-runtime", "-d", "build/kotlin_advanced.jar"]],
+        "build": [
+          [
+            "kotlinc",
+            "languages/kotlin/easy_hello.kt",
+            "-include-runtime",
+            "-d",
+            "build/kotlin_easy.jar"
+          ],
+          [
+            "kotlinc",
+            "languages/kotlin/advanced_coroutine_supervisor.kt",
+            "-include-runtime",
+            "-d",
+            "build/kotlin_advanced.jar"
+          ]
+        ],
         "reference_pin": "2.1.0",
-        "test": [["java", "-jar", "build/kotlin_easy.jar"], ["java", "-jar", "build/kotlin_advanced.jar"]],
+        "test": [
+          [
+            "java",
+            "-jar",
+            "build/kotlin_easy.jar"
+          ],
+          [
+            "java",
+            "-jar",
+            "build/kotlin_advanced.jar"
+          ]
+        ],
         "tool": "kotlinc"
       },
       "what": "Modern JVM and multiplatform language with null-safety and structured concurrency.",
@@ -162,13 +345,26 @@
       "artifact_type": "language",
       "category": "apple_native",
       "easy_example": "languages/swift/easy_array.swift",
-      "evidence_state": "hardware_gated",
-      "execution": {"ci_tier": "platform", "hardware_gate": "macOS with Metal-capable Apple hardware for advanced exhibit"},
+      "evidence_state": "hardware",
+      "execution": {
+        "ci_tier": "platform",
+        "hardware_gate": "macOS with Metal-capable Apple hardware for advanced exhibit"
+      },
       "extension": ".swift",
       "how": "Value semantics, protocols, async/await, ARC, SIMD, and Metal APIs.",
       "id": "swift",
-      "interfaces": ["metal", "coreml"],
-      "megamind": {"agents": ["apple-runtime-agent"], "pistons": ["stealth-sonic"]},
+      "interfaces": [
+        "metal",
+        "coreml"
+      ],
+      "megamind": {
+        "agents": [
+          "apple-runtime-agent"
+        ],
+        "pistons": [
+          "stealth-sonic"
+        ]
+      },
       "name": "Swift",
       "primary_evidence": [
         "https://www.swift.org/documentation/",
@@ -178,9 +374,26 @@
       ],
       "proof_class": "hardware",
       "toolchain": {
-        "build": [["swiftc", "languages/swift/easy_array.swift", "-o", "build/swift_easy"], ["swiftc", "languages/swift/advanced_metal_compute_engine.swift", "-o", "build/swift_advanced"]],
+        "build": [
+          [
+            "swiftc",
+            "languages/swift/easy_array.swift",
+            "-o",
+            "build/swift_easy"
+          ],
+          [
+            "swiftc",
+            "languages/swift/advanced_metal_compute_engine.swift",
+            "-o",
+            "build/swift_advanced"
+          ]
+        ],
         "reference_pin": "6.0.3",
-        "test": [["build/swift_easy"]],
+        "test": [
+          [
+            "build/swift_easy"
+          ]
+        ],
         "tool": "swiftc"
       },
       "what": "Builds safe native software for Apple platforms and interoperates with Metal.",
@@ -193,13 +406,27 @@
       "artifact_type": "language",
       "category": "fault_tolerant_distributed",
       "easy_example": "languages/elixir/easy_actor.ex",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".ex",
       "how": "Processes, mailboxes, pattern matching, GenServer, supervisors, and OTP releases.",
       "id": "elixir",
-      "interfaces": ["protobuf", "http", "events"],
-      "megamind": {"agents": ["cluster-agent"], "pistons": ["stealth-specter"]},
+      "interfaces": [
+        "protobuf",
+        "http",
+        "events"
+      ],
+      "megamind": {
+        "agents": [
+          "cluster-agent"
+        ],
+        "pistons": [
+          "stealth-specter"
+        ]
+      },
       "name": "Elixir",
       "primary_evidence": [
         "https://elixir-lang.org/getting-started/introduction.html",
@@ -212,7 +439,16 @@
       "toolchain": {
         "build": [],
         "reference_pin": "1.17.3",
-        "test": [["elixir", "languages/elixir/easy_actor.ex"], ["elixir", "languages/elixir/advanced_fault_tolerant_beam.ex"]],
+        "test": [
+          [
+            "elixir",
+            "languages/elixir/easy_actor.ex"
+          ],
+          [
+            "elixir",
+            "languages/elixir/advanced_fault_tolerant_beam.ex"
+          ]
+        ],
         "tool": "elixir"
       },
       "what": "Runs massive numbers of isolated processes under supervision on the BEAM.",
@@ -225,13 +461,26 @@
       "artifact_type": "language",
       "category": "pure_functional",
       "easy_example": "languages/haskell/easy_tree.hs",
-      "evidence_state": "compiles",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".hs",
       "how": "Algebraic data types, pattern matching, type classes, monads, and laziness.",
       "id": "haskell",
-      "interfaces": ["protobuf", "ffi"],
-      "megamind": {"agents": ["compiler-agent"], "pistons": ["core-think"]},
+      "interfaces": [
+        "protobuf",
+        "ffi"
+      ],
+      "megamind": {
+        "agents": [
+          "compiler-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
       "name": "Haskell",
       "primary_evidence": [
         "https://www.haskell.org/documentation/",
@@ -241,9 +490,35 @@
       ],
       "proof_class": "compile",
       "toolchain": {
-        "build": [["ghc", "-O2", "-outputdir", "build/ghc", "languages/haskell/easy_tree.hs", "-o", "build/haskell_easy"], ["ghc", "-O2", "-outputdir", "build/ghc2", "languages/haskell/advanced_ast_validator.hs", "-o", "build/haskell_advanced"]],
+        "build": [
+          [
+            "ghc",
+            "-O2",
+            "-outputdir",
+            "build/ghc",
+            "languages/haskell/easy_tree.hs",
+            "-o",
+            "build/haskell_easy"
+          ],
+          [
+            "ghc",
+            "-O2",
+            "-outputdir",
+            "build/ghc2",
+            "languages/haskell/advanced_ast_validator.hs",
+            "-o",
+            "build/haskell_advanced"
+          ]
+        ],
         "reference_pin": "9.8.2",
-        "test": [["build/haskell_easy"], ["build/haskell_advanced"]],
+        "test": [
+          [
+            "build/haskell_easy"
+          ],
+          [
+            "build/haskell_advanced"
+          ]
+        ],
         "tool": "ghc"
       },
       "what": "Expresses pure transformations and rich type-level models with controlled effects.",

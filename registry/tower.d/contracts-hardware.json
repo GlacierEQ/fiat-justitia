@@ -5,13 +5,27 @@
       "artifact_type": "idl",
       "category": "binary_contracts",
       "easy_example": "languages/protobuf/easy_user.proto",
-      "evidence_state": "tested",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".proto",
       "how": "Messages, enums, oneof fields, maps, services, streaming RPC, and deterministic serialization.",
       "id": "protobuf",
-      "interfaces": ["grpc", "binary", "protojson"],
-      "megamind": {"agents": ["contract-agent"], "pistons": ["stealth-sherlock-alpha"]},
+      "interfaces": [
+        "grpc",
+        "binary",
+        "protojson"
+      ],
+      "megamind": {
+        "agents": [
+          "contract-agent"
+        ],
+        "pistons": [
+          "stealth-sherlock-alpha"
+        ]
+      },
       "name": "Protocol Buffers",
       "primary_evidence": [
         "https://protobuf.dev/",
@@ -20,9 +34,31 @@
       ],
       "proof_class": "behavioral",
       "toolchain": {
-        "build": [["protoc", "--proto_path=languages/protobuf", "--descriptor_set_out=build/easy_user.pb", "easy_user.proto"], ["protoc", "--proto_path=languages/protobuf", "--proto_path=/usr/include", "--python_out=build", "--descriptor_set_out=build/advanced_cooling.pb", "--include_imports", "advanced_colossus_cooling.proto"]],
+        "build": [
+          [
+            "protoc",
+            "--proto_path=languages/protobuf",
+            "--descriptor_set_out=build/easy_user.pb",
+            "easy_user.proto"
+          ],
+          [
+            "protoc",
+            "--proto_path=languages/protobuf",
+            "--proto_path=/usr/include",
+            "--python_out=build",
+            "--descriptor_set_out=build/advanced_cooling.pb",
+            "--include_imports",
+            "advanced_colossus_cooling.proto"
+          ]
+        ],
         "reference_pin": "28.3",
-        "test": [["python3", "languages/protobuf/advanced_colossus_cooling_test.py", "build"]],
+        "test": [
+          [
+            "python3",
+            "languages/protobuf/advanced_colossus_cooling_test.py",
+            "build"
+          ]
+        ],
         "tool": "protoc"
       },
       "what": "Defines language-neutral schemas for compact binary messages and RPC services.",
@@ -35,13 +71,26 @@
       "artifact_type": "idl",
       "category": "zero_copy_serialization",
       "easy_example": "languages/flatbuffers/easy_user.fbs",
-      "evidence_state": "compiles",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".fbs",
       "how": "Tables, structs, vectors, unions, namespaces, and generated builders/accessors.",
       "id": "flatbuffers",
-      "interfaces": ["binary", "shared_memory"],
-      "megamind": {"agents": ["contract-agent"], "pistons": ["stealth-sonic"]},
+      "interfaces": [
+        "binary",
+        "shared_memory"
+      ],
+      "megamind": {
+        "agents": [
+          "contract-agent"
+        ],
+        "pistons": [
+          "stealth-sonic"
+        ]
+      },
       "name": "FlatBuffers",
       "primary_evidence": [
         "https://flatbuffers.dev/",
@@ -50,7 +99,24 @@
       ],
       "proof_class": "compile",
       "toolchain": {
-        "build": [["flatc", "--binary", "--schema", "-o", "build/flatbuffers", "languages/flatbuffers/easy_user.fbs"], ["flatc", "--binary", "--schema", "-o", "build/flatbuffers", "languages/flatbuffers/advanced_telemetry.fbs"]],
+        "build": [
+          [
+            "flatc",
+            "--binary",
+            "--schema",
+            "-o",
+            "build/flatbuffers",
+            "languages/flatbuffers/easy_user.fbs"
+          ],
+          [
+            "flatc",
+            "--binary",
+            "--schema",
+            "-o",
+            "build/flatbuffers",
+            "languages/flatbuffers/advanced_telemetry.fbs"
+          ]
+        ],
         "reference_pin": "24.3.25",
         "test": [],
         "tool": "flatc"
@@ -65,13 +131,27 @@
       "artifact_type": "idl",
       "category": "capability_rpc",
       "easy_example": "languages/capnproto/easy_user.capnp",
-      "evidence_state": "compiles",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".capnp",
       "how": "Structs, unions, interfaces, capabilities, promises, and schema evolution.",
       "id": "capnproto",
-      "interfaces": ["capability_rpc", "binary"],
-      "megamind": {"agents": ["contract-agent", "security-agent"], "pistons": ["stealth-viper"]},
+      "interfaces": [
+        "capability_rpc",
+        "binary"
+      ],
+      "megamind": {
+        "agents": [
+          "contract-agent",
+          "security-agent"
+        ],
+        "pistons": [
+          "stealth-viper"
+        ]
+      },
       "name": "Cap'n Proto",
       "primary_evidence": [
         "https://capnproto.org/",
@@ -80,7 +160,20 @@
       ],
       "proof_class": "compile",
       "toolchain": {
-        "build": [["capnp", "compile", "-oc++:build/capnp", "languages/capnproto/easy_user.capnp"], ["capnp", "compile", "-oc++:build/capnp", "languages/capnproto/advanced_agent_mesh.capnp"]],
+        "build": [
+          [
+            "capnp",
+            "compile",
+            "-oc++:build/capnp",
+            "languages/capnproto/easy_user.capnp"
+          ],
+          [
+            "capnp",
+            "compile",
+            "-oc++:build/capnp",
+            "languages/capnproto/advanced_agent_mesh.capnp"
+          ]
+        ],
         "reference_pin": "1.0.2",
         "test": [],
         "tool": "capnp"
@@ -95,13 +188,26 @@
       "artifact_type": "hdl",
       "category": "hardware_description",
       "easy_example": "languages/verilog/easy_counter.v",
-      "evidence_state": "compiles",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".v",
       "how": "Modules, always blocks, nonblocking assignments, wires, registers, and testbenches.",
       "id": "verilog",
-      "interfaces": ["axi", "rtl"],
-      "megamind": {"agents": ["hardware-agent"], "pistons": ["core-think"]},
+      "interfaces": [
+        "axi",
+        "rtl"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
       "name": "Verilog",
       "primary_evidence": [
         "https://standards.ieee.org/ieee/1364/4247/",
@@ -110,7 +216,26 @@
       ],
       "proof_class": "compile",
       "toolchain": {
-        "build": [["iverilog", "-g2012", "-s", "counter", "languages/verilog/easy_counter.v", "-o", "build/verilog_easy"], ["iverilog", "-g2012", "-s", "weight_stationary_dot_array", "languages/verilog/advanced_weight_stationary_dot_array.v", "-o", "build/verilog_advanced"]],
+        "build": [
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "counter",
+            "languages/verilog/easy_counter.v",
+            "-o",
+            "build/verilog_easy"
+          ],
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "weight_stationary_dot_array",
+            "languages/verilog/advanced_weight_stationary_dot_array.v",
+            "-o",
+            "build/verilog_advanced"
+          ]
+        ],
         "reference_pin": "12.0",
         "test": [],
         "tool": "iverilog"
@@ -125,13 +250,27 @@
       "artifact_type": "hdl",
       "category": "hardware_verification",
       "easy_example": "languages/systemverilog/easy_counter.sv",
-      "evidence_state": "compiles",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".sv",
       "how": "always_ff/always_comb, interfaces, packages, assertions, classes, and constrained random verification.",
       "id": "systemverilog",
-      "interfaces": ["axi", "rtl", "sva"],
-      "megamind": {"agents": ["hardware-agent"], "pistons": ["core-think"]},
+      "interfaces": [
+        "axi",
+        "rtl",
+        "sva"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
       "name": "SystemVerilog",
       "primary_evidence": [
         "https://standards.ieee.org/ieee/1800/7743/",
@@ -140,7 +279,26 @@
       ],
       "proof_class": "compile",
       "toolchain": {
-        "build": [["iverilog", "-g2012", "-s", "counter", "languages/systemverilog/easy_counter.sv", "-o", "build/sv_easy"], ["iverilog", "-g2012", "-s", "systolic_array", "languages/systemverilog/advanced_systolic_array.sv", "-o", "build/sv_advanced"]],
+        "build": [
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "counter",
+            "languages/systemverilog/easy_counter.sv",
+            "-o",
+            "build/sv_easy"
+          ],
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "systolic_array",
+            "languages/systemverilog/advanced_systolic_array.sv",
+            "-o",
+            "build/sv_advanced"
+          ]
+        ],
         "reference_pin": "12.0",
         "test": [],
         "tool": "iverilog"
@@ -155,13 +313,25 @@
       "artifact_type": "hdl",
       "category": "high_reliability_hardware",
       "easy_example": "languages/vhdl/easy_counter.vhd",
-      "evidence_state": "compiles",
-      "execution": {"ci_tier": "portable", "hardware_gate": ""},
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
       "extension": ".vhd",
       "how": "Entities, architectures, processes, signals, generics, packages, and assertions.",
       "id": "vhdl",
-      "interfaces": ["rtl"],
-      "megamind": {"agents": ["hardware-agent"], "pistons": ["core-think"]},
+      "interfaces": [
+        "rtl"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
       "name": "VHDL",
       "primary_evidence": [
         "https://standards.ieee.org/ieee/1076/7370/",
@@ -172,7 +342,20 @@
       ],
       "proof_class": "compile",
       "toolchain": {
-        "build": [["ghdl", "-a", "--std=08", "languages/vhdl/easy_counter.vhd"], ["ghdl", "-a", "--std=08", "languages/vhdl/advanced_fault_tolerant_voter.vhd"]],
+        "build": [
+          [
+            "ghdl",
+            "-a",
+            "--std=08",
+            "languages/vhdl/easy_counter.vhd"
+          ],
+          [
+            "ghdl",
+            "-a",
+            "--std=08",
+            "languages/vhdl/advanced_fault_tolerant_voter.vhd"
+          ]
+        ],
         "reference_pin": "4.1.0",
         "test": [],
         "tool": "ghdl"
@@ -187,13 +370,27 @@
       "artifact_type": "hdl",
       "category": "hardware_construction",
       "easy_example": "languages/chisel/easy_counter.scala",
-      "evidence_state": "toolchain_gated",
-      "execution": {"ci_tier": "specialized", "hardware_gate": ""},
+      "evidence_state": "integration",
+      "execution": {
+        "ci_tier": "specialized",
+        "hardware_gate": ""
+      },
       "extension": ".scala",
       "how": "Modules, Bundles, Decoupled interfaces, parameters, generators, and FIRRTL lowering.",
       "id": "chisel",
-      "interfaces": ["firrtl", "verilog"],
-      "megamind": {"agents": ["hardware-agent", "compiler-agent"], "pistons": ["core-think"]},
+      "interfaces": [
+        "firrtl",
+        "verilog"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent",
+          "compiler-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
       "name": "Chisel",
       "primary_evidence": [
         "https://www.chisel-lang.org/",
@@ -204,7 +401,18 @@
       ],
       "proof_class": "compile",
       "toolchain": {
-        "build": [["sbt", "runMain", "tower.EasyCounter"], ["sbt", "runMain", "tower.AdvancedNoCRouter"]],
+        "build": [
+          [
+            "sbt",
+            "runMain",
+            "tower.EasyCounter"
+          ],
+          [
+            "sbt",
+            "runMain",
+            "tower.AdvancedNoCRouter"
+          ]
+        ],
         "reference_pin": "1.10 + Chisel 6.6",
         "test": [],
         "tool": "sbt"

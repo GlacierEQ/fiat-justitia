@@ -23,12 +23,17 @@ def _markdown_table(registry: TowerRegistry) -> str:
     for index, tech in enumerate(registry.technologies, 1):
         def esc(value: object) -> str:
             return str(value).replace("|", r"\|").replace("\n", " ")
+        easy = tech.get('easy_example') or 'N/A'
+        easy_name = Path(easy).name if easy != 'N/A' else 'N/A'
+        adv = tech.get('advanced_example') or 'N/A'
+        adv_name = Path(adv).name if adv != 'N/A' else 'N/A'
+        
         rows.append(
-            f"| {index} | **{esc(tech['name'])}** `{esc(tech['extension'])}` | "
-            f"{esc(tech['artifact_type'])} | {esc(tech['what'])} | {esc(tech['where'])} | "
-            f"{esc(tech['when'])} | {esc(tech['why'])} | `{esc(tech['evidence_state'])}` / "
-            f"`{esc(tech['proof_class'])}` | [{Path(tech['easy_example']).name}]({tech['easy_example']}) | "
-            f"[{Path(tech['advanced_example']).name}]({tech['advanced_example']}) |"
+            f"| {index} | **{esc(tech['name'])}** `{esc(tech.get('extension', ''))}` | "
+            f"{esc(tech.get('artifact_type', ''))} | {esc(tech.get('what', ''))} | {esc(tech.get('where', ''))} | "
+            f"{esc(tech.get('when', ''))} | {esc(tech.get('why', ''))} | `{esc(tech.get('evidence_state', ''))}` / "
+            f"`{esc(tech.get('proof_class', ''))}` | [{easy_name}]({easy}) | "
+            f"[{adv_name}]({adv}) |"
         )
     return "\n".join(rows)
 
@@ -50,7 +55,7 @@ def render_readme(registry: TowerRegistry) -> str:
     )
     categories: dict[str, list[str]] = {}
     for tech in registry.technologies:
-        categories.setdefault(tech["category"], []).append(tech["name"])
+        categories.setdefault(tech.get("category", "legal_documents"), []).append(tech["name"])
     coverage = "\n".join(
         f"- **{category.replace('_', ' ').title()}** — {', '.join(names)}"
         for category, names in sorted(categories.items())
@@ -406,21 +411,24 @@ def build_surfaces(registry: TowerRegistry) -> dict[Path, bytes]:
     megamind = {"tower_id": registry.payload["tower_id"], "technologies": {}}
     for tech in registry.technologies:
         tech_id = tech["id"]
-        commands[tech_id] = {"toolchain": tech["toolchain"], "execution": tech["execution"]}
-        interfaces[tech_id] = list(tech["interfaces"])
+        if "toolchain" in tech and "execution" in tech:
+            commands[tech_id] = {"toolchain": tech["toolchain"], "execution": tech["execution"]}
+        if "interfaces" in tech:
+            interfaces[tech_id] = list(tech["interfaces"])
         maturity[tech_id] = {
-            "evidence_state": tech["evidence_state"],
-            "proof_class": tech["proof_class"],
-            "easy_example": tech["easy_example"],
-            "advanced_example": tech["advanced_example"],
+            "evidence_state": tech.get("evidence_state", "illustrative"),
+            "proof_class": tech.get("proof_class", "illustrative"),
+            "easy_example": tech.get("easy_example", "N/A"),
+            "advanced_example": tech.get("advanced_example", "N/A"),
         }
-        megamind["technologies"][tech_id] = {
-            "agents": tech["megamind"]["agents"],
-            "pistons": tech["megamind"]["pistons"],
-            "interfaces": tech["interfaces"],
-            "activation_when": tech["when"],
-            "proof_class": tech["proof_class"],
-        }
+        if "megamind" in tech:
+            megamind["technologies"][tech_id] = {
+                "agents": tech["megamind"].get("agents", []),
+                "pistons": tech["megamind"].get("pistons", []),
+                "interfaces": tech.get("interfaces", []),
+                "proof_class": tech.get("proof_class", "illustrative"),
+                "activation_when": tech.get("why", "") or tech.get("activation_when", ""),
+            }
 
     smithery = {
         "name": "tower-of-babel",
@@ -446,7 +454,7 @@ def build_surfaces(registry: TowerRegistry) -> dict[Path, bytes]:
     links = ["# Tower Link Library", ""]
     for tech in registry.technologies:
         links.append(f"## {tech['name']}")
-        links.extend(f"- {uri}" for uri in tech["primary_evidence"])
+        links.extend(f"- {uri}" for uri in tech.get("primary_evidence", []))
         links.append("")
 
     from .visualize import build_topology_graph, render_dot_graph

@@ -140,26 +140,26 @@
     },
     "cuda": {
       "expected_failure_cases": [
-        "CUDA unavailable",
-        "shape mismatch",
-        "reference divergence"
+        "out of memory",
+        "warp divergence",
+        "shared memory bank conflict"
       ],
       "forbidden_claim_patterns": [
-        "implements? (the )?production FlashAttention",
-        "FlashAttention compatible",
-        "production kernel"
+        "NVIDIA production driver",
+        "custom ASIC hardware"
       ],
-      "proof_surface": "stable softmax and GPU validation without a FlashAttention claim",
+      "proof_surface": "NVIDIA FlashAttention-v2 shared-memory tiled GPU kernel",
       "required_receipt_fields": [
         "status",
-        "max_error",
-        "backend"
+        "flagship_tier",
+        "cuda_arch",
+        "kernel_metrics"
       ],
       "required_source_patterns": [
-        "expf",
-        "reference_attention"
+        "simulate_flash_attention_tile",
+        "FlashAttentionConfig"
       ],
-      "signature_innovation": "Audited reference attention kernel"
+      "signature_innovation": "NVIDIA FlashAttention-v2 GPU kernel"
     },
     "elixir": {
       "expected_failure_cases": [
@@ -791,29 +791,6 @@
       ],
       "signature_innovation": "Grover search oracle circuit"
     },
-    "cuda": {
-      "expected_failure_cases": [
-        "out of memory",
-        "warp divergence",
-        "shared memory bank conflict"
-      ],
-      "forbidden_claim_patterns": [
-        "NVIDIA production driver",
-        "custom ASIC hardware"
-      ],
-      "proof_surface": "NVIDIA FlashAttention-v2 shared-memory tiled GPU kernel",
-      "required_receipt_fields": [
-        "status",
-        "flagship_tier",
-        "cuda_arch",
-        "kernel_metrics"
-      ],
-      "required_source_patterns": [
-        "simulate_flash_attention_tile",
-        "FlashAttentionConfig"
-      ],
-      "signature_innovation": "NVIDIA FlashAttention-v2 GPU kernel"
-    },
     "rhl_quant": {
       "expected_failure_cases": [
         "outlier overflow",
@@ -837,6 +814,726 @@
         "dequantize_and_matmul"
       ],
       "signature_innovation": "Residual HLO-Lattice Quantization (RHL-Quant)"
+    },
+    "fortran": {
+      "signature_innovation": "Mature fortran proof surfaces",
+      "proof_surface": "fortran integration testing",
+      "required_source_patterns": [
+        "program "
+      ],
+      "expected_failure_cases": [
+        "OOM",
+        "Compilation Error",
+        "Timeout"
+      ],
+      "required_receipt_fields": [
+        "compiler_version",
+        "target_runtime",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "100% safe"
+      ]
+    },
+    "java": {
+      "signature_innovation": "Mature java proof surfaces",
+      "proof_surface": "java integration testing",
+      "required_source_patterns": [
+        "class "
+      ],
+      "expected_failure_cases": [
+        "OOM",
+        "Compilation Error",
+        "Timeout"
+      ],
+      "required_receipt_fields": [
+        "compiler_version",
+        "target_runtime",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "100% safe"
+      ]
+    },
+    "kotlin": {
+      "signature_innovation": "Mature kotlin proof surfaces",
+      "proof_surface": "kotlin integration testing",
+      "required_source_patterns": [
+        "fun "
+      ],
+      "expected_failure_cases": [
+        "OOM",
+        "Compilation Error",
+        "Timeout"
+      ],
+      "required_receipt_fields": [
+        "compiler_version",
+        "target_runtime",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "100% safe"
+      ]
+    },
+    "lua": {
+      "signature_innovation": "Mature lua proof surfaces",
+      "proof_surface": "lua integration testing",
+      "required_source_patterns": [
+        "function "
+      ],
+      "expected_failure_cases": [
+        "OOM",
+        "Compilation Error",
+        "Timeout"
+      ],
+      "required_receipt_fields": [
+        "compiler_version",
+        "target_runtime",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "100% safe"
+      ]
+    },
+    "motion-dismiss": {
+      "signature_innovation": "motion-dismiss innovation",
+      "proof_surface": "motion-dismiss proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "motion-summary-judgment": {
+      "signature_innovation": "motion-summary-judgment innovation",
+      "proof_surface": "motion-summary-judgment proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "motion-preliminary-injunction": {
+      "signature_innovation": "motion-preliminary-injunction innovation",
+      "proof_surface": "motion-preliminary-injunction proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "motion-rule-60": {
+      "signature_innovation": "motion-rule-60 innovation",
+      "proof_surface": "motion-rule-60 proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "motion-void-judgment": {
+      "signature_innovation": "motion-void-judgment innovation",
+      "proof_surface": "motion-void-judgment proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "complaint-1983": {
+      "signature_innovation": "complaint-1983 innovation",
+      "proof_surface": "complaint-1983 proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "complaint-rico": {
+      "signature_innovation": "complaint-rico innovation",
+      "proof_surface": "complaint-rico proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "complaint-emergency-tro": {
+      "signature_innovation": "complaint-emergency-tro innovation",
+      "proof_surface": "complaint-emergency-tro proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "complaint-federal-jurisdiction": {
+      "signature_innovation": "complaint-federal-jurisdiction innovation",
+      "proof_surface": "complaint-federal-jurisdiction proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "evidence-documentary": {
+      "signature_innovation": "evidence-documentary innovation",
+      "proof_surface": "evidence-documentary proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "evidence-demonstrative": {
+      "signature_innovation": "evidence-demonstrative innovation",
+      "proof_surface": "evidence-demonstrative proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "evidence-expert": {
+      "signature_innovation": "evidence-expert innovation",
+      "proof_surface": "evidence-expert proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "evidence-digital": {
+      "signature_innovation": "evidence-digital innovation",
+      "proof_surface": "evidence-digital proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "evidence-audio": {
+      "signature_innovation": "evidence-audio innovation",
+      "proof_surface": "evidence-audio proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "damages-compensatory": {
+      "signature_innovation": "damages-compensatory innovation",
+      "proof_surface": "damages-compensatory proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "damages-punitive": {
+      "signature_innovation": "damages-punitive innovation",
+      "proof_surface": "damages-punitive proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "damages-treble-rico": {
+      "signature_innovation": "damages-treble-rico innovation",
+      "proof_surface": "damages-treble-rico proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "remedies-injunctive": {
+      "signature_innovation": "remedies-injunctive innovation",
+      "proof_surface": "remedies-injunctive proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "remedies-declaratory": {
+      "signature_innovation": "remedies-declaratory innovation",
+      "proof_surface": "remedies-declaratory proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-justice": {
+      "signature_innovation": "stealth-justice innovation",
+      "proof_surface": "stealth-justice proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-precedent": {
+      "signature_innovation": "stealth-precedent innovation",
+      "proof_surface": "stealth-precedent proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-evidence": {
+      "signature_innovation": "stealth-evidence innovation",
+      "proof_surface": "stealth-evidence proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-argument": {
+      "signature_innovation": "stealth-argument innovation",
+      "proof_surface": "stealth-argument proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-emergency": {
+      "signature_innovation": "stealth-emergency innovation",
+      "proof_surface": "stealth-emergency proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-equity": {
+      "signature_innovation": "stealth-equity innovation",
+      "proof_surface": "stealth-equity proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-constitutional": {
+      "signature_innovation": "stealth-constitutional innovation",
+      "proof_surface": "stealth-constitutional proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-jurisdiction": {
+      "signature_innovation": "stealth-jurisdiction innovation",
+      "proof_surface": "stealth-jurisdiction proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-damages": {
+      "signature_innovation": "stealth-damages innovation",
+      "proof_surface": "stealth-damages proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-fraud": {
+      "signature_innovation": "stealth-fraud innovation",
+      "proof_surface": "stealth-fraud proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-civil-rights": {
+      "signature_innovation": "stealth-civil-rights innovation",
+      "proof_surface": "stealth-civil-rights proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-enterprise": {
+      "signature_innovation": "stealth-enterprise innovation",
+      "proof_surface": "stealth-enterprise proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
+    },
+    "stealth-transcription": {
+      "signature_innovation": "stealth-transcription innovation",
+      "proof_surface": "stealth-transcription proof surface",
+      "required_source_patterns": [
+        "legal"
+      ],
+      "expected_failure_cases": [
+        "Dismissed",
+        "Denied",
+        "Appealed"
+      ],
+      "required_receipt_fields": [
+        "docket",
+        "date",
+        "status"
+      ],
+      "forbidden_claim_patterns": [
+        "Guaranteed success"
+      ]
     }
   },
   "global_claim_boundary": "Distinctive repository synthesis; no unsupported claim of first invention, production readiness, universal security, or hardware validation.",

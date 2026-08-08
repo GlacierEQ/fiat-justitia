@@ -3,6 +3,45 @@ digraph TowerOfBabel {
   node [shape=box, style="filled,rounded", fontname="Arial", fontsize=10];
   edge [fontname="Arial", fontsize=8];
 
+  subgraph cluster_legal_engineering {
+    label = "Legal Engineering";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "motion-dismiss" [label="Motion to Dismiss\n[filed]", fillcolor="#e3f2fd"];
+    "motion-summary-judgment" [label="Motion for Summary Judgment\n[argued]", fillcolor="#e3f2fd"];
+    "motion-preliminary-injunction" [label="Motion for Preliminary Injunction\n[argued]", fillcolor="#e3f2fd"];
+    "motion-rule-60" [label="Motion for Relief from Judgment\n[ruled]", fillcolor="#e3f2fd"];
+    "motion-void-judgment" [label="Motion to Void Void Ab Initio Judgment\n[constitutional]", fillcolor="#e3f2fd"];
+    "complaint-1983" [label="42 U.S.C. § 1983 Civil Rights Complaint\n[filed]", fillcolor="#e3f2fd"];
+    "complaint-rico" [label="Racketeer Influenced and Corrupt Organizations Act\n[filed]", fillcolor="#e3f2fd"];
+    "complaint-emergency-tro" [label="Emergency Temporary Restraining Order\n[emergency]", fillcolor="#e3f2fd"];
+    "complaint-federal-jurisdiction" [label="Federal Question Jurisdiction Complaint\n[filed]", fillcolor="#e3f2fd"];
+    "evidence-documentary" [label="Documentary Evidence\n[ruled]", fillcolor="#e3f2fd"];
+    "evidence-demonstrative" [label="Demonstrative Evidence\n[ruled]", fillcolor="#e3f2fd"];
+    "evidence-expert" [label="Expert Testimony\n[argued]", fillcolor="#e3f2fd"];
+    "evidence-digital" [label="Digital and Electronic Evidence\n[ruled]", fillcolor="#e3f2fd"];
+    "evidence-audio" [label="Audio and Transcription Evidence\n[filed]", fillcolor="#e3f2fd"];
+    "damages-compensatory" [label="Compensatory Damages\n[ruled]", fillcolor="#e3f2fd"];
+    "damages-punitive" [label="Punitive Damages\n[argued]", fillcolor="#e3f2fd"];
+    "damages-treble-rico" [label="RICO Treble Damages\n[filed]", fillcolor="#e3f2fd"];
+    "remedies-injunctive" [label="Injunctive Relief\n[ruled]", fillcolor="#e3f2fd"];
+    "remedies-declaratory" [label="Declaratory Judgment\n[ruled]", fillcolor="#e3f2fd"];
+    "stealth-justice" [label="Justice Engine\n[constitutional]", fillcolor="#e3f2fd"];
+    "stealth-precedent" [label="Precedent Engine\n[researched]", fillcolor="#e3f2fd"];
+    "stealth-evidence" [label="Evidence Engine\n[precedent_verified]", fillcolor="#e3f2fd"];
+    "stealth-argument" [label="Argument Engine\n[filed]", fillcolor="#e3f2fd"];
+    "stealth-emergency" [label="Emergency Engine\n[emergency]", fillcolor="#e3f2fd"];
+    "stealth-equity" [label="Equity Engine\n[argued]", fillcolor="#e3f2fd"];
+    "stealth-constitutional" [label="Constitutional Engine\n[constitutional]", fillcolor="#e3f2fd"];
+    "stealth-jurisdiction" [label="Jurisdiction Engine\n[filed]", fillcolor="#e3f2fd"];
+    "stealth-damages" [label="Damages Engine\n[ruled]", fillcolor="#e3f2fd"];
+    "stealth-fraud" [label="Fraud Engine\n[precedent_verified]", fillcolor="#e3f2fd"];
+    "stealth-civil-rights" [label="Civil Rights Engine\n[filed]", fillcolor="#e3f2fd"];
+    "stealth-enterprise" [label="Enterprise Engine\n[filed]", fillcolor="#e3f2fd"];
+    "stealth-transcription" [label="Transcription Engine\n[researched]", fillcolor="#e3f2fd"];
+  }
+
   subgraph cluster_bare_metal_systems {
     label = "Bare Metal Systems";
     style = "filled";
@@ -43,6 +82,14 @@ digraph TowerOfBabel {
     "odin" [label="Odin\n[compile]", fillcolor="#e3f2fd"];
   }
 
+  subgraph cluster_embeddable_scripting {
+    label = "Embeddable Scripting";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "lua" [label="Lua\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
   subgraph cluster_orchestration_and_ai {
     label = "Orchestration And Ai";
     style = "filled";
@@ -65,6 +112,22 @@ digraph TowerOfBabel {
     color = "lightgrey";
     fillcolor = "#f8f9fa";
     "typescript" [label="TypeScript\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_jvm_enterprise_services {
+    label = "Jvm Enterprise Services";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "java" [label="Java\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_jvm_multiplatform {
+    label = "Jvm Multiplatform";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "kotlin" [label="Kotlin\n[behavioral]", fillcolor="#e3f2fd"];
   }
 
   subgraph cluster_apple_native {
@@ -105,6 +168,14 @@ digraph TowerOfBabel {
     color = "lightgrey";
     fillcolor = "#f8f9fa";
     "julia" [label="Julia\n[behavioral]", fillcolor="#e3f2fd"];
+  }
+
+  subgraph cluster_hpc_numerical {
+    label = "Hpc Numerical";
+    style = "filled";
+    color = "lightgrey";
+    fillcolor = "#f8f9fa";
+    "fortran" [label="Fortran\n[behavioral]", fillcolor="#e3f2fd"];
   }
 
   subgraph cluster_declarative_data {
@@ -289,6 +360,8 @@ digraph TowerOfBabel {
   "python" -> "protobuf" [label="protobuf"];
   "go" -> "protobuf" [label="protobuf"];
   "typescript" -> "protobuf" [label="protobuf"];
+  "java" -> "protobuf" [label="protobuf"];
+  "kotlin" -> "protobuf" [label="protobuf"];
   "elixir" -> "protobuf" [label="protobuf"];
   "haskell" -> "protobuf" [label="protobuf"];
   "r" -> "sql" [label="sql"];

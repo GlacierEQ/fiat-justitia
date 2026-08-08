@@ -57,7 +57,9 @@ def test_generator_emits_one_canonical_build_contract_per_floor():
     surfaces = build_surfaces(registry)
     path = REPO_ROOT / "generated" / "build_commands.json"
     payload = json.loads(surfaces[path])
-    assert set(payload) == {row["id"] for row in registry.technologies}
+    # Legal documents do not have a toolchain, so they don't get a build command block.
+    expected_ids = {row["id"] for row in registry.technologies if "toolchain" in row and "execution" in row}
+    assert set(payload) == expected_ids
     for technology_id, contract in payload.items():
         assert contract["toolchain"]["tool"], technology_id
         assert contract["toolchain"]["reference_pin"], technology_id
@@ -164,7 +166,7 @@ def test_receipt_is_deterministic():
     second = build_receipt({"counts": {"VERIFIED": 3}})
     assert first == second
     assert len(first["receipt_sha256"]) == 64
-    assert first["technology_count"] == 36
+    assert first["technology_count"] == 72
 
 
 def test_tower_proto_contains_registry_and_megamind_contracts():
@@ -237,8 +239,9 @@ def test_topology_graph_and_dot_render():
     from tower.visualize import build_topology_graph, render_dot_graph
     registry = load_registry()
     graph = build_topology_graph(registry)
-    assert graph["node_count"] == 36
-    assert len(graph["nodes"]) == 36
+    # There should be 72 technologies in the registry (36 languages + 36 legal documents).
+    assert graph["node_count"] == 72
+    assert len(graph["nodes"]) == 72
     dot = render_dot_graph(registry)
     assert "digraph TowerOfBabel" in dot
     assert 'node [shape=box' in dot

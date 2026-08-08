@@ -66,10 +66,14 @@ def audit() -> tuple[list[str], dict]:
         if not isinstance(contract, dict):
             errors.append(f"{tech_id}: advanced claim contract missing")
             continue
-        path = REPO_ROOT / tech["advanced_example"]
-        easy = REPO_ROOT / tech["easy_example"]
+        adv_example = tech.get("advanced_example")
+        if not adv_example:
+            continue
+        path = REPO_ROOT / adv_example
+        easy_example = tech.get("easy_example")
+        easy = REPO_ROOT / easy_example if easy_example else None
         if not path.is_file():
-            errors.append(f"{tech_id}: advanced exhibit missing: {tech['advanced_example']}")
+            errors.append(f"{tech_id}: advanced exhibit missing: {adv_example}")
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         substantive = [

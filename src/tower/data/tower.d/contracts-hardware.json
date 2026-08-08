@@ -1,1 +1,426 @@
-{"technologies":[{"advanced_example":"languages/protobuf/advanced_colossus_cooling.proto","artifact_type":"idl","category":"binary_contracts","easy_example":"languages/protobuf/easy_user.proto","evidence_state":"tested","execution":{"ci_tier":"portable","hardware_gate":""},"extension":".proto","how":"Messages, enums, oneof fields, maps, services, streaming RPC, and deterministic serialization.","id":"protobuf","interfaces":["grpc","binary","protojson"],"megamind":{"agents":["contract-agent"],"pistons":["stealth-sherlock-alpha"]},"name":"Protocol Buffers","primary_evidence":["https://protobuf.dev/"],"proof_class":"behavioral","toolchain":{"build":[["protoc","--proto_path=languages/protobuf","--descriptor_set_out=build/easy_user.pb","easy_user.proto"],["protoc","--proto_path=languages/protobuf","--proto_path=/usr/include","--python_out=build","--descriptor_set_out=build/advanced_cooling.pb","--include_imports","advanced_colossus_cooling.proto"]],"reference_pin":"28.3","test":[["python3","languages/protobuf/advanced_colossus_cooling_test.py","build"]],"tool":"protoc"},"what":"Defines language-neutral schemas for compact binary messages and RPC services.","when":"Use when multiple languages need one evolvable typed contract.","where":"Service contracts, telemetry, receipts, registries, and cross-language mission envelopes.","why":"Field-numbered schemas preserve compatibility and generate implementations across ecosystems."},{"advanced_example":"languages/flatbuffers/advanced_telemetry.fbs","artifact_type":"idl","category":"zero_copy_serialization","easy_example":"languages/flatbuffers/easy_user.fbs","evidence_state":"compiles","execution":{"ci_tier":"portable","hardware_gate":""},"extension":".fbs","how":"Tables, structs, vectors, unions, namespaces, and generated builders/accessors.","id":"flatbuffers","interfaces":["binary","shared_memory"],"megamind":{"agents":["contract-agent"],"pistons":["stealth-sonic"]},"name":"FlatBuffers","primary_evidence":["https://flatbuffers.dev/"],"proof_class":"compile","toolchain":{"build":[["flatc","--binary","--schema","-o","build/flatbuffers","languages/flatbuffers/easy_user.fbs"],["flatc","--binary","--schema","-o","build/flatbuffers","languages/flatbuffers/advanced_telemetry.fbs"]],"reference_pin":"24.3.25","test":[],"tool":"flatc"},"what":"Defines binary objects that can be read directly from a buffer without full unpacking.","when":"Use when read latency and allocation avoidance dominate and schema evolution remains required.","where":"Games, mobile state, telemetry, embedded inference, and latency-sensitive local IPC.","why":"Generated accessors traverse the serialized buffer in place, reducing parsing and copying."},{"advanced_example":"languages/capnproto/advanced_agent_mesh.capnp","artifact_type":"idl","category":"capability_rpc","easy_example":"languages/capnproto/easy_user.capnp","evidence_state":"compiles","execution":{"ci_tier":"portable","hardware_gate":""},"extension":".capnp","how":"Structs, unions, interfaces, capabilities, promises, and schema evolution.","id":"capnproto","interfaces":["capability_rpc","binary"],"megamind":{"agents":["contract-agent","security-agent"],"pistons":["stealth-viper"]},"name":"Cap'n Proto","primary_evidence":["https://capnproto.org/"],"proof_class":"compile","toolchain":{"build":[["capnp","compile","-oc++:build/capnp","languages/capnproto/easy_user.capnp"],["capnp","compile","-oc++:build/capnp","languages/capnproto/advanced_agent_mesh.capnp"]],"reference_pin":"1.0.2","test":[],"tool":"capnp"},"what":"Combines zero-copy serialization with capability-oriented RPC.","when":"Use when serialized messages and authority-bearing RPC references must share one model.","where":"Low-latency distributed systems, secure object capabilities, storage engines, and agent IPC.","why":"It reads wire-format objects directly and encodes access through explicit capabilities."},{"advanced_example":"languages/verilog/advanced_weight_stationary_dot_array.v","artifact_type":"hdl","category":"hardware_description","easy_example":"languages/verilog/easy_counter.v","evidence_state":"compiles","execution":{"ci_tier":"portable","hardware_gate":""},"extension":".v","how":"Modules, always blocks, nonblocking assignments, wires, registers, and testbenches.","id":"verilog","interfaces":["axi","rtl"],"megamind":{"agents":["hardware-agent"],"pistons":["core-think"]},"name":"Verilog","primary_evidence":["https://standards.ieee.org/ieee/1364/4247/"],"proof_class":"compile","toolchain":{"build":[["iverilog","-g2012","-s","counter","languages/verilog/easy_counter.v","-o","build/verilog_easy"],["iverilog","-g2012","-s","weight_stationary_dot_array","languages/verilog/advanced_weight_stationary_dot_array.v","-o","build/verilog_advanced"]],"reference_pin":"12.0","test":[],"tool":"iverilog"},"what":"Describes synthesizable digital logic at register-transfer level.","when":"Use when the output must become gates, registers, and wires rather than software instructions.","where":"FPGA prototypes, ASIC blocks, counters, pipelines, and arithmetic units.","why":"It gives deterministic cycle-level hardware structure with broad tool support."},{"advanced_example":"languages/systemverilog/advanced_systolic_array.sv","artifact_type":"hdl","category":"hardware_verification","easy_example":"languages/systemverilog/easy_counter.sv","evidence_state":"compiles","execution":{"ci_tier":"portable","hardware_gate":""},"extension":".sv","how":"always_ff/always_comb, interfaces, packages, assertions, classes, and constrained random verification.","id":"systemverilog","interfaces":["axi","rtl","sva"],"megamind":{"agents":["hardware-agent"],"pistons":["core-think"]},"name":"SystemVerilog","primary_evidence":["https://standards.ieee.org/ieee/1800/7743/"],"proof_class":"compile","toolchain":{"build":[["iverilog","-g2012","-s","counter","languages/systemverilog/easy_counter.sv","-o","build/sv_easy"],["iverilog","-g2012","-s","systolic_array","languages/systemverilog/advanced_systolic_array.sv","-o","build/sv_advanced"]],"reference_pin":"12.0","test":[],"tool":"iverilog"},"what":"Extends Verilog with richer RTL, interfaces, assertions, and verification constructs.","when":"Use when hardware design needs stronger typing, interfaces, or executable assertions.","where":"ASIC/FPGA design, protocol interfaces, constrained verification, and accelerator pipelines.","why":"It unifies synthesizable RTL with powerful verification semantics and industry tooling."},{"advanced_example":"languages/vhdl/advanced_fault_tolerant_voter.vhd","artifact_type":"hdl","category":"high_reliability_hardware","easy_example":"languages/vhdl/easy_counter.vhd","evidence_state":"compiles","execution":{"ci_tier":"portable","hardware_gate":""},"extension":".vhd","how":"Entities, architectures, processes, signals, generics, packages, and assertions.","id":"vhdl","interfaces":["rtl"],"megamind":{"agents":["hardware-agent"],"pistons":["core-think"]},"name":"VHDL","primary_evidence":["https://standards.ieee.org/ieee/1076/7370/"],"proof_class":"compile","toolchain":{"build":[["ghdl","-a","--std=08","languages/vhdl/easy_counter.vhd"],["ghdl","-a","--std=08","languages/vhdl/advanced_fault_tolerant_voter.vhd"]],"reference_pin":"4.1.0","test":[],"tool":"ghdl"},"what":"Describes strongly typed concurrent hardware with explicit packages and timing semantics.","when":"Use when hardware correctness, strong typing, and long-lived certification-oriented design dominate.","where":"Aerospace, defense, FPGA control logic, safety-critical digital systems, and reusable IP.","why":"Its explicit type system and deterministic concurrency support highly reviewable RTL."},{"advanced_example":"languages/chisel/advanced_noc_router.scala","artifact_type":"hdl","category":"hardware_construction","easy_example":"languages/chisel/easy_counter.scala","evidence_state":"toolchain_gated","execution":{"ci_tier":"specialized","hardware_gate":""},"extension":".scala","how":"Modules, Bundles, Decoupled interfaces, parameters, generators, and FIRRTL lowering.","id":"chisel","interfaces":["firrtl","verilog"],"megamind":{"agents":["hardware-agent","compiler-agent"],"pistons":["core-think"]},"name":"Chisel","primary_evidence":["https://www.chisel-lang.org/"],"proof_class":"compile","toolchain":{"build":[["sbt","runMain","tower.EasyCounter"],["sbt","runMain","tower.AdvancedNoCRouter"]],"reference_pin":"1.10 + Chisel 6.6","test":[],"tool":"sbt"},"what":"Uses Scala to construct parameterized hardware generators that emit synthesizable RTL.","when":"Use when hardware should be generated from reusable abstractions rather than copied RTL.","where":"RISC-V processors, reusable accelerators, networks-on-chip, and parameterized hardware families.","why":"It brings types, functions, testing libraries, and parameterization to hardware construction."}]}
+{
+  "technologies": [
+    {
+      "advanced_example": "languages/protobuf/advanced_colossus_cooling.proto",
+      "artifact_type": "idl",
+      "category": "binary_contracts",
+      "easy_example": "languages/protobuf/easy_user.proto",
+      "evidence_state": "behavioral",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "extension": ".proto",
+      "how": "Messages, enums, oneof fields, maps, services, streaming RPC, and deterministic serialization.",
+      "id": "protobuf",
+      "interfaces": [
+        "grpc",
+        "binary",
+        "protojson"
+      ],
+      "megamind": {
+        "agents": [
+          "contract-agent"
+        ],
+        "pistons": [
+          "stealth-sherlock-alpha"
+        ]
+      },
+      "name": "Protocol Buffers",
+      "primary_evidence": [
+        "https://protobuf.dev/",
+        "https://protobuf.dev/programming-guides/proto3/",
+        "https://grpc.io/docs/"
+      ],
+      "proof_class": "behavioral",
+      "toolchain": {
+        "build": [
+          [
+            "protoc",
+            "--proto_path=languages/protobuf",
+            "--descriptor_set_out=build/easy_user.pb",
+            "easy_user.proto"
+          ],
+          [
+            "protoc",
+            "--proto_path=languages/protobuf",
+            "--proto_path=/usr/include",
+            "--python_out=build",
+            "--descriptor_set_out=build/advanced_cooling.pb",
+            "--include_imports",
+            "advanced_colossus_cooling.proto"
+          ]
+        ],
+        "reference_pin": "28.3",
+        "test": [
+          [
+            "python3",
+            "languages/protobuf/advanced_colossus_cooling_test.py",
+            "build"
+          ]
+        ],
+        "tool": "protoc"
+      },
+      "what": "Defines language-neutral schemas for compact binary messages and RPC services.",
+      "when": "Use when multiple languages need one evolvable typed contract.",
+      "where": "Service contracts, telemetry, receipts, registries, and cross-language mission envelopes.",
+      "why": "Field-numbered schemas preserve compatibility and generate implementations across ecosystems."
+    },
+    {
+      "advanced_example": "languages/flatbuffers/advanced_telemetry.fbs",
+      "artifact_type": "idl",
+      "category": "zero_copy_serialization",
+      "easy_example": "languages/flatbuffers/easy_user.fbs",
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "extension": ".fbs",
+      "how": "Tables, structs, vectors, unions, namespaces, and generated builders/accessors.",
+      "id": "flatbuffers",
+      "interfaces": [
+        "binary",
+        "shared_memory"
+      ],
+      "megamind": {
+        "agents": [
+          "contract-agent"
+        ],
+        "pistons": [
+          "stealth-sonic"
+        ]
+      },
+      "name": "FlatBuffers",
+      "primary_evidence": [
+        "https://flatbuffers.dev/",
+        "https://flatbuffers.dev/flatbuffers_guide_tutorial.html",
+        "https://github.com/google/flatbuffers"
+      ],
+      "proof_class": "compile",
+      "toolchain": {
+        "build": [
+          [
+            "flatc",
+            "--binary",
+            "--schema",
+            "-o",
+            "build/flatbuffers",
+            "languages/flatbuffers/easy_user.fbs"
+          ],
+          [
+            "flatc",
+            "--binary",
+            "--schema",
+            "-o",
+            "build/flatbuffers",
+            "languages/flatbuffers/advanced_telemetry.fbs"
+          ]
+        ],
+        "reference_pin": "24.3.25",
+        "test": [],
+        "tool": "flatc"
+      },
+      "what": "Defines binary objects that can be read directly from a buffer without full unpacking.",
+      "when": "Use when read latency and allocation avoidance dominate and schema evolution remains required.",
+      "where": "Games, mobile state, telemetry, embedded inference, and latency-sensitive local IPC.",
+      "why": "Generated accessors traverse the serialized buffer in place, reducing parsing and copying."
+    },
+    {
+      "advanced_example": "languages/capnproto/advanced_agent_mesh.capnp",
+      "artifact_type": "idl",
+      "category": "capability_rpc",
+      "easy_example": "languages/capnproto/easy_user.capnp",
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "extension": ".capnp",
+      "how": "Structs, unions, interfaces, capabilities, promises, and schema evolution.",
+      "id": "capnproto",
+      "interfaces": [
+        "capability_rpc",
+        "binary"
+      ],
+      "megamind": {
+        "agents": [
+          "contract-agent",
+          "security-agent"
+        ],
+        "pistons": [
+          "stealth-viper"
+        ]
+      },
+      "name": "Cap'n Proto",
+      "primary_evidence": [
+        "https://capnproto.org/",
+        "https://capnproto.org/language.html",
+        "https://capnproto.org/rpc.html"
+      ],
+      "proof_class": "compile",
+      "toolchain": {
+        "build": [
+          [
+            "capnp",
+            "compile",
+            "-oc++:build/capnp",
+            "languages/capnproto/easy_user.capnp"
+          ],
+          [
+            "capnp",
+            "compile",
+            "-oc++:build/capnp",
+            "languages/capnproto/advanced_agent_mesh.capnp"
+          ]
+        ],
+        "reference_pin": "1.0.2",
+        "test": [],
+        "tool": "capnp"
+      },
+      "what": "Combines zero-copy serialization with capability-oriented RPC.",
+      "when": "Use when serialized messages and authority-bearing RPC references must share one model.",
+      "where": "Low-latency distributed systems, secure object capabilities, storage engines, and agent IPC.",
+      "why": "It reads wire-format objects directly and encodes access through explicit capabilities."
+    },
+    {
+      "advanced_example": "languages/verilog/advanced_weight_stationary_dot_array.v",
+      "artifact_type": "hdl",
+      "category": "hardware_description",
+      "easy_example": "languages/verilog/easy_counter.v",
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "extension": ".v",
+      "how": "Modules, always blocks, nonblocking assignments, wires, registers, and testbenches.",
+      "id": "verilog",
+      "interfaces": [
+        "axi",
+        "rtl"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
+      "name": "Verilog",
+      "primary_evidence": [
+        "https://standards.ieee.org/ieee/1364/4247/",
+        "https://www.chipverify.com/verilog/verilog-tutorial",
+        "https://steveicarus.github.io/iverilog/"
+      ],
+      "proof_class": "compile",
+      "toolchain": {
+        "build": [
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "counter",
+            "languages/verilog/easy_counter.v",
+            "-o",
+            "build/verilog_easy"
+          ],
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "weight_stationary_dot_array",
+            "languages/verilog/advanced_weight_stationary_dot_array.v",
+            "-o",
+            "build/verilog_advanced"
+          ]
+        ],
+        "reference_pin": "12.0",
+        "test": [],
+        "tool": "iverilog"
+      },
+      "what": "Describes synthesizable digital logic at register-transfer level.",
+      "when": "Use when the output must become gates, registers, and wires rather than software instructions.",
+      "where": "FPGA prototypes, ASIC blocks, counters, pipelines, and arithmetic units.",
+      "why": "It gives deterministic cycle-level hardware structure with broad tool support."
+    },
+    {
+      "advanced_example": "languages/systemverilog/advanced_systolic_array.sv",
+      "artifact_type": "hdl",
+      "category": "hardware_verification",
+      "easy_example": "languages/systemverilog/easy_counter.sv",
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "extension": ".sv",
+      "how": "always_ff/always_comb, interfaces, packages, assertions, classes, and constrained random verification.",
+      "id": "systemverilog",
+      "interfaces": [
+        "axi",
+        "rtl",
+        "sva"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
+      "name": "SystemVerilog",
+      "primary_evidence": [
+        "https://standards.ieee.org/ieee/1800/7743/",
+        "https://verificationacademy.com/topics/systemverilog/",
+        "https://www.chipverify.com/systemverilog/systemverilog-tutorial"
+      ],
+      "proof_class": "compile",
+      "toolchain": {
+        "build": [
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "counter",
+            "languages/systemverilog/easy_counter.sv",
+            "-o",
+            "build/sv_easy"
+          ],
+          [
+            "iverilog",
+            "-g2012",
+            "-s",
+            "systolic_array",
+            "languages/systemverilog/advanced_systolic_array.sv",
+            "-o",
+            "build/sv_advanced"
+          ]
+        ],
+        "reference_pin": "12.0",
+        "test": [],
+        "tool": "iverilog"
+      },
+      "what": "Extends Verilog with richer RTL, interfaces, assertions, and verification constructs.",
+      "when": "Use when hardware design needs stronger typing, interfaces, or executable assertions.",
+      "where": "ASIC/FPGA design, protocol interfaces, constrained verification, and accelerator pipelines.",
+      "why": "It unifies synthesizable RTL with powerful verification semantics and industry tooling."
+    },
+    {
+      "advanced_example": "languages/vhdl/advanced_fault_tolerant_voter.vhd",
+      "artifact_type": "hdl",
+      "category": "high_reliability_hardware",
+      "easy_example": "languages/vhdl/easy_counter.vhd",
+      "evidence_state": "compile",
+      "execution": {
+        "ci_tier": "portable",
+        "hardware_gate": ""
+      },
+      "extension": ".vhd",
+      "how": "Entities, architectures, processes, signals, generics, packages, and assertions.",
+      "id": "vhdl",
+      "interfaces": [
+        "rtl"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
+      "name": "VHDL",
+      "primary_evidence": [
+        "https://standards.ieee.org/ieee/1076/7370/",
+        "https://ghdl.github.io/ghdl/",
+        "https://www.edn.com/vhdl-tutorial/",
+        "https://github.com/ghdl/ghdl",
+        "https://www.doulos.com/knowhow/vhdl/"
+      ],
+      "proof_class": "compile",
+      "toolchain": {
+        "build": [
+          [
+            "ghdl",
+            "-a",
+            "--std=08",
+            "languages/vhdl/easy_counter.vhd"
+          ],
+          [
+            "ghdl",
+            "-a",
+            "--std=08",
+            "languages/vhdl/advanced_fault_tolerant_voter.vhd"
+          ]
+        ],
+        "reference_pin": "4.1.0",
+        "test": [],
+        "tool": "ghdl"
+      },
+      "what": "Describes strongly typed concurrent hardware with explicit packages and timing semantics.",
+      "when": "Use when hardware correctness, strong typing, and long-lived certification-oriented design dominate.",
+      "where": "Aerospace, defense, FPGA control logic, safety-critical digital systems, and reusable IP.",
+      "why": "Its explicit type system and deterministic concurrency support highly reviewable RTL."
+    },
+    {
+      "advanced_example": "languages/chisel/advanced_noc_router.scala",
+      "artifact_type": "hdl",
+      "category": "hardware_construction",
+      "easy_example": "languages/chisel/easy_counter.scala",
+      "evidence_state": "integration",
+      "execution": {
+        "ci_tier": "specialized",
+        "hardware_gate": ""
+      },
+      "extension": ".scala",
+      "how": "Modules, Bundles, Decoupled interfaces, parameters, generators, and FIRRTL lowering.",
+      "id": "chisel",
+      "interfaces": [
+        "firrtl",
+        "verilog"
+      ],
+      "megamind": {
+        "agents": [
+          "hardware-agent",
+          "compiler-agent"
+        ],
+        "pistons": [
+          "core-think"
+        ]
+      },
+      "name": "Chisel",
+      "primary_evidence": [
+        "https://www.chisel-lang.org/",
+        "https://www.chisel-lang.org/docs/",
+        "https://github.com/chipsalliance/chisel",
+        "https://github.com/chipsalliance/firrtl",
+        "https://chipyard.readthedocs.io/"
+      ],
+      "proof_class": "compile",
+      "toolchain": {
+        "build": [
+          [
+            "sbt",
+            "runMain",
+            "tower.EasyCounter"
+          ],
+          [
+            "sbt",
+            "runMain",
+            "tower.AdvancedNoCRouter"
+          ]
+        ],
+        "reference_pin": "1.10 + Chisel 6.6",
+        "test": [],
+        "tool": "sbt"
+      },
+      "what": "Uses Scala to construct parameterized hardware generators that emit synthesizable RTL.",
+      "when": "Use when hardware should be generated from reusable abstractions rather than copied RTL.",
+      "where": "RISC-V processors, reusable accelerators, networks-on-chip, and parameterized hardware families.",
+      "why": "It brings types, functions, testing libraries, and parameterization to hardware construction."
+    }
+  ]
+}

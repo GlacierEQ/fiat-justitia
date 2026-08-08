@@ -15,7 +15,7 @@
         "https://ebpf.io/docs/"
       ],
       "proof_class": "compile",
-      "evidence_state": "compiles",
+      "evidence_state": "compile",
       "execution": {
         "ci_tier": "portable",
         "hardware_gate": ""
@@ -80,7 +80,7 @@
         "https://openqasm.com/"
       ],
       "proof_class": "compile",
-      "evidence_state": "toolchain_gated",
+      "evidence_state": "integration",
       "execution": {
         "ci_tier": "specialized",
         "hardware_gate": ""
@@ -130,7 +130,7 @@
         "https://cairo-lang.org/docs/"
       ],
       "proof_class": "compile",
-      "evidence_state": "toolchain_gated",
+      "evidence_state": "integration",
       "execution": {
         "ci_tier": "specialized",
         "hardware_gate": ""
@@ -186,7 +186,7 @@
         "https://x.ai/blog/grok-1"
       ],
       "proof_class": "behavioral",
-      "evidence_state": "production_reference",
+      "evidence_state": "illustrative",
       "execution": {
         "ci_tier": "portable",
         "hardware_gate": ""
@@ -243,7 +243,7 @@
     },
     {
       "id": "datalog",
-      "name": "Soufflé Datalog",
+      "name": "Souffl\u00e9 Datalog",
       "category": "declarative_static_analysis",
       "artifact_type": "logic_rules",
       "extension": ".dl",
@@ -256,7 +256,7 @@
         "https://souffle-lang.github.io/"
       ],
       "proof_class": "compile",
-      "evidence_state": "compiles",
+      "evidence_state": "compile",
       "execution": {
         "ci_tier": "portable",
         "hardware_gate": ""
@@ -311,7 +311,7 @@
         "https://arxiv.org/abs/2402.17764"
       ],
       "proof_class": "behavioral",
-      "evidence_state": "production_reference",
+      "evidence_state": "illustrative",
       "execution": {
         "ci_tier": "portable",
         "hardware_gate": ""
