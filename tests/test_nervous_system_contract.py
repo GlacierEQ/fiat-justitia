@@ -15,5 +15,5 @@ def test_pinned_nervous_system_contract_is_reproducible() -> None:
     payload = json.loads(completed.stdout)
     assert payload["status"] == "verified"
     assert payload["source"] == "pinned_snapshot"
-    assert payload["manifest_commit"] == "5ef48a8068a8079f3cbca3f83c5800909b1d5239"
-    assert payload["manifest_sha256"] == "ce6a7a111a8c134566a1f6542da0fcfcbac110254c5dffb663c2680aeb8a935d"
+    assert payload["manifest_commit"] == "a40257552962d0829a2f388d3c4f49296e49b78d"
+    assert payload["manifest_sha256"] == "4cdd5e4744a772a503b3189272294478cbdc5bc852599f0c8254f12475e9a9d1"
