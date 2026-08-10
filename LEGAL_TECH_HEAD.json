@@ -19,7 +19,7 @@
     "repository": "GlacierEQ/monolith"
   },
   "bestowal_scope": "ALL_LEGAL_ENGINEERING_AUTOMATION_AND_EXECUTION_TECH",
-  "selection_status": "OWNER_DIRECTED_CANONICAL_TARGET_PENDING_NATIVE_GATE",
+  "selection_status": "VERIFIED_CANONICAL_HEAD_AFTER_NATIVE_GATE",
   "selection_basis": [
     "executable legal-engineering system",
     "governed document and technology contracts",
