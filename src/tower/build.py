@@ -19,6 +19,7 @@ _SAFE_EXECUTABLES = frozenset({
     "Rscript",
     "agda",
     "cabal",
+    "cairo-compile",
     "capnp",
     "cargo",
     "clang",
@@ -30,13 +31,18 @@ _SAFE_EXECUTABLES = frozenset({
     "flatc",
     "g++",
     "gcc",
+    "gfortran",
     "ghc",
     "ghdl",
     "go",
     "iverilog",
+    "java",
+    "javac",
     "julia",
+    "kotlinc",
     "lake",
     "lean",
+    "lua",
     "make",
     "mix",
     "mlir-opt",
@@ -50,9 +56,11 @@ _SAFE_EXECUTABLES = frozenset({
     "psql",
     "python",
     "python3",
+    "qasm3",
     "rustc",
     "sbt",
     "scala",
+    "souffle",
     "sqlite3",
     "swift",
     "swiftc",
@@ -182,6 +190,13 @@ def build_floor(tech: dict[str, Any]) -> dict[str, Any]:
         return _invalid("UNKNOWN", "Technology id must be a non-empty string.")
     toolchain = tech.get("toolchain")
     execution = tech.get("execution")
+    if toolchain is None and execution is None:
+        return {
+            "technology_id": tech_id,
+            "status": "NOT_EXECUTED",
+            "blocker": "No executable toolchain or execution contract is declared for this governed record.",
+            "commands": [],
+        }
     if not isinstance(toolchain, dict):
         return _invalid(tech_id, "toolchain must be an object.")
     if not isinstance(execution, dict):
