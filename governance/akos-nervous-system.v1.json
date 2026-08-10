@@ -36,6 +36,11 @@
       "role": "polyglot_placement_interoperability_proof",
       "required_terms": ["technology", "interoperability", "proof", "language"],
       "required_links": ["GlacierEQ/AKOS", "GlacierEQ/aspen-grove-core", "GlacierEQ/apex-boot-core", "GlacierEQ/Pro_Code", "GlacierEQ/pro-code"]
+    },
+    "GlacierEQ/fiat-justitia": {
+      "role": "legal_engineering_evidence_provenance_routing",
+      "required_terms": ["legal", "evidence", "proof"],
+      "required_links": ["GlacierEQ/the-tower-of-babel"]
     }
   },
   "local_contract_path": ".glaciereq/nervous-system.node.json",

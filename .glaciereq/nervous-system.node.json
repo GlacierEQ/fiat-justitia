@@ -1,11 +1,11 @@
 {
   "schema_id": "glaciereq.nervous-system.v1",
-  "repository": "GlacierEQ/the-tower-of-babel",
-  "role": "polyglot_placement_interoperability_proof",
+  "repository": "GlacierEQ/fiat-justitia",
+  "role": "legal_engineering_evidence_provenance_routing",
   "canonical_manifest": "GlacierEQ/AKOS/governance/glaciereq.nervous-system.v1.json",
   "canonical_manifest_snapshot": "governance/akos-nervous-system.v1.json",
-  "canonical_manifest_commit": "5ef48a8068a8079f3cbca3f83c5800909b1d5239",
-  "canonical_manifest_sha256": "ce6a7a111a8c134566a1f6542da0fcfcbac110254c5dffb663c2680aeb8a935d",
+  "canonical_manifest_commit": "a40257552962d0829a2f388d3c4f49296e49b78d",
+  "canonical_manifest_sha256": "4cdd5e4744a772a503b3189272294478cbdc5bc852599f0c8254f12475e9a9d1",
   "accepted_manifest_version": "1.0.0",
   "operating_sequence": ["memory", "tool", "cure", "innovate", "respond"]
 }

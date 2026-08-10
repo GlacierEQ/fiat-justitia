@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "head_id": "GLACIEREQ-LEGAL-DATA-HEAD",
+  "name": "Ruat Caelum",
+  "repository": "GlacierEQ/fiat-justitia",
+  "role": "LEGAL_DATA_HEAD",
+  "parent": {
+    "name": "The Statue of Liberty",
+    "repository": "GlacierEQ/legal-powerhouse",
+    "role": "LEGAL_CATEGORY_HEAD"
+  },
+  "peer_scope": {
+    "name": "Fiat Justitia",
+    "repository": "GlacierEQ/fiat-justitia",
+    "role": "LEGAL_TECH_HEAD"
+  },
+  "global_root": {
+    "name": "MONOLITH",
+    "repository": "GlacierEQ/monolith"
+  },
+  "bestowal_scope": "ALL_LEGAL_DATA_EVIDENCE_DOCKET_PROVENANCE_AND_CASE_RECORD_ROUTING",
+  "selection_status": "VERIFIED_CANONICAL_HEAD_AFTER_NATIVE_GATE",
+  "selection_basis": [
+    "existing Fiat Justitia Ruat Caelum system identity",
+    "repository-owned proof-class and evidence-state registry",
+    "document verification and provenance-oriented architecture",
+    "explicit separation between legal technology execution and legal data truth"
+  ],
+  "descendant_families": [
+    "docket and filing metadata",
+    "raw evidence and source archives",
+    "case-fact and chronology stores",
+    "evidence indexes and provenance ledgers",
+    "case matrices and structured legal data",
+    "read-oriented legal data projections"
+  ],
+  "known_descendants": [
+    "GlacierEQ/DOCKETS",
+    "GlacierEQ/THE_CATACLYSM",
+    "GlacierEQ/THE-CATACLYSM",
+    "GlacierEQ/CYBERTACK-1FDV-23-0001009",
+    "GlacierEQ/CASE-1FDV-23-0001009",
+    "GlacierEQ/SUPERLUMINAL_CASE_MATRIX",
+    "GlacierEQ/AspenGrove-KEKOA-1FDV-23-0001009"
+  ],
+  "routing_rule": "Route legal data, evidence, docket metadata, chronology, provenance, and case-record discovery through Ruat Caelum. Open the owning source repository before asserting a fact, provenance state, filing state, authenticity state, or evidentiary conclusion.",
+  "authority_boundary": "Ruat Caelum governs legal-data routing and provenance, not legal-technology execution. It does not transform generated work product into evidence, overwrite source facts, or supersede The Statue of Liberty as the broader legal authority.",
+  "identity_note": "No standalone GlacierEQ/ruat-caelum repository exists in the current GitHub inventory. Ruat Caelum is therefore a scoped logical head hosted by GlacierEQ/fiat-justitia until a separately verified successor repository is established."
+}
