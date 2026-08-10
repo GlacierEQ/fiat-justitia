@@ -217,7 +217,7 @@
     "tests/test_release_hardening.py": "96bd605c3dc1a02651f200a045f5f1ae5519ca3cce218af12f8e57594db48bcd",
     "tests/test_security_boundaries.py": "c221d449a7c63474a560220e8ce3379ce84cb1da5d0666062e3e7a2b6a4530a7",
     "tests/test_spiral_engine.py": "b7fbfb45400a1b87440e417936afba2efd1bec8d7e8e5e7e58035bf463a90cb8",
-    "tests/test_supply_chain_contract.py": "8dc8029013875b683afdf110f16a49fef0ae8954224358d59bf0996c850f8",
+    "tests/test_supply_chain_contract.py": "8dc8029013875b683afdfc469b0e45add763f8dce7d96e2746983e067ca5a981",
     "tests/test_tower_of_babel.py": "ed05bbecea5d209d9ede4d4dfbd0381f3d017cec105c7e9c0afec0ede85f505f",
     "tools/audit_advanced_exhibits.py": "a8e8e09def13ae648e5e89a8cbd9726b9775c14ff5eb4c8d5f388e6bf4f49c7f"
   },
