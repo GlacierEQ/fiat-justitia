@@ -1,5 +1,5 @@
 {
-  "file_count": 217,
+  "file_count": 218,
   "hash_algorithm": "sha256",
   "hashes": {
     ".github/CODEOWNERS": "1bab6343d9ba3956c423f706c698ef4a8d9afbd1863b3196900e8440be1ffebe",
@@ -19,6 +19,7 @@
     "BRANCH_POLICY.md": "bc789ba67c0e535761fd18bb37f689fc918101d04b3e49d9a98edc8d3fcc522f",
     "LEGAL_ARCHITECTURE.md": "b0eda5890688db4d39f7277c5b95ef30e45b0ef9a7ddc3342b01d5125ff8e6fc",
     "LEGAL_DATA_HEAD.json": "b7011db00beff72065ebbb7e44b78aafc7e660e6091960d77c0e9dc2d2168b2b",
+    "LEGAL_TECH_HEAD.json": "d6640abf64f2c2613f913f339da3c3b79466230983555ece0c5a9d897a1a3fa6",
     "LICENSE": "7466596bdb65520298c2449eef8e883d9d3300f8cfac9aea893c0f572cdaeeed",
     "NERVOUS_SYSTEM.md": "0e84c3e457a38f6c7b8d1112e03a54e1fee76af723eb39e4c918acb4b491990e",
     "QUALITY_CONTRACT.md": "411bb02c7d35b59f4860ca7bffe8b24bcbfc8741139394c333a308903a4b82fb",
@@ -216,7 +217,7 @@
     "tests/test_release_hardening.py": "96bd605c3dc1a02651f200a045f5f1ae5519ca3cce218af12f8e57594db48bcd",
     "tests/test_security_boundaries.py": "c221d449a7c63474a560220e8ce3379ce84cb1da5d0666062e3e7a2b6a4530a7",
     "tests/test_spiral_engine.py": "b7fbfb45400a1b87440e417936afba2efd1bec8d7e8e5e7e58035bf463a90cb8",
-    "tests/test_supply_chain_contract.py": "8dc8029013875b683afdfc469b0e45add763f8dce7d96e2746983e067ca5a981",
+    "tests/test_supply_chain_contract.py": "8dc8029013875b683afdf110f16a49fef0ae8954224358d59bf0996c850f8",
     "tests/test_tower_of_babel.py": "ed05bbecea5d209d9ede4d4dfbd0381f3d017cec105c7e9c0afec0ede85f505f",
     "tools/audit_advanced_exhibits.py": "a8e8e09def13ae648e5e89a8cbd9726b9775c14ff5eb4c8d5f388e6bf4f49c7f"
   },
