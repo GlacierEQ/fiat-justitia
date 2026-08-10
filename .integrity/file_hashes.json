@@ -1,5 +1,5 @@
 {
-  "file_count": 217,
+  "file_count": 218,
   "hash_algorithm": "sha256",
   "hashes": {
     ".github/CODEOWNERS": "1bab6343d9ba3956c423f706c698ef4a8d9afbd1863b3196900e8440be1ffebe",
@@ -19,6 +19,7 @@
     "BRANCH_POLICY.md": "bc789ba67c0e535761fd18bb37f689fc918101d04b3e49d9a98edc8d3fcc522f",
     "LEGAL_ARCHITECTURE.md": "b0eda5890688db4d39f7277c5b95ef30e45b0ef9a7ddc3342b01d5125ff8e6fc",
     "LEGAL_DATA_HEAD.json": "b7011db00beff72065ebbb7e44b78aafc7e660e6091960d77c0e9dc2d2168b2b",
+    "LEGAL_TECH_HEAD.json": "d6640abf64f2c2613f913f339da3c3b79466230983555ece0c5a9d897a1a3fa6",
     "LICENSE": "7466596bdb65520298c2449eef8e883d9d3300f8cfac9aea893c0f572cdaeeed",
     "NERVOUS_SYSTEM.md": "0e84c3e457a38f6c7b8d1112e03a54e1fee76af723eb39e4c918acb4b491990e",
     "QUALITY_CONTRACT.md": "411bb02c7d35b59f4860ca7bffe8b24bcbfc8741139394c333a308903a4b82fb",

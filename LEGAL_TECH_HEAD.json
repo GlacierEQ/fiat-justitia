@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "head_id": "GLACIEREQ-LEGAL-TECH-HEAD",
+  "name": "Fiat Justitia",
+  "repository": "GlacierEQ/fiat-justitia",
+  "role": "LEGAL_TECH_HEAD",
+  "parent": {
+    "name": "The Statue of Liberty",
+    "repository": "GlacierEQ/legal-powerhouse",
+    "role": "LEGAL_CATEGORY_HEAD"
+  },
+  "peer_scope": {
+    "name": "Ruat Caelum",
+    "repository": "GlacierEQ/fiat-justitia",
+    "role": "LEGAL_DATA_HEAD"
+  },
+  "global_root": {
+    "name": "MONOLITH",
+    "repository": "GlacierEQ/monolith"
+  },
+  "bestowal_scope": "ALL_LEGAL_ENGINEERING_AUTOMATION_AND_EXECUTION_TECH",
+  "selection_status": "VERIFIED_CANONICAL_HEAD_AFTER_NATIVE_GATE",
+  "selection_basis": [
+    "executable legal-engineering system",
+    "governed document and technology contracts",
+    "repository-native proof and integrity gates",
+    "cross-jurisdiction interfaces",
+    "deterministic receipts and agent-readable build surfaces",
+    "explicit separation between legal technology execution and legal data truth"
+  ],
+  "descendant_families": [
+    "Hawaii and federal legal automation",
+    "JEFS and docket integration technology",
+    "motion and brief pipelines",
+    "legal MCP and connector systems",
+    "legal AI agents and orchestration",
+    "evidence-processing technology",
+    "filing and execution infrastructure"
+  ],
+  "known_descendants": [
+    "GlacierEQ/hawaii-family-court-legal-automation",
+    "GlacierEQ/hi-11-legal-automation",
+    "GlacierEQ/jefs-legal-ai-fortress",
+    "GlacierEQ/legal-motion-automation",
+    "GlacierEQ/legal-brief-pipeline",
+    "GlacierEQ/casey-legal-mcp-server",
+    "GlacierEQ/LEGAL-AI-NEXUS",
+    "GlacierEQ/nexus-legal-grid",
+    "GlacierEQ/FILEBOSS-HyperIntelligence-Framework"
+  ],
+  "routing_rule": "Route legal engineering, automation, connectors, agents, filing technology, and execution-capability discovery through Fiat Justitia. Open the owning implementation repository before asserting that a capability is implemented, active, deployed, or verified.",
+  "authority_boundary": "Fiat Justitia governs legal-technology composition and execution. Ruat Caelum governs legal-data routing and provenance. Fiat Justitia does not own case facts, overwrite source evidence, convert generated work product into evidence, or supersede The Statue of Liberty as the broader legal authority.",
+  "identity_note": "Fiat Justitia and Ruat Caelum are peer scoped heads hosted by GlacierEQ/fiat-justitia beneath GlacierEQ/legal-powerhouse: Fiat Justitia owns Legal Tech routing; Ruat Caelum owns Legal Data routing."
+}
