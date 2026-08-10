@@ -19,7 +19,7 @@
     "repository": "GlacierEQ/monolith"
   },
   "bestowal_scope": "ALL_LEGAL_DATA_EVIDENCE_DOCKET_PROVENANCE_AND_CASE_RECORD_ROUTING",
-  "selection_status": "OWNER_DIRECTED_CANONICAL_TARGET_PENDING_NATIVE_GATE",
+  "selection_status": "VERIFIED_CANONICAL_HEAD_AFTER_NATIVE_GATE",
   "selection_basis": [
     "existing Fiat Justitia Ruat Caelum system identity",
     "repository-owned proof-class and evidence-state registry",
