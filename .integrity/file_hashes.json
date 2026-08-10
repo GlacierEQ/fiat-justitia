@@ -183,7 +183,7 @@
     "src/tower/__init__.py": "fe73cf5475892e00a4520fc1e9742626a83e6529c876529fc7d72487febdb78c",
     "src/tower/__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
     "src/tower/benchmark.py": "a6e5f75c80607da3bd6f76a5a79e29ba1692a6abaf8cd940d83bd51bbb856c3f",
-    "src/tower/build.py": "1b062629f5c9301a06f6a94716d5fc68bca1d55e9e65cb79e00bf5b170c28b94",
+    "src/tower/build.py": "f65bc02c317e7c0d51f3ceabb9ce12b6af96ff423c6f5a1dbfc71502c5fba65f",
     "src/tower/cli.py": "4fc5ee15de81af1f63112d0dd5873acff217516f4c6800a3dadb57ca28e2a46d",
     "src/tower/data/advanced-claim-contracts.json": "cb9988c07f01ac3db7784fd497941fcbb8c37368d9a3529af77400607ed94b94",
     "src/tower/data/tower.d/complaints.json": "5a471cc255fb14dcb4726b664bfe1c964756d93dafc1f33fbcbb734cc08d70f4",
