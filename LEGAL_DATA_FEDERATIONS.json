@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "GLACIEREQ-RUAT-CAELUM-LEGAL-DATA-FEDERATIONS",
+  "authority": {
+    "name": "Ruat Caelum",
+    "repository": "GlacierEQ/fiat-justitia",
+    "role": "LEGAL_DATA_HEAD"
+  },
+  "federations": [
+    {
+      "repository": "GlacierEQ/aspen-grove-evidence",
+      "primary_classification": "active_satellite",
+      "relationship": "federated_active_satellite",
+      "binding_status": "VERIFIED",
+      "routing_scope": "evidence provenance, integrity, derivative lineage, OCR/transcription lineage, exhibit relationships, contradiction detection and verification receipts",
+      "canonical_root": "GlacierEQ/aspen-grove-core",
+      "governance_authority": "GlacierEQ/AKOS",
+      "direct_evidence": [
+        {
+          "repository": "GlacierEQ/aspen-grove-evidence",
+          "path": ".glaciereq/aspen-grove.node.json",
+          "ref": "main",
+          "blob_sha": "6cdd41ee64db0cb5c4f2119e735b3f9930671c48",
+          "proposition": "The child machine contract declares evidence_forensics_specialization, names aspen-grove-core as canonical root and AKOS as governance, and preserves original/derived evidence boundaries."
+        },
+        {
+          "repository": "GlacierEQ/AKOS",
+          "path": "governance/glaciereq.aspen-grove-constellation.v1.json",
+          "ref": "main",
+          "blob_sha": "b99fd1ce7bae18c37a8010c15c0d4809b7a17de5",
+          "proposition": "AKOS governance directly registers aspen-grove-evidence as the active evidence_forensics_specialization."
+        },
+        {
+          "repository": "GlacierEQ/aspen-grove-core",
+          "path": "ASPEN_GROVE_CONSTELLATION.json",
+          "ref": "main",
+          "blob_sha": "b99fd1ce7bae18c37a8010c15c0d4809b7a17de5",
+          "proposition": "Aspen Grove Core contains the exact same governed constellation object as AKOS, independently binding the specialization into its canonical root."
+        },
+        {
+          "repository": "GlacierEQ/AspenGrove-KEKOA-1FDV-23-0001009",
+          "path": "README.md",
+          "ref": "main",
+          "blob_sha": "694673e04786b5657d9696d84874dcaf5aa39318",
+          "proposition": "The case-context specialization explicitly routes source artifacts and source integrity to the Evidence Grove."
+        }
+      ],
+      "authority_boundary": "Ruat Caelum receives deterministic routing authority only. Aspen Grove Core remains the canonical root, AKOS remains the governance authority, and original evidence remains authoritative in its owning source stores. This federation does not let Ruat, Aspen Grove, or storage location promote allegations, inferences, legal characterizations, OCR, transcripts or summaries into original evidence or verified fact.",
+      "family_registry_projection": {
+        "current_classification": "active_satellite",
+        "current_verification": "CORROBORATED",
+        "target_verification_after_binding": "VERIFIED",
+        "status": "PENDING_REGISTRY_PROJECTION"
+      }
+    }
+  ]
+}
