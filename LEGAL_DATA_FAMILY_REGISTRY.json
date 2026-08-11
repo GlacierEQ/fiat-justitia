@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0.0",
+  "registry_id": "GLACIEREQ-RUAT-CAELUM-LEGAL-DATA-FAMILY",
+  "authority": {
+    "name": "Ruat Caelum",
+    "repository": "GlacierEQ/fiat-justitia",
+    "role": "LEGAL_DATA_HEAD",
+    "authority_file": "LEGAL_DATA_HEAD.json",
+    "authority_blob_sha": "0e6bf3c2a5cfe3cbe64cb0de14dde4a3708ef135",
+    "base_main_sha": "d5fa00da649c28e3521fbb9f8edd2297749e2279"
+  },
+  "governing_invariants": [
+    "Classification changes routing and lineage only; it does not move, rewrite, normalize, or delete source evidence.",
+    "Original source bytes remain authoritative in their owning source stores.",
+    "A repository classification does not verify the truth of factual or legal claims contained in that repository.",
+    "VERIFIED family roles require direct controlling repository evidence; weaker evidence remains explicitly unresolved or non-VERIFIED.",
+    "Derived OCR, transcription, summaries, matrices, and generated work product never become original evidence by storage or repetition."
+  ],
+  "families": {
+    "case_record": [
+      {
+        "repository": "GlacierEQ/CASE-1FDV-23-0001009",
+        "classification": "canonical_owner",
+        "scope": "machine-readable case spine, versioned index, schema, automation, source pointers, chronology and derived work-product layer for 1FDV-23-0001009",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "path": "00_CASE_SPINE/README.md",
+            "ref": "main",
+            "blob_sha": "22787a5b15cebd0606b2588cade522ec95863c40",
+            "proposition": "This repository is the canonical machine-readable case spine; raw source evidence remains in external evidence stores."
+          },
+          {
+            "commit_sha": "90f88789e177710324b697e44382ad15e49b49e4",
+            "proposition": "Merged all case-spine branch work into canonical main."
+          }
+        ],
+        "authority_boundary": "Canonical for the GitHub machine-readable case spine, not for raw multimedia, medical, protected-minor material, original court PDFs, or external source systems."
+      },
+      {
+        "repository": "GlacierEQ/CASE-1FDV-23-0001009-LEAN",
+        "classification": "superseded_predecessor",
+        "scope": "earlier lean/adversarial case-file generation sharing substantial exact tree/blob identity with the current case repository",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "commit_sha": "d21f933e9beb701e14f543be2297739170033255",
+            "proposition": "Earlier complete adversarial case-file generation dated 2026-06-30."
+          },
+          {
+            "shared_exact_object_examples": {
+              ".github": "acfa47d330043fb698fadcc22d9a4c8f950b3b58",
+              "00_CASE_FILING": "0e622aa9ceeb6711d99bbebaae71e556b1238c39",
+              "01_EXHIBITS": "96f25d881287c569dea5f1b28a242aa793e528e6",
+              "03_FORENSIC": "b7e89ceea8b7af29afd3c988bbee3d04fd7e49de",
+              "05_TIMELINE": "9c419831905eff9fe9f9eb82a9e1cfe313f75dcc"
+            },
+            "proposition": "Exact shared Git tree/blob identities establish common copied corpus; the current case repository later added and declared the canonical case spine."
+          }
+        ],
+        "successor": "GlacierEQ/CASE-1FDV-23-0001009",
+        "routing_rule": "Do not use LEAN as the default current case spine; inspect only for unique predecessor value not already present in the successor."
+      },
+      {
+        "repository": "GlacierEQ/AspenGrove-KEKOA-1FDV-23-0001009",
+        "classification": "active_satellite",
+        "scope": "case-context, chronology, source relationships, contradictions and unresolved-gap specialization",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "main",
+            "blob_sha": "694673e04786b5657d9696d84874dcaf5aa39318",
+            "proposition": "Declares role case_context_specialization, identifies aspen-grove-core as its canonical root, and routes source artifacts to the Evidence Grove."
+          }
+        ],
+        "authority_boundary": "Context and relationship layer only; storage does not independently prove allegations or other factual/legal conclusions."
+      },
+      {
+        "repository": "GlacierEQ/DOCKETS",
+        "classification": "active_satellite",
+        "scope": "live case-status, strategy, audio-status and execution-tracker projection associated with 1FDV-23-0001009",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "master",
+            "blob_sha": "c3765d1d2ff868cbe13ebaa1d3a4fe84a50db848",
+            "proposition": "Declares a live case repository with status dashboard, case overview, audio status and running automation rather than a controlling source-record authority."
+          },
+          {
+            "path": "LEGAL_DATA_HEAD.json",
+            "ref": "GlacierEQ/fiat-justitia@main",
+            "blob_sha": "0e6bf3c2a5cfe3cbe64cb0de14dde4a3708ef135",
+            "proposition": "Ruat Caelum directly lists GlacierEQ/DOCKETS as a known descendant."
+          }
+        ],
+        "authority_boundary": "Despite its name, no direct declaration proves this repository is the canonical owner of court docket source records; route source assertions to their owning source repository."
+      }
+    ],
+    "forensic_evidence": [
+      {
+        "repository": "GlacierEQ/THE_CATACLYSM",
+        "classification": "canonical_owner",
+        "scope": "forensic email archive and its chain-of-custody/indexing layer for 1FDV-23-0001009",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "main",
+            "blob_sha": "06bded179d82d035c2143116de731d401c8df089",
+            "proposition": "Declares itself Forensic Email Archive, mission chain-of-custody preservation, Gmail/Outlook source acquisition, immutable Git storage, and controlled raw EML/MBOX lane."
+          }
+        ],
+        "authority_boundary": "Canonical for this repository's forensic email archive/index layer; original mailbox/provider records remain source authorities and must retain exact provenance."
+      },
+      {
+        "repository": "GlacierEQ/CYBERTACK-1FDV-23-0001009",
+        "classification": "active_satellite",
+        "scope": "cyber-forensic investigation package, reports, validation scripts and filing-oriented derivatives associated with the case",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "master",
+            "blob_sha": "0a5b378791e2b0222061b63e898c9a4790ae3a78",
+            "proposition": "Declares itself a unified forensic investigation package containing reports, filing templates, findings, chain-of-custody templates and validation scripts."
+          }
+        ],
+        "authority_boundary": "Family classification verifies repository role only, not the truth, attribution, legal sufficiency, or evidentiary weight of claims inside the investigation package."
+      },
+      {
+        "repository": "GlacierEQ/aspen-grove-evidence",
+        "classification": "active_satellite",
+        "scope": "evidence provenance, integrity, transformation history, verification and exhibit-relationship specialization",
+        "verification": "CORROBORATED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "main",
+            "blob_sha": "539e8817b45f8edce057e857299cc5b47d82cfa9",
+            "proposition": "Declares role evidence_forensics_specialization and an evidence lifecycle preserving immutable source identity, hashes, provenance and derivative boundaries."
+          },
+          {
+            "path": "GlacierEQ/AspenGrove-KEKOA-1FDV-23-0001009/README.md",
+            "ref": "main",
+            "blob_sha": "694673e04786b5657d9696d84874dcaf5aa39318",
+            "proposition": "Case-context specialization explicitly routes source artifacts and source integrity to the Evidence Grove."
+          }
+        ],
+        "missing_for_verified": "A direct Ruat Caelum controlling declaration naming aspen-grove-evidence as a governed descendant or equivalent cross-family binding."
+      }
+    ],
+    "analysis_structures": [
+      {
+        "repository": "GlacierEQ/SUPERLUMINAL_CASE_MATRIX",
+        "classification": "active_satellite",
+        "scope": "CaseBrain evidence-first infrastructure, source-linked timelines, procedural-risk signals, canonical-content IDs and append-only audit support",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "main",
+            "blob_sha": "d55da951c3a56bf2e367f71a787d55341b75d3d6",
+            "proposition": "Declares evidence-first CaseBrain infrastructure preserving originals, separating facts/allegations/inferences, source-linking timelines and requiring human approval for action."
+          },
+          {
+            "path": "LEGAL_DATA_HEAD.json",
+            "ref": "GlacierEQ/fiat-justitia@main",
+            "blob_sha": "0e6bf3c2a5cfe3cbe64cb0de14dde4a3708ef135",
+            "proposition": "Ruat Caelum directly lists GlacierEQ/SUPERLUMINAL_CASE_MATRIX as a known descendant."
+          }
+        ],
+        "authority_boundary": "Analysis, indexing and decision-support infrastructure; source repositories remain authoritative for original evidence and facts."
+      },
+      {
+        "repository": "GlacierEQ/HCHS_SUPERLUMINAL_CASE_MATRIX",
+        "classification": "unresolved",
+        "scope": "possible matrix-family specialization",
+        "verification": "UNRESOLVED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "main",
+            "proposition": "README exists but is empty."
+          }
+        ],
+        "missing_proof": "Need controlling role declaration plus ancestry/content comparison against SUPERLUMINAL_CASE_MATRIX before assigning satellite, donor, successor, backup or archive status."
+      }
+    ],
+    "cataclysm_name_collisions": [
+      {
+        "repository": "GlacierEQ/THE-CATACLYSM",
+        "classification": "unresolved",
+        "scope": "legal-strategy/automation package with some derivative evidence/log artifacts",
+        "verification": "UNRESOLVED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "main",
+            "blob_sha": "ccaa464156d497861dee4e6a88fa8cd4f4410543",
+            "proposition": "Primary README describes an adversarial legal-strategy system rather than a forensic archive authority."
+          }
+        ],
+        "missing_proof": "Need direct declaration and unique-content comparison to determine whether derivative evidence-log mechanisms make this an active satellite/component donor or whether it should be excluded from legal-data routing. It must not supersede THE_CATACLYSM merely because of name similarity."
+      },
+      {
+        "repository": "GlacierEQ/the-cataclysm-master",
+        "classification": "fork/reference",
+        "scope": "MCP reference implementation collection; Cataclysm name collision, not legal-data authority",
+        "verification": "VERIFIED",
+        "direct_evidence": [
+          {
+            "path": "README.md",
+            "ref": "main",
+            "blob_sha": "aefbd53c0bcddbb4d5780434ec7bfb0ad7e1f5b2",
+            "proposition": "README explicitly identifies a collection of Model Context Protocol reference implementations and educational examples."
+          }
+        ],
+        "routing_rule": "Exclude from Ruat Caelum legal-data source routing; consider only as a technical reference/donor under the Legal Tech or general technology family if useful."
+      },
+      {
+        "repository": "GlacierEQ/ATOMIC-CATACLYSM",
+        "classification": "unresolved",
+        "scope": "Cataclysm-named repository with no README returned by direct read",
+        "verification": "UNRESOLVED",
+        "missing_proof": "Inspect controlling root files, ancestry and unique patch/data value before assigning any legal-data role."
+      }
+    ]
+  },
+  "routing_precedence": [
+    "For the machine-readable 1FDV-23-0001009 case spine, start at GlacierEQ/CASE-1FDV-23-0001009.",
+    "For the case-context/chronology/contradiction relationship layer, route to GlacierEQ/AspenGrove-KEKOA-1FDV-23-0001009.",
+    "For the forensic email archive, route to GlacierEQ/THE_CATACLYSM while preserving provider/source provenance.",
+    "For CaseBrain/matrix analysis infrastructure, route to GlacierEQ/SUPERLUMINAL_CASE_MATRIX, then open source owners before factual assertion.",
+    "Do not route by repository name similarity alone."
+  ],
+  "next_cursors": [
+    "Resolve HCHS_SUPERLUMINAL_CASE_MATRIX lineage against SUPERLUMINAL_CASE_MATRIX.",
+    "Resolve THE-CATACLYSM unique legal-data value versus THE_CATACLYSM and classify donor/satellite/exclusion without touching evidence bytes.",
+    "Inspect ATOMIC-CATACLYSM controlling root and ancestry.",
+    "Bind aspen-grove-evidence directly into Ruat Caelum authority if the cross-family relationship remains correct after direct owner verification.",
+    "Expand docket-family classification beyond DOCKETS only after distinguishing data owners from Legal Tech ingestion/automation repositories."
+  ]
+}
