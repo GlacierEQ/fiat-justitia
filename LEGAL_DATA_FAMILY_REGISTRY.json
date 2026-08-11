@@ -219,18 +219,52 @@
     "cataclysm_name_collisions": [
       {
         "repository": "GlacierEQ/THE-CATACLYSM",
-        "classification": "unresolved",
-        "scope": "legal-strategy/automation package with some derivative evidence/log artifacts",
-        "verification": "UNRESOLVED",
+        "classification": "active_satellite",
+        "scope": "case-specific legal-strategy, actor/pillar, derived evidence-log and automation projection layer for 1FDV-23-0001009",
+        "verification": "VERIFIED",
         "direct_evidence": [
           {
             "path": "README.md",
             "ref": "main",
             "blob_sha": "ccaa464156d497861dee4e6a88fa8cd4f4410543",
-            "proposition": "Primary README describes an adversarial legal-strategy system rather than a forensic archive authority."
+            "proposition": "Primary README identifies a case-specific legal-strategy system rather than a forensic email archive or original-source authority."
+          },
+          {
+            "path": "PILLAR_WIRING.md",
+            "ref": "main",
+            "blob_sha": "f75964a9060420ad72e72605c9a3465d25e2a903",
+            "proposition": "Declares that base pillar definitions live in aspen-grove-operator-v7 and that THE-CATACLYSM consumes them while maintaining CATACLYSM-specific extension fields."
+          },
+          {
+            "path": "DEPLOY_STATUS.json",
+            "ref": "main",
+            "blob_sha": "6aa988281ba48b608a8f2702b468dd816a9d3fcb",
+            "proposition": "Directly identifies THE-CATACLYSM as LIVE for case 1FDV-23-0001009 and wired to aspen-grove-operator-v7 through the shared pillar schema."
+          },
+          {
+            "path": "LEGAL_DATA_HEAD.json",
+            "ref": "GlacierEQ/fiat-justitia@80980db985149d07f876b361bd39214454312e17",
+            "blob_sha": "0e6bf3c2a5cfe3cbe64cb0de14dde4a3708ef135",
+            "proposition": "Ruat Caelum directly lists GlacierEQ/THE-CATACLYSM as a known descendant."
+          },
+          {
+            "path": "GlacierEQ/THE_CATACLYSM/README.md",
+            "ref": "main",
+            "blob_sha": "06bded179d82d035c2143116de731d401c8df089",
+            "proposition": "The underscore repository separately declares the forensic email archive role, establishing a distinct responsibility rather than name-based succession."
+          },
+          {
+            "repository_metadata": {
+              "repository_id": 1145685083,
+              "fork": false,
+              "created_at": "2026-01-30T04:51:04Z",
+              "pushed_at": "2026-07-19T17:55:11Z"
+            },
+            "proposition": "The hyphenated repository is independently created and active; no fork relationship or direct succession to the underscore repository is established."
           }
         ],
-        "missing_proof": "Need direct declaration and unique-content comparison to determine whether derivative evidence-log mechanisms make this an active satellite/component donor or whether it should be excluded from legal-data routing. It must not supersede THE_CATACLYSM merely because of name similarity."
+        "authority_boundary": "This satellite owns neither original evidence nor the forensic email archive. Its evidence logs, actor profiles, pillar extensions, strategy artifacts, motions, and automated projections are derived work product unless independently bound to an owning source record.",
+        "routing_rule": "Use GlacierEQ/THE-CATACLYSM for its distinct case-specific strategy/pillar/derived-projection function. Route forensic email archive work to GlacierEQ/THE_CATACLYSM, and open the owning source repository before asserting any fact, provenance state, authenticity state, or evidentiary conclusion."
       },
       {
         "repository": "GlacierEQ/the-cataclysm-master",
@@ -260,12 +294,12 @@
     "For the machine-readable 1FDV-23-0001009 case spine, start at GlacierEQ/CASE-1FDV-23-0001009.",
     "For the case-context/chronology/contradiction relationship layer, route to GlacierEQ/AspenGrove-KEKOA-1FDV-23-0001009.",
     "For the forensic email archive, route to GlacierEQ/THE_CATACLYSM while preserving provider/source provenance.",
+    "For the distinct case-specific strategy/pillar/derived-projection layer, route to GlacierEQ/THE-CATACLYSM but reopen owning sources before factual or evidentiary assertions.",
     "For CaseBrain/matrix analysis infrastructure, route to GlacierEQ/SUPERLUMINAL_CASE_MATRIX, then open source owners before factual assertion.",
     "Use GlacierEQ/HCHS_SUPERLUMINAL_CASE_MATRIX only as a historical component donor after source-by-source revalidation; never as a competing CaseBrain authority.",
     "Do not route by repository name similarity alone."
   ],
   "next_cursors": [
-    "Resolve THE-CATACLYSM unique legal-data value versus THE_CATACLYSM and classify donor/satellite/exclusion without touching evidence bytes.",
     "Inspect ATOMIC-CATACLYSM controlling root and ancestry.",
     "Bind aspen-grove-evidence directly into Ruat Caelum authority if the cross-family relationship remains correct after direct owner verification.",
     "Expand docket-family classification beyond DOCKETS only after distinguishing data owners from Legal Tech ingestion/automation repositories."
