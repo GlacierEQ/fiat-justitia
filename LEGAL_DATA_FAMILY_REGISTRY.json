@@ -175,17 +175,45 @@
       },
       {
         "repository": "GlacierEQ/HCHS_SUPERLUMINAL_CASE_MATRIX",
-        "classification": "unresolved",
-        "scope": "possible matrix-family specialization",
-        "verification": "UNRESOLVED",
+        "classification": "component_donor",
+        "scope": "historical Phase-1 filing/evidence work-product package for 1FDV-23-0001009 with distinct briefs, filing package material and OneDrive/Aspen-Grove integration notes",
+        "verification": "CORROBORATED",
         "direct_evidence": [
           {
-            "path": "README.md",
+            "path": "INDEX.md",
             "ref": "main",
-            "proposition": "README exists but is empty."
+            "blob_sha": "5edb2f9e2f30af9e5f8d132b7e0b90a8d5c02a17",
+            "proposition": "Directly identifies HCHS as a Phase 1 core filing package for case 1FDV-23-0001009 and indexes filing-oriented work product."
+          },
+          {
+            "path": "ARCHIVED.md",
+            "ref": "main",
+            "blob_sha": "93e88bf7ba76e3f541d980a446905b1d39c0eb6c",
+            "proposition": "Contains a March 29 archive/delete declaration claiming the repository was empty and replaced; later commits populated substantive work product, so this marker is preserved as historical state but is not sufficient to classify the current corpus as archive."
+          },
+          {
+            "commit_sha": "dd4d56d67cc5b0e89691572a18df1f7e9a65946f",
+            "proposition": "Latest observed HCHS main commit is dated 2026-05-25, after the stale archive marker, proving subsequent population/activity."
+          },
+          {
+            "path": "CASEBRAIN_V3/control-plane/SOURCE_OF_TRUTH.md",
+            "ref": "GlacierEQ/SUPERLUMINAL_CASE_MATRIX@6d08435d2fde457e0d7b57c708406515b0e76b57",
+            "blob_sha": "50950fc6a74c77f79459b66b840ab66cdf9cc849",
+            "proposition": "Declares SUPERLUMINAL_CASE_MATRIX/CASEBRAIN_V3 the controlling implementation and requires one control spine with no silently competing case brain."
+          },
+          {
+            "repository_metadata": {
+              "repository_id": 1107458373,
+              "fork": false,
+              "created_at": "2025-12-01T06:58:33Z",
+              "pushed_at": "2026-05-25T23:59:07Z"
+            },
+            "proposition": "HCHS is an independently created repository rather than a declared GitHub fork; no direct Git ancestry to SUPERLUMINAL_CASE_MATRIX was established by this pass."
           }
         ],
-        "missing_proof": "Need controlling role declaration plus ancestry/content comparison against SUPERLUMINAL_CASE_MATRIX before assigning satellite, donor, successor, backup or archive status."
+        "authority_boundary": "HCHS is not a source-of-truth or competing CaseBrain authority. Its filing briefs, evidence narratives and derived assertions require source-by-source revalidation before reuse; classification does not validate their factual or legal claims.",
+        "routing_rule": "Route current CaseBrain/matrix analysis to GlacierEQ/SUPERLUMINAL_CASE_MATRIX. Open HCHS only when mining unique historical work product that is not already represented in the controlling system.",
+        "missing_for_verified": "Direct Ruat Caelum descendant binding or an explicit owning-repository donor declaration would be required to promote this relationship from CORROBORATED to VERIFIED."
       }
     ],
     "cataclysm_name_collisions": [
@@ -233,10 +261,10 @@
     "For the case-context/chronology/contradiction relationship layer, route to GlacierEQ/AspenGrove-KEKOA-1FDV-23-0001009.",
     "For the forensic email archive, route to GlacierEQ/THE_CATACLYSM while preserving provider/source provenance.",
     "For CaseBrain/matrix analysis infrastructure, route to GlacierEQ/SUPERLUMINAL_CASE_MATRIX, then open source owners before factual assertion.",
+    "Use GlacierEQ/HCHS_SUPERLUMINAL_CASE_MATRIX only as a historical component donor after source-by-source revalidation; never as a competing CaseBrain authority.",
     "Do not route by repository name similarity alone."
   ],
   "next_cursors": [
-    "Resolve HCHS_SUPERLUMINAL_CASE_MATRIX lineage against SUPERLUMINAL_CASE_MATRIX.",
     "Resolve THE-CATACLYSM unique legal-data value versus THE_CATACLYSM and classify donor/satellite/exclusion without touching evidence bytes.",
     "Inspect ATOMIC-CATACLYSM controlling root and ancestry.",
     "Bind aspen-grove-evidence directly into Ruat Caelum authority if the cross-family relationship remains correct after direct owner verification.",
