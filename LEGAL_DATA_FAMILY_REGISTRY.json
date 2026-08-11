@@ -283,10 +283,42 @@
       },
       {
         "repository": "GlacierEQ/ATOMIC-CATACLYSM",
-        "classification": "unresolved",
-        "scope": "Cataclysm-named repository with no README returned by direct read",
-        "verification": "UNRESOLVED",
-        "missing_proof": "Inspect controlling root files, ancestry and unique patch/data value before assigning any legal-data role."
+        "classification": "component_donor",
+        "scope": "parallel Cataclysm data-ingest and integration implementation with reusable source-bridging, attachment-processing, export-parsing, OCR and unified-ingest mechanisms",
+        "verification": "CORROBORATED",
+        "direct_evidence": [
+          {
+            "path": "integrations/README.md",
+            "ref": "main",
+            "blob_sha": "18c277ab5d499f727214c0893efaf1237abc9e5d",
+            "proposition": "Declares a unified data-ingest layer spanning export parsing, messages, attachments, OCR, hashing, chain-of-custody reporting and search rather than original-source authority."
+          },
+          {
+            "path": "core/PILLAR_SCHEMA_BRIDGE.json",
+            "ref": "main",
+            "blob_sha": "ed9da40e3e1b7a4630128df6611ec63904649fbd",
+            "proposition": "Metadata declares Aspen Grove V7 as the canonical pillar source and describes Cataclysm as a consumer of that truth rather than the registry owner."
+          },
+          {
+            "shared_exact_object_examples": {
+              "FEDERAL_EVIDENCE_LOG_SIGNED.json": "e2d524580ee728ca52552a2c7134dc6badd1687a",
+              "QUALITY_ASSURANCE_MANIFEST.md": "bad883e57721edc965ab75d5e04d8056181c7a75"
+            },
+            "proposition": "ATOMIC-CATACLYSM and THE-CATACLYSM contain exact shared Git objects, proving common/copied corpus but not by itself proving succession."
+          },
+          {
+            "repository_metadata": {
+              "repository_id": 1188344519,
+              "fork": false,
+              "created_at": "2026-03-22T00:10:30Z",
+              "pushed_at": "2026-05-26T00:06:05Z"
+            },
+            "proposition": "ATOMIC-CATACLYSM is independently created and not a declared GitHub fork; this pass established no direct Git succession to the current Cataclysm satellite."
+          }
+        ],
+        "authority_boundary": "ATOMIC-CATACLYSM is not an original-evidence owner, canonical pillar registry, or current Ruat-routed Cataclysm authority. Evidence ledgers, extracted reports, case assertions and other outputs remain derived work product unless independently bound to their owning source records.",
+        "routing_rule": "Route current Cataclysm strategy/pillar projections to GlacierEQ/THE-CATACLYSM and forensic email archive work to GlacierEQ/THE_CATACLYSM. Open ATOMIC-CATACLYSM only to mine reusable ingestion/integration mechanisms or unique historical implementation value.",
+        "missing_for_verified": "A direct Ruat Caelum descendant binding or explicit canonical-owner donor declaration is required to promote this relationship to VERIFIED; direct ancestry would additionally be required before any predecessor/successor label."
       }
     ]
   },
@@ -297,10 +329,10 @@
     "For the distinct case-specific strategy/pillar/derived-projection layer, route to GlacierEQ/THE-CATACLYSM but reopen owning sources before factual or evidentiary assertions.",
     "For CaseBrain/matrix analysis infrastructure, route to GlacierEQ/SUPERLUMINAL_CASE_MATRIX, then open source owners before factual assertion.",
     "Use GlacierEQ/HCHS_SUPERLUMINAL_CASE_MATRIX only as a historical component donor after source-by-source revalidation; never as a competing CaseBrain authority.",
+    "Use GlacierEQ/ATOMIC-CATACLYSM only as a component donor for reusable ingestion/integration mechanisms unless a future controlling declaration changes its authority state.",
     "Do not route by repository name similarity alone."
   ],
   "next_cursors": [
-    "Inspect ATOMIC-CATACLYSM controlling root and ancestry.",
     "Bind aspen-grove-evidence directly into Ruat Caelum authority if the cross-family relationship remains correct after direct owner verification.",
     "Expand docket-family classification beyond DOCKETS only after distinguishing data owners from Legal Tech ingestion/automation repositories."
   ]
