@@ -2,7 +2,7 @@
 
 ## Authority
 
-The canonical registry rooted at `registry/tower.yml` is the only authority for:
+The APEX registry rooted at `registry/tower.yml` is the active authority for:
 
 - technology admission;
 - W4H+How placement;
@@ -18,7 +18,7 @@ the README, sidecar, generated files, or Megamind maps directly.
 
 ## Required workflow
 
-1. Change the canonical index or one of its declared fragments.
+1. Change the APEX index or one of its declared fragments.
 2. Add or update both exhibits.
 3. Add or update the proof gate.
 4. Run `tower validate`.
