@@ -1,11 +1,13 @@
 {
-  "schema_id": "glaciereq.nervous-system.v1",
+  "schema_id": "glaciereq.nervous-system-node.v2",
+  "nervous_system_schema_id": "glaciereq.nervous-system.v2",
   "repository": "GlacierEQ/fiat-justitia",
   "role": "legal_engineering_evidence_provenance_routing",
-  "canonical_manifest": "GlacierEQ/AKOS/governance/glaciereq.nervous-system.v1.json",
-  "canonical_manifest_snapshot": "governance/akos-nervous-system.v1.json",
-  "canonical_manifest_commit": "a40257552962d0829a2f388d3c4f49296e49b78d",
-  "canonical_manifest_sha256": "4cdd5e4744a772a503b3189272294478cbdc5bc852599f0c8254f12475e9a9d1",
-  "accepted_manifest_version": "1.0.0",
-  "operating_sequence": ["memory", "tool", "cure", "innovate", "respond"]
+  "apex_role": "ACTIVE_LEGAL_ENGINEERING_CAPABILITY_DONOR",
+  "apex_manifest": "https://raw.githubusercontent.com/GlacierEQ/AKOS/main/governance/glaciereq.nervous-system.v2.json",
+  "selection_mode": "CURRENT_BEST_REVISABLE",
+  "challengeable": true,
+  "capability_donor_preservation": true,
+  "operating_sequence": ["context", "discover", "compare", "cure", "innovate", "execute", "verify", "persist", "evolve"],
+  "legal_engineering_law": "Preserve source evidence, provenance, competing theories, authorities, contradictions, and remedies while selecting the strongest lawful route for the current objective. Better verified legal-engineering mechanisms may challenge current routing without erasing record integrity."
 }
