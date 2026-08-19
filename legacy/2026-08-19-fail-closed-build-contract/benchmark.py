@@ -1,4 +1,4 @@
-"""Continuation-oriented cross-language benchmark evidence for Fiat Justitia."""
+"""Measured, non-promotional cross-language benchmark runner."""
 from __future__ import annotations
 
 import json
@@ -12,18 +12,13 @@ from .build import build_floor
 from .registry import REPO_ROOT, TowerRegistry
 
 
-def _resolution(*work: str, **values: Any) -> dict[str, Any]:
-    return {
-        "status": "CONTINUATION_REQUIRED",
-        "continuation": "enabled",
-        "resolution_work": sorted({item for item in work if item}),
-        **values,
-    }
-
-
 def _measure(argv: list[str], iterations: int) -> dict[str, Any]:
     if iterations < 1:
-        return _resolution("supply_positive_benchmark_iterations", argv=argv)
+        return {
+            "status": "INVALID_BENCHMARK",
+            "argv": argv,
+            "error": "iterations must be at least 1",
+        }
     samples: list[float] = []
     for _ in range(iterations):
         start = time.perf_counter()
@@ -37,31 +32,30 @@ def _measure(argv: list[str], iterations: int) -> dict[str, Any]:
                 check=False,
             )
         except subprocess.TimeoutExpired as exc:
-            return _resolution(
-                "review_timed_benchmark_command:" + argv[0],
-                argv=argv,
-                returncode=None,
-                stderr=(exc.stderr or "")[-2000:] if isinstance(exc.stderr, str) else "",
-            )
+            return {
+                "status": "FAILED_TIMEOUT",
+                "argv": argv,
+                "returncode": None,
+                "stderr": (exc.stderr or "")[-2000:] if isinstance(exc.stderr, str) else "",
+            }
         except OSError as exc:
-            return _resolution(
-                "restore_benchmark_command_environment:" + argv[0],
-                argv=argv,
-                returncode=None,
-                stderr=str(exc),
-            )
+            return {
+                "status": "BLOCKED_TOOLCHAIN",
+                "argv": argv,
+                "returncode": None,
+                "stderr": str(exc),
+            }
         elapsed = (time.perf_counter() - start) * 1000
         if completed.returncode != 0:
-            return _resolution(
-                "review_benchmark_command_evidence:" + argv[0],
-                argv=argv,
-                returncode=completed.returncode,
-                stderr=completed.stderr[-2000:],
-            )
+            return {
+                "status": "FAILED",
+                "argv": argv,
+                "returncode": completed.returncode,
+                "stderr": completed.stderr[-2000:],
+            }
         samples.append(elapsed)
     return {
         "status": "MEASURED",
-        "continuation": "enabled",
         "argv": argv,
         "iterations": iterations,
         "median_ms": round(statistics.median(samples), 3),
@@ -77,7 +71,6 @@ def benchmark_many(
     *,
     iterations: int = 3,
 ) -> dict[str, Any]:
-    """Benchmark all requested floors while retaining every unavailable path as work."""
     requested_list = list(technology_ids)
     if not requested_list or (len(requested_list) == 1 and requested_list[0].casefold() == "all"):
         requested_list = [tech["id"] for tech in registry.technologies]
@@ -92,7 +85,12 @@ def benchmark_many(
         tech = known.get(normalized_id)
         if tech is None:
             original = next(value for value in requested_list if value.casefold() == normalized_id)
-            results.append(_resolution("discover_requested_technology", technology_id=original, build_status="CONTINUATION_REQUIRED"))
+            results.append({
+                "technology_id": original,
+                "status": "INVALID_MANIFEST",
+                "build_status": "INVALID_MANIFEST",
+                "blocker": f"Unknown technology requested: {original}",
+            })
             continue
         build = build_floor(tech)
         row: dict[str, Any] = {
@@ -100,28 +98,27 @@ def benchmark_many(
             "build_status": build["status"],
             "evidence_state": tech["evidence_state"],
             "proof_class": tech["proof_class"],
-            "continuation": "enabled",
         }
         if build["status"] != "VERIFIED":
-            row.update(_resolution(*build.get("resolution_work", [])))
+            row["status"] = build["status"]
+            row["blocker"] = build.get("blocker", "")
         else:
             tests = tech["toolchain"].get("test", [])
             if not tests:
-                row.update(_resolution("add_runtime_benchmark_command"))
+                row["status"] = "NO_RUNTIME_BENCHMARK"
+            elif iterations < 1:
+                row["status"] = "INVALID_BENCHMARK"
+                row["blocker"] = "iterations must be at least 1"
             else:
-                measurement = _measure(tests[-1], iterations)
-                row["measurement"] = measurement
-                row["status"] = measurement["status"]
-                if measurement["status"] == "CONTINUATION_REQUIRED":
-                    row["resolution_work"] = measurement["resolution_work"]
+                row["measurement"] = _measure(tests[-1], iterations)
+                row["status"] = row["measurement"]["status"]
         results.append(row)
     return {
-        "benchmark_id": "tower-continuation-benchmark-v2",
+        "benchmark_id": "tower-portable-benchmark-v1",
         "iterations": iterations,
         "requested_technology_ids": requested_list,
         "results": results,
-        "continuation": "enabled",
-        "truth_note": "Measurements are local process timings for declared exhibit commands; unavailable evidence remains explicit resolution work.",
+        "truth_note": "Measurements are local process timings for the declared exhibit commands, not universal language rankings.",
     }
 
 

@@ -95,7 +95,7 @@ def test_weak_advanced_exhibits_are_substantive():
         assert (REPO_ROOT / rel).stat().st_size >= minimum, rel
 
 
-def test_missing_toolchain_is_an_exact_blocker(monkeypatch):
+def test_missing_toolchain_becomes_exact_resolution_work(monkeypatch):
     fake = {
         "id": "missing",
         "toolchain": {
@@ -108,11 +108,12 @@ def test_missing_toolchain_is_an_exact_blocker(monkeypatch):
     }
     monkeypatch.setattr(build_module, "_available", lambda _tool: False)
     result = build_floor(fake)
-    assert result["status"] == "BLOCKED_TOOLCHAIN"
-    assert "mojo" in result["blocker"]
+    assert result["status"] == "CONTINUATION_REQUIRED"
+    assert result["continuation"] == "enabled"
+    assert "make_toolchain_available:mojo" in result["resolution_work"]
 
 
-def test_hardware_gate_is_not_reported_as_success(monkeypatch):
+def test_hardware_gate_becomes_environment_resolution_work(monkeypatch):
     fake = {
         "id": "gpu",
         "toolchain": {"tool": "python3", "reference_pin": "test", "build": [], "test": []},
@@ -120,14 +121,10 @@ def test_hardware_gate_is_not_reported_as_success(monkeypatch):
     }
     monkeypatch.delenv("TOWER_ENABLE_GPU", raising=False)
     result = build_floor(fake)
-    assert result == {
-        "technology_id": "gpu",
-        "status": "BLOCKED_HARDWARE",
-        "blocker": "Example accelerator",
-        "tool": "python3",
-        "reference_pin": "test",
-        "commands": [],
-    }
+    assert result["technology_id"] == "gpu"
+    assert result["status"] == "CONTINUATION_REQUIRED"
+    assert result["continuation"] == "enabled"
+    assert "activate_declared_environment:Example accelerator" in result["resolution_work"]
 
 
 def test_megamind_adapter_selects_technology_and_owners():
@@ -180,8 +177,9 @@ def test_tower_proto_contains_registry_and_megamind_contracts():
 def test_benchmark_report_is_truthful_about_missing_tools():
     registry = load_registry()
     report = benchmark_many(registry, ["mlir"], iterations=1)
-    assert report["results"][0]["status"] in {"BLOCKED_TOOLCHAIN", "MEASURED", "NO_RUNTIME_BENCHMARK"}
-    assert "not universal language rankings" in report["truth_note"]
+    assert report["results"][0]["status"] in {"CONTINUATION_REQUIRED", "MEASURED"}
+    assert report["results"][0]["continuation"] == "enabled"
+    assert "unavailable evidence remains explicit resolution work" in report["truth_note"]
 
 
 def test_proof_report_binds_declared_gate_to_build_status():
