@@ -3,11 +3,23 @@
   "nervous_system_schema_id": "glaciereq.nervous-system.v2",
   "repository": "GlacierEQ/fiat-justitia",
   "role": "legal_engineering_evidence_provenance_routing",
+  "role_semantics": "DESCRIPTIVE_CAPABILITY_METADATA_ONLY",
   "apex_role": "ACTIVE_LEGAL_ENGINEERING_CAPABILITY_DONOR",
+  "apex_role_semantics": "DESCRIPTIVE_CAPABILITY_METADATA_ONLY",
   "apex_manifest": "https://raw.githubusercontent.com/GlacierEQ/AKOS/main/governance/glaciereq.nervous-system.v2.json",
   "selection_mode": "CURRENT_BEST_REVISABLE",
+  "selection_scope": "OPERATOR_AUTHORIZED_EXECUTION_OPTIONS_ONLY",
+  "selection_confers_project_authority": false,
   "challengeable": true,
   "capability_donor_preservation": true,
+  "operator_authority": {
+    "authority_holder": "OPERATOR",
+    "operator_project_direction_authority": true,
+    "machine_project_direction_authority": false,
+    "machine_asset_disposition_authority": false,
+    "machine_estate_hierarchy_authority": false,
+    "historical_receipt_creates_current_authority": false
+  },
   "operating_sequence": ["context", "discover", "compare", "cure", "innovate", "execute", "verify", "persist", "evolve"],
-  "legal_engineering_law": "Preserve source evidence, provenance, competing theories, authorities, contradictions, and remedies while selecting the strongest lawful route for the current objective. Better verified legal-engineering mechanisms may challenge current routing without erasing record integrity."
+  "legal_engineering_law": "Preserve source evidence, provenance, competing theories, authorities, contradictions, and remedies while using APEX EXPENSIVE execution to pursue the strongest lawful Operator-directed objective. Legal routing, evidence scoring, manifests, and validators do not acquire project authority or ownership."
 }
